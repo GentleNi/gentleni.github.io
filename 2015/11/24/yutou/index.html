@@ -5,16 +5,20 @@
   
   <title>yutou | GentleNi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just Do it.">
+  <meta name="description" content="这是斜体
+这是粗体">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yutou">
 <meta property="og:url" content="http://yoursite.com/2015/11/24/yutou/index.html">
 <meta property="og:site_name" content="GentleNi">
-<meta property="og:description" content="Just Do it.">
-<meta property="og:updated_time" content="2015-11-26T08:52:06.922Z">
+<meta property="og:description" content="这是斜体
+这是粗体">
+<meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg">
+<meta property="og:updated_time" content="2015-11-26T12:29:07.368Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yutou">
-<meta name="twitter:description" content="Just Do it.">
+<meta name="twitter:description" content="这是斜体
+这是粗体">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -31,7 +35,7 @@
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
-			<img lazy-src="/img/gege.jpg" class="js-avatar">
+			<img lazy-src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" class="js-avatar">
 			
 		</a>
 
@@ -140,7 +144,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img lazy-src="/img/gege.jpg" class="js-avatar">
+				<img lazy-src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">GentleNi</h1>
@@ -219,7 +223,98 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
+<p><em>这是斜体</em></p>
+<p><strong>这是粗体</strong><br><a id="more"></a>        </p>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">define</span> N <span class="number">200</span></span>
+<span class="keyword">struct</span> child
+{
+ <span class="keyword">char</span> name[<span class="number">10</span>];
+ <span class="keyword">char</span> sex[<span class="number">3</span>];
+ <span class="keyword">int</span> age;
+ <span class="keyword">int</span> height;
+ <span class="keyword">float</span> weight;
+ <span class="keyword">struct</span> {
+  <span class="keyword">int</span> year;
+  <span class="keyword">int</span> month;
+  <span class="keyword">int</span> day;
+ }bdate;
+}ch[N];
+<span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">()</span>
+</span>{
+ <span class="keyword">int</span> i;
+ <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)
+ {
+  <span class="built_in">printf</span>(<span class="string">"\n请输入第%d名小朋友信息：\n"</span>,i+<span class="number">1</span>);
+  <span class="built_in">printf</span>(<span class="string">"姓名："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%s"</span>,ch[i].name);
+  <span class="built_in">printf</span>(<span class="string">"性别："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%s"</span>,ch[i].sex);
+  <span class="built_in">printf</span>(<span class="string">"年龄："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;ch[i].age);
+  <span class="built_in">printf</span>(<span class="string">"身高："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;ch[i].height);
+  <span class="built_in">printf</span>(<span class="string">"体重："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;ch[i].weight);
+  <span class="built_in">printf</span>(<span class="string">"出生日期[YYYY-MM-DD]："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%d-%d-%d"</span>,&amp;ch[i].bdate.year,&amp;ch[i].bdate.month,&amp;ch[i].bdate.day);
+ }
+}
+<span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span>
+</span>{
+ <span class="keyword">struct</span> child ct;
+ <span class="keyword">int</span> i,j;
+ <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N-<span class="number">1</span>;i++)
+  <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;N-i-<span class="number">1</span>;j++)
+   <span class="keyword">if</span>(ch[j].height&lt;ch[j+<span class="number">1</span>].height)
+   {
+    ct=ch[j];
+    ch[j]=ch[j+<span class="number">1</span>];
+    ch[j+<span class="number">1</span>]=ct;
+   }
+}
+<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span>
+</span>{
+ <span class="keyword">int</span> i;
+ <span class="built_in">printf</span>(<span class="string">"\n\t幼儿园小朋友一览（依身高排序）\n"</span>);
+ <span class="built_in">printf</span>(<span class="string">"===================================================\n"</span>);
+ <span class="built_in">printf</span>(<span class="string">" 姓名    性别   年龄   身高    体重     出生日期 \n"</span>);
+ <span class="built_in">printf</span>(<span class="string">"===================================================\n"</span>);
+ <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)
+  <span class="built_in">printf</span>(<span class="string">" %-8s %-2s    %2d     %d     %3.1f     %d.%d.%d\n"</span>,ch[i].name,ch[i].sex,ch[i].age,ch[i].height,ch[i].weight,ch[i].bdate.year,ch[i].bdate.month,ch[i].bdate.day);
+}            
+<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+ input();
+ sort();
+ output();
+}
+</code></pre><blockquote>
+<p>这些都是分割线</p>
+</blockquote>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<ul>
+<li>这是无序列表</li>
+<li>看起来挺性感</li>
+<li>达到</li>
+</ul>
+<ol>
+<li><p>This is a list item with two paragraphs. Lorem ipsum dolor<br>sit amet, consectetuer adipiscing elit. Aliquam hendrerit<br>mi posuere lectus.</p>
+<p>Vestibulum enim wisi, viverra nec, fringilla in, laoreet<br>vitae, risus. Donec sit amet nisl. Aliquam semper ipsum<br>sit amet velit.</p>
+</li>
+<li><p>Suspendisse id sem consectetuer libero luctus adipiscing.</p>
+</li>
+<li>dadas</li>
+<li></li>
+<li><p>电视台团市委</p>
+</li>
+</ol>
+
       
     </div>
     
