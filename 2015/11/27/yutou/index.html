@@ -3,42 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android 01自定义视图预 | GentleNi</title>
+  <title>yutou | GentleNi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###dp、sp与px
-
-是什么？
+  <meta name="description" content="臧云吉是SB  
 
 
-px：像素点
-dp：像素密度
-sp：相当于dp，但是修饰文字
-dip=dp">
+这是斜体
+这是粗体">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 01自定义视图预">
-<meta property="og:url" content="http://yoursite.com/2015/11/27/Android01自定义视图预/index.html">
+<meta property="og:title" content="yutou">
+<meta property="og:url" content="http://yoursite.com/2015/11/27/yutou/index.html">
 <meta property="og:site_name" content="GentleNi">
-<meta property="og:description" content="###dp、sp与px
-
-是什么？
+<meta property="og:description" content="臧云吉是SB  
 
 
-px：像素点
-dp：像素密度
-sp：相当于dp，但是修饰文字
-dip=dp">
-<meta property="og:updated_time" content="2015-11-27T04:00:58.314Z">
+这是斜体
+这是粗体">
+<meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg">
+<meta property="og:updated_time" content="2015-11-27T03:59:40.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 01自定义视图预">
-<meta name="twitter:description" content="###dp、sp与px
-
-是什么？
+<meta name="twitter:title" content="yutou">
+<meta name="twitter:description" content="臧云吉是SB  
 
 
-px：像素点
-dp：像素密度
-sp：相当于dp，但是修饰文字
-dip=dp">
+这是斜体
+这是粗体">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -202,11 +191,11 @@ dip=dp">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Android01自定义视图预" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-yutou" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/27/Android01自定义视图预/" class="article-date">
-  	<time datetime="2015-11-27T01:29:25.000Z" itemprop="datePublished">11/27/2015</time>
+      <a href="/2015/11/27/yutou/" class="article-date">
+  	<time datetime="2015-11-27T01:33:49.000Z" itemprop="datePublished">11/27/2015</time>
 </a>
     </div>
   
@@ -219,7 +208,7 @@ dip=dp">
         
   
     <h1 class="article-title" itemprop="name">
-      Android 01自定义视图预
+      yutou
     </h1>
   
 
@@ -228,12 +217,12 @@ dip=dp">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
+	<a class="article-category-link" href="/categories/blog/">blog</a>
 	</div>
 
 
@@ -243,55 +232,100 @@ dip=dp">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###dp、sp与px</p>
-<blockquote>
-<p>是什么？</p>
+        <blockquote>
+<p>臧云吉是SB  </p>
 </blockquote>
-<ul>
-<li>px：像素点</li>
-<li>dp：像素密度</li>
-<li>sp：相当于dp，但是修饰文字</li>
-<li>dip=dp</li>
-</ul>
-<a id="more"></a>
-<blockquote>
-<p>怎么用</p>
+<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
+<p><em>这是斜体</em></p>
+<p><strong>这是粗体</strong><br><a id="more"></a>        </p>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span>
+<span class="preprocessor">#<span class="keyword">define</span> N <span class="number">200</span></span>
+<span class="keyword">struct</span> child
+{
+ <span class="keyword">char</span> name[<span class="number">10</span>];
+ <span class="keyword">char</span> sex[<span class="number">3</span>];
+ <span class="keyword">int</span> age;
+ <span class="keyword">int</span> height;
+ <span class="keyword">float</span> weight;
+ <span class="keyword">struct</span> {
+  <span class="keyword">int</span> year;
+  <span class="keyword">int</span> month;
+  <span class="keyword">int</span> day;
+ }bdate;
+}ch[N];
+<span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">()</span>
+</span>{
+ <span class="keyword">int</span> i;
+ <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)
+ {
+  <span class="built_in">printf</span>(<span class="string">"\n请输入第%d名小朋友信息：\n"</span>,i+<span class="number">1</span>);
+  <span class="built_in">printf</span>(<span class="string">"姓名："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%s"</span>,ch[i].name);
+  <span class="built_in">printf</span>(<span class="string">"性别："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%s"</span>,ch[i].sex);
+  <span class="built_in">printf</span>(<span class="string">"年龄："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;ch[i].age);
+  <span class="built_in">printf</span>(<span class="string">"身高："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;ch[i].height);
+  <span class="built_in">printf</span>(<span class="string">"体重："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;ch[i].weight);
+  <span class="built_in">printf</span>(<span class="string">"出生日期[YYYY-MM-DD]："</span>);
+  <span class="built_in">scanf</span>(<span class="string">"%d-%d-%d"</span>,&amp;ch[i].bdate.year,&amp;ch[i].bdate.month,&amp;ch[i].bdate.day);
+ }
+}
+<span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span>
+</span>{
+ <span class="keyword">struct</span> child ct;
+ <span class="keyword">int</span> i,j;
+ <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N-<span class="number">1</span>;i++)
+  <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;N-i-<span class="number">1</span>;j++)
+   <span class="keyword">if</span>(ch[j].height&lt;ch[j+<span class="number">1</span>].height)
+   {
+    ct=ch[j];
+    ch[j]=ch[j+<span class="number">1</span>];
+    ch[j+<span class="number">1</span>]=ct;
+   }
+}
+<span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">()</span>
+</span>{
+ <span class="keyword">int</span> i;
+ <span class="built_in">printf</span>(<span class="string">"\n\t幼儿园小朋友一览（依身高排序）\n"</span>);
+ <span class="built_in">printf</span>(<span class="string">"===================================================\n"</span>);
+ <span class="built_in">printf</span>(<span class="string">" 姓名    性别   年龄   身高    体重     出生日期 \n"</span>);
+ <span class="built_in">printf</span>(<span class="string">"===================================================\n"</span>);
+ <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N;i++)
+  <span class="built_in">printf</span>(<span class="string">" %-8s %-2s    %2d     %d     %3.1f     %d.%d.%d\n"</span>,ch[i].name,ch[i].sex,ch[i].age,ch[i].height,ch[i].weight,ch[i].bdate.year,ch[i].bdate.month,ch[i].bdate.day);
+}            
+<span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span>
+</span>{
+ input();
+ sort();
+ output();
+}
+</code></pre><blockquote>
+<p>这些都是分割线</p>
 </blockquote>
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
 <ul>
-<li>文字一律用sp</li>
-<li>非文字一律用dp</li>
-<li>偶尔用sp，比如需要画一条分割线</li>
-<li><pre><code>&lt;View&gt; 
-<span class="label">android:</span>layout_width=<span class="string">"matchparent"</span>
-<span class="label">android:</span>layout_height=<span class="string">"1px"</span>
-<span class="label">android:</span>background=<span class="string">"@color/white"</span>
-&lt;/View&gt;
-</code></pre><p>###res:dpi、mdpi、hdpi、xhdpi、xxhdpi、xxxhdpi<br>代表几倍的关系，比如h代表1倍图，xh1.5倍图、xxh2.5倍图。</p>
-</li>
-<li><p>hdpi：72X72  </p>
-</li>
-<li>mdpi：48X48  </li>
-<li>xhdpi：96X96  </li>
+<li>这是无序列表</li>
+<li>看起来挺性感</li>
+<li>达到</li>
 </ul>
-<p>###Inflater<br>作用：把xml文件解析成视图(View)<br>使用：三种方法</p>
-<p>######获得LaytoutInflater</p>
-<ul>
-<li>getLayoutInflater();</li>
-<li>getSystemService(LAYOUT_INFLATER_SERVICE);</li>
-<li>LayoutInflater.from(context);</li>
-</ul>
-<p>###提取布局属性:theme&amp;style<br>把共同的属性提取出来<br>在style中添加style，在View或者布局中引用</p>
-<pre><code>&lt;style name=<span class="string">"CustomTextView"</span>&gt;
-    &lt;item name=<span class="string">"android:background"</span>&gt;@<span class="attribute">color</span>/red&lt;/item&gt;
-    &lt;item name=<span class="string">"android:textSize"</span>&gt;<span class="number">26s</span>p&lt;/item&gt;
-    &lt;item name=<span class="string">"android:textColor"</span>&gt;<span class="hexcolor">#f9d004</span>&lt;/item&gt;
-&lt;/style&gt;
-
-&lt;style name=<span class="string">"StudyTextView"</span> parent=<span class="string">"CustomTextView"</span>&gt;
-   &lt;item name=<span class="string">"android:background"</span>&gt;<span class="hexcolor">#000000</span>&lt;/item&gt;
-    &lt;item name=<span class="string">"android:gravity"</span>&gt;<span class="attribute">right</span>&lt;/item&gt;
-&lt;/style&gt;  
-</code></pre><p>像类一样，style可以继承，也可以覆盖item中的属性</p>
+<ol>
+<li><p>This is a list item with two paragraphs. Lorem ipsum dolor<br>sit amet, consectetuer adipiscing elit. Aliquam hendrerit<br>mi posuere lectus.</p>
+<p>Vestibulum enim wisi, viverra nec, fringilla in, laoreet<br>vitae, risus. Donec sit amet nisl. Aliquam semper ipsum<br>sit amet velit.</p>
+</li>
+<li><p>Suspendisse id sem consectetuer libero luctus adipiscing.</p>
+</li>
+<li>dadas</li>
+<li></li>
+<li><p>电视台团市委</p>
+</li>
+</ol>
 
       
     </div>
@@ -301,15 +335,11 @@ dip=dp">
     
 <nav id="article-nav">
   
-    <a href="/2015/11/27/yutou/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          yutou
-        
-      </div>
-    </a>
   
+    <a href="/2015/11/27/Android01自定义视图预/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android 01自定义视图预</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -336,7 +366,7 @@ dip=dp">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Android01自定义视图预" data-title="Android 01自定义视图预" data-url="http://yoursite.com/2015/11/27/Android01自定义视图预/"></div>
+	<div class="ds-thread" data-thread-key="yutou" data-title="yutou" data-url="http://yoursite.com/2015/11/27/yutou/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
