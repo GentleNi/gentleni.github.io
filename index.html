@@ -179,6 +179,127 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android笔记 03自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/28/Android笔记 03自定义视图/" class="article-date">
+  	<time datetime="2015-11-28T05:05:22.277Z" itemprop="datePublished">11/28/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: Android笔记 03自定义视图<br>date: 11/28/2015 9:48:06<br>tags: [Android笔记]</p>
+<h2 id="categories:_技术">categories: 技术</h2><p>###1. 做一个圆形的红色按钮  </p>
+<p>中间有一个白色的数字<br>数字起始为20<br>每点击一次减少1  </p>
+<pre><code>  @<span class="function">Override
+<span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>{
+super.onDraw(canvas);
+<span class="comment">//做一个红红色按钮</span>
+<span class="comment">//设置画布为红色</span>
+mPaint.setColor(Color.RED);
+canvas.drawCircle(getWidth() / <span class="number">2</span>, getHeight() / <span class="number">2</span>, getWidth() / <span class="number">2</span>, mPaint);
+<span class="comment">//中间有一个白色的数字</span>
+mPaint.setColor(Color.WHITE);
+mPaint.setTextSize(<span class="number">200</span>);
+<span class="comment">/**
+ * mRect是数字四周的边距
+ */</span>
+
+String number = mNunber+<span class="string">""</span>;
+mPaint.getTextBounds(number,<span class="number">0</span>,number.length(),mRect);
+
+<span class="keyword">int</span> textWidth = mRect.width();
+<span class="keyword">int</span> textHeight = mRect.height();
+
+canvas.drawText(number,getWidth()/<span class="number">2</span>-textWidth/<span class="number">2</span>,getHeight()/<span class="number">2</span>+textHeight/<span class="number">2</span>,mPaint);
+}
+
+@<span class="function">Override
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
+
+<span class="keyword">if</span> (mNunber&gt;<span class="number">0</span>){
+mNunber--;
+}<span class="keyword">else</span>
+mNunber=<span class="number">20</span>;
+invalidate();
+}
+</code></pre><blockquote>
+<p>如何自定义视图属性？</p>
+</blockquote>
+<ul>
+<li>在哪里创建属性？</li>
+</ul>
+<p>在res/values下新建attrs.xml文件</p>
+<pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="tag">&lt;<span class="title">resources</span>&gt;</span>
+
+<span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"DrawView"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"backgroundColor"</span> <span class="attribute">format</span>=<span class="value">"color"</span>/&gt;</span>
+
+<span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">resources</span>&gt;</span>
+</code></pre><ul>
+<li>可以创建哪些属性</li>
+</ul>
+<p>format下代表属性的类型,有int,string,color…..<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png" alt=""></p>
+<ul>
+<li><p>如何使用这些属性</p>
+<ul>
+<li><p>代码中引用  </p>
+<pre><code><span class="constant">TypedArray typedArray</span> = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);<span class="comment">//先取出属性集合</span>
+
+mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);<span class="comment">//再取出某个属性。第二个参数是该属性的默认值</span>
+</code></pre></li>
+<li><p>布局中设置  </p>
+<pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+  xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span>
+  android:orientation=<span class="string">"vertical"</span>
+  android:layout_width=<span class="string">"match_parent"</span>
+  android:layout_height=<span class="string">"match_parent"</span>&gt;
+
+&lt;<span class="keyword">com</span>.geekband.Test01.TestRedButton
+<span class="label">android:</span>layout_width=<span class="string">"300dp"</span>
+<span class="label">android:</span>layout_height=<span class="string">"300dp"</span>
+<span class="label">app:</span>backgroundColor=<span class="string">"@color/splashBackgroundColor"</span>
+<span class="label">app:</span>textSize=<span class="string">"18dp"</span>
+/&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-yutou" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
