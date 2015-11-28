@@ -16,7 +16,7 @@
 
 1. 做一个圆形的红色按钮中间有一个白色的数字数字起始为20每点击一次减少1">
 <meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png">
-<meta property="og:updated_time" content="2015-11-28T09:04:27.238Z">
+<meta property="og:updated_time" content="2015-11-28T09:08:29.648Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android笔记 03自定义视图">
 <meta name="twitter:description" content="Android笔记 03自定义视图
@@ -283,20 +283,28 @@ invalidate();
 </ul>
 <p>format下代表属性的类型,有int,string,color…..<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png" alt=""></p>
 <ul>
-<li><p>如何使用这些属性</p>
-<ul>
-<li><p>代码中引用</p>
-<p>typedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);//先取出属性集合</p>
-<p>mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);//再取出某个属性。第二个参数是该属性的默认值</p>
-</li>
-<li><p>布局中设置     </p>
-<linearlayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"><br><br><a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x63;&#111;&#x6d;&#x2e;&#103;&#x65;&#101;&#x6b;&#x62;&#x61;&#110;&#x64;&#x2e;&#x54;&#101;&#x73;&#x74;&#x30;&#49;&#46;&#84;&#101;&#115;&#116;&#x52;&#x65;&#x64;&#66;&#117;&#116;&#116;&#111;&#x6e;&#10;&#97;&#x6e;&#x64;&#x72;&#111;&#x69;&#100;&#58;&#108;&#97;&#x79;&#111;&#x75;&#116;&#x5f;&#119;&#105;&#x64;&#116;&#104;&#61;&#34;&#51;&#x30;&#x30;&#100;&#x70;&#34;&#10;&#97;&#x6e;&#100;&#114;&#111;&#105;&#100;&#x3a;&#108;&#97;&#121;&#111;&#117;&#116;&#x5f;&#104;&#101;&#105;&#103;&#104;&#x74;&#x3d;&#34;&#51;&#48;&#x30;&#x64;&#x70;&#34;&#10;&#x61;&#112;&#112;&#x3a;&#98;&#97;&#x63;&#107;&#x67;&#114;&#x6f;&#x75;&#110;&#100;&#67;&#x6f;&#x6c;&#x6f;&#x72;&#x3d;&#34;&#x40;&#x63;&#111;&#108;&#111;&#x72;&#47;&#x73;&#x70;&#x6c;&#97;&#115;&#x68;&#x42;&#x61;&#99;&#x6b;&#x67;&#114;&#111;&#x75;&#x6e;&#x64;&#x43;&#111;&#x6c;&#x6f;&#114;&#34;&#10;&#97;&#x70;&#112;&#x3a;&#116;&#x65;&#120;&#x74;&#x53;&#105;&#122;&#x65;&#61;&#34;&#x31;&#x38;&#x64;&#x70;&#34;&#xa;&#x2f;">&#x63;&#111;&#x6d;&#x2e;&#103;&#x65;&#101;&#x6b;&#x62;&#x61;&#110;&#x64;&#x2e;&#x54;&#101;&#x73;&#x74;&#x30;&#49;&#46;&#84;&#101;&#115;&#116;&#x52;&#x65;&#x64;&#66;&#117;&#116;&#116;&#111;&#x6e;&#10;&#97;&#x6e;&#x64;&#x72;&#111;&#x69;&#100;&#58;&#108;&#97;&#x79;&#111;&#x75;&#116;&#x5f;&#119;&#105;&#x64;&#116;&#104;&#61;&#34;&#51;&#x30;&#x30;&#100;&#x70;&#34;&#10;&#97;&#x6e;&#100;&#114;&#111;&#105;&#100;&#x3a;&#108;&#97;&#121;&#111;&#117;&#116;&#x5f;&#104;&#101;&#105;&#103;&#104;&#x74;&#x3d;&#34;&#51;&#48;&#x30;&#x64;&#x70;&#34;&#10;&#x61;&#112;&#112;&#x3a;&#98;&#97;&#x63;&#107;&#x67;&#114;&#x6f;&#x75;&#110;&#100;&#67;&#x6f;&#x6c;&#x6f;&#x72;&#x3d;&#34;&#x40;&#x63;&#111;&#108;&#111;&#x72;&#47;&#x73;&#x70;&#x6c;&#97;&#115;&#x68;&#x42;&#x61;&#99;&#x6b;&#x67;&#114;&#111;&#x75;&#x6e;&#x64;&#x43;&#111;&#x6c;&#x6f;&#114;&#34;&#10;&#97;&#x70;&#112;&#x3a;&#116;&#x65;&#120;&#x74;&#x53;&#105;&#122;&#x65;&#61;&#34;&#x31;&#x38;&#x64;&#x70;&#34;&#xa;&#x2f;</a><br><br></linearlayout>
+<li>如何使用这些属性</li>
+</ul>
+<p>1.代码中引用</p>
+<pre><code>typedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);<span class="comment">//先取出属性集合</span>
 
-</li>
-</ul>
-</li>
-</ul>
-<p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
+mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);<span class="comment">//再取出某个属性。第二个参数是该属性的默认值</span>
+</code></pre><p>2.布局中设置     </p>
+<pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+<span class="label">xmlns:</span>app=<span class="string">"http://schemas.android.com/apk/res-auto"</span>
+<span class="label">android:</span>orientation=<span class="string">"vertical"</span>
+<span class="label">android:</span>layout_width=<span class="string">"match_parent"</span>
+<span class="label">android:</span>layout_height=<span class="string">"match_parent"</span>&gt;
+
+&lt;<span class="keyword">com</span>.geekband.Test01.TestRedButton
+<span class="label">android:</span>layout_width=<span class="string">"300dp"</span>
+<span class="label">android:</span>layout_height=<span class="string">"300dp"</span>
+<span class="label">app:</span>backgroundColor=<span class="string">"@color/splashBackgroundColor"</span>
+<span class="label">app:</span>textSize=<span class="string">"18dp"</span>
+/&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
 
       
     </div>
