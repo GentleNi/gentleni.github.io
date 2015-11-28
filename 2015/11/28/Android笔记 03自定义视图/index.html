@@ -16,7 +16,7 @@
 
 1. 做一个圆形的红色按钮中间有一个白色的数字数字起始为20每点击一次减少1">
 <meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png">
-<meta property="og:updated_time" content="2015-11-28T05:14:37.979Z">
+<meta property="og:updated_time" content="2015-11-28T09:00:37.162Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android笔记 03自定义视图">
 <meta name="twitter:description" content="Android笔记 03自定义视图
@@ -285,26 +285,26 @@ invalidate();
 <ul>
 <li><p>如何使用这些属性</p>
 <ul>
-<li><p>代码中引用  </p>
-<pre><code><span class="constant">TypedArray typedArray</span> = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);<span class="comment">//先取出属性集合</span>
+<li><p>代码中引用</p>
+<pre><code>typedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);<span class="comment">//先取出属性集合</span>
 
-mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);<span class="comment">//再取出某个属性。第二个参数是该属性的默认值</span>
+ mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);<span class="comment">//再取出某个属性。第二个参数是该属性的默认值</span>
 </code></pre></li>
-<li><p>布局中设置  </p>
-<pre><code>    &lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
-  xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span>
-  android:orientation=<span class="string">"vertical"</span>
-  android:layout_width=<span class="string">"match_parent"</span>
-  android:layout_height=<span class="string">"match_parent"</span>&gt;
+<li><p>布局中设置     </p>
+<pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+    xmlns:app=<span class="string">"http://schemas.android.com/apk/res-auto"</span>
+    android:orientation=<span class="string">"vertical"</span>
+    android:layout_width=<span class="string">"match_parent"</span>
+    android:layout_height=<span class="string">"match_parent"</span>&gt;
 
-&lt;<span class="keyword">com</span>.geekband.Test01.TestRedButton
-<span class="label">android:</span>layout_width=<span class="string">"300dp"</span>
-<span class="label">android:</span>layout_height=<span class="string">"300dp"</span>
-<span class="label">app:</span>backgroundColor=<span class="string">"@color/splashBackgroundColor"</span>
-<span class="label">app:</span>textSize=<span class="string">"18dp"</span>
-/&gt;
+    &lt;com<span class="class">.geekband</span><span class="class">.Test01</span><span class="class">.TestRedButton</span>
+    android:layout_width=<span class="string">"300dp"</span>
+    android:layout_height=<span class="string">"300dp"</span>
+    app:backgroundColor=<span class="string">"@color/splashBackgroundColor"</span>
+    app:textSize=<span class="string">"18dp"</span>
+    /&gt;
 
-&lt;/LinearLayout&gt;
+    &lt;/LinearLayout&gt;
 </code></pre></li>
 </ul>
 </li>
