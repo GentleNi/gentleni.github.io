@@ -179,6 +179,113 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android04-Handler" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/29/Android04-Handler/" class="article-date">
+  	<time datetime="2015-11-28T23:05:27.000Z" itemprop="datePublished">11/29/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/29/Android04-Handler/">Android04_Handler</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Hander初体验</p>
+</blockquote>
+<ul>
+<li><strong>多线程与异步</strong>  </li>
+<li><strong>什么是Handler？</strong>  </li>
+</ul>
+<p>A Handler allows you to send and process Message and Runnable objects associated with a thread’s MessageQueue.<br>  (帮助进行线程之间的通信)  </p>
+<ul>
+<li><strong>用来做什么</strong>  <ol>
+<li>定时执行Message和MessageQueue</li>
+<li>在不同线程执行  </li>
+</ol>
+</li>
+</ul>
+<p>###Message、MessageQueue、Lopper  </p>
+<p><strong>Message：</strong> </p>
+<p><strong>API：</strong></p>
+<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/hexo_Android04_Handler.PNG" alt=""></p>
+<ul>
+<li>2个整形数值：轻量级储存int类型的数据</li>
+<li>1个Object：任意对象</li>
+<li>replyto：线程通信的时候使用</li>
+<li>what：用户自定义的消息码  </li>
+</ul>
+<p><strong>MessageQueue：</strong></p>
+<p><strong>API：</strong></p>
+<p>Low-level class holding the list of messages to be dispatched by a Looper. Messages are not added directly to a MessageQueue, but rather through Handler objects associated with the Looper.<br>You can retrieve the MessageQueue for the current thread with Looper.myQueue().</p>
+<ul>
+<li>Message的队列</li>
+<li>每一个线程最多只可拥有一个</li>
+<li>Thread-&gt;Looper-&gt;MessageQueue</li>
+</ul>
+<p><strong>Looper</strong></p>
+<p>消息泵</p>
+<p><strong>API：</strong></p>
+<p>A collection designed for holding elements prior to processing. Besides basic Collection operations, queues provide additional insertion, extraction, and inspection operations. Each of these methods exists in two forms: one throws an exception if the operation fails, the other returns a special value (either null or false, depending on the operation). The latter form of the insert operation is designed specifically for use with capacity-restricted Queue implementations; in most implementations, insert operations cannot fail.</p>
+<blockquote>
+<p>如何使用?</p>
+</blockquote>
+<ul>
+<li>是MessageQueue()的管理者</li>
+<li>Looper.prepare（）</li>
+<li>每一个Looper对象和一个线程关联</li>
+<li>Looper.myLooper()可以获得当前线程的Looper对象</li>
+<li>Looper从MessageQueue中取出Message</li>
+<li>交由Handker的handleMessage进行处理</li>
+<li>调用Message.recycle()将其放入Message pool中 </li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Android笔记 03自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
