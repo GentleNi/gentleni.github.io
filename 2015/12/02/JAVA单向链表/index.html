@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="GentleNi">
 <meta property="og:description" content="数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始">
 <meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/JAVA单向链表_JAVA单向列表.PNG">
-<meta property="og:updated_time" content="2015-12-02T14:00:41.139Z">
+<meta property="og:updated_time" content="2015-12-02T14:02:14.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA单向链表">
 <meta name="twitter:description" content="数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始">
@@ -227,19 +227,20 @@
 <ol>
 <li>Node.java(节点类)   </li>
 </ol>
-<pre><code><span class="comment">//节点类</span>
+<pre><code>    <span class="comment">//节点类</span>
 
-<span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Node</span> {
+    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Node</span> {
 
-<span class="keyword">protected</span> Node next;<span class="comment">//指针域</span>
-<span class="keyword">protected</span> <span class="keyword">int</span> data;<span class="comment">//数据域</span>
+    <span class="keyword">protected</span> Node next;<span class="comment">//指针域</span>
+    <span class="keyword">protected</span> <span class="keyword">int</span> data;<span class="comment">//数据域</span>
 
-<span class="function"><span class="keyword">public</span> <span class="title">Node</span> (<span class="params"><span class="keyword">int</span> data</span>)</span>{
-    <span class="keyword">this</span>.data = data;
-}    
-}
-</code></pre><p><strong>不论是头插法还是尾插法都要保留头结点</strong>  </p>
-<ol>
+    <span class="function"><span class="keyword">public</span> <span class="title">Node</span> (<span class="params"><span class="keyword">int</span> data</span>)</span>{
+        <span class="keyword">this</span>.data = data;
+    }    
+    }
+
+**不论是头插法还是尾插法都要保留头结点**  
+</code></pre><ol>
 <li>LinkedList.java(链表类)</li>
 </ol>
 <pre><code><span class="keyword">public</span> <span class="keyword">class</span> LinkedList {
