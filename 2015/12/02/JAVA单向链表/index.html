@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="GentleNi">
 <meta property="og:description" content="数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始">
 <meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/JAVA单向链表_JAVA单向列表.PNG">
-<meta property="og:updated_time" content="2015-12-02T13:56:29.519Z">
+<meta property="og:updated_time" content="2015-12-02T14:00:41.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA单向链表">
 <meta name="twitter:description" content="数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始">
@@ -240,13 +240,14 @@
 }
 </code></pre><p><strong>不论是头插法还是尾插法都要保留头结点</strong>  </p>
 <ol>
-<li><p>LinkedList.java(链表类)</p>
+<li>LinkedList.java(链表类)</li>
+</ol>
 <pre><code><span class="keyword">public</span> <span class="keyword">class</span> LinkedList {
 
     <span class="keyword">public</span> Node first;<span class="comment">// 定义一个节点</span>
     <span class="keyword">public</span> Node tail;<span class="comment">//尾节点</span>
     <span class="keyword">private</span> <span class="keyword">int</span> pos = <span class="number">0</span>;<span class="comment">// 节点位置</span>
-    <span class="keyword">private</span> <span class="keyword">int</span> <span class="keyword">size</span> =<span class="number">0</span>;
+<span class="keyword">private</span> <span class="keyword">int</span> <span class="keyword">size</span> =<span class="number">0</span>;
     <span class="keyword">public</span> LinkedList() {
         <span class="keyword">this</span>.first = <span class="keyword">null</span>;
         <span class="keyword">this</span>.tail=<span class="keyword">null</span>;
@@ -291,8 +292,8 @@
     <span class="comment">// 在任意位置插入节点 在index的后面插入</span>
     <span class="keyword">public</span> <span class="keyword">void</span> add(<span class="keyword">int</span> index, <span class="keyword">int</span> data) {
         <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;<span class="keyword">size</span>){
-            <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"线性表索引越界"</span>);
-        }
+<span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfBoundsException(<span class="string">"线性表索引越界"</span>);
+}
         <span class="comment">//如果在头部插入</span>
         <span class="keyword">else</span> <span class="keyword">if</span>(index==<span class="number">0</span>){
             addFirstNode(data);
@@ -380,9 +381,7 @@
     }
 
 }
-</code></pre></li>
-</ol>
-<p>3.TestList.java(测试类)</p>
+</code></pre><p>3.TestList.java(测试类)</p>
 <pre><code><span class="keyword">public</span> <span class="keyword">class</span> TestList {
 
     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
