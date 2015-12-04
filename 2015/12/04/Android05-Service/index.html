@@ -232,7 +232,32 @@ A ser">
       </div>
       
     
+
     <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <blockquote>
+<p>关于Service</p>
+</blockquote>
+<p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
+<p>-&gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。</p>
+<ul>
+<li>A service is not a separate process.</li>
+<li>A service is not a thread.<a id="more"></a>
+-&gt;service不是一个单独的进程也不是一个线程。</li>
+</ul>
+<p>它比Activity有更高的优先级，系统不到万不得已不会杀死它。</p>
+<p>###启动方式</p>
+<p><strong>1.Start</strong></p>
+<p>Simple like this :  </p>
+<pre><code>startService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
+</code></pre><p><strong>2.bind</strong></p>
+<p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。</p>
+
+      
+	-->
+	      <!--02-->
+        
       
         <blockquote>
 <p>关于Service</p>
@@ -253,7 +278,8 @@ A ser">
 <p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。</p>
 
       
-    </div>
+	  </div>
+	  
     
   </div>
   

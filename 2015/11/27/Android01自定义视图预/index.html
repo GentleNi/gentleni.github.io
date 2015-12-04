@@ -235,7 +235,63 @@ dip=dp">
       </div>
       
     
+
     <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <blockquote>
+<p>是什么？</p>
+</blockquote>
+<h3 id="px_dp_sp">px dp sp</h3><ul>
+<li>px：像素点</li>
+<li>dp：像素密度</li>
+<li>sp：相当于dp，但是修饰文字</li>
+<li>dip=dp</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>怎么用</p>
+</blockquote>
+<ul>
+<li>文字一律用sp</li>
+<li>非文字一律用dp</li>
+<li>偶尔用sp，比如需要画一条分割线</li>
+<li><pre><code>&lt;View&gt; 
+<span class="label">android:</span>layout_width=<span class="string">"matchparent"</span>
+<span class="label">android:</span>layout_height=<span class="string">"1px"</span>
+<span class="label">android:</span>background=<span class="string">"@color/white"</span>
+&lt;/View&gt;
+</code></pre><p>###res:dpi、mdpi、hdpi、xhdpi、xxhdpi、xxxhdpi<br>代表几倍的关系，比如h代表1倍图，xh1.5倍图、xxh2.5倍图。</p>
+</li>
+<li><p>hdpi：72X72  </p>
+</li>
+<li>mdpi：48X48  </li>
+<li>xhdpi：96X96  </li>
+</ul>
+<p>###Inflater<br>作用：把xml文件解析成视图(View)<br>使用：三种方法</p>
+<p>######获得LaytoutInflater</p>
+<ul>
+<li>getLayoutInflater();</li>
+<li>getSystemService(LAYOUT_INFLATER_SERVICE);</li>
+<li>LayoutInflater.from(context);</li>
+</ul>
+<p>###提取布局属性:theme&amp;style<br>把共同的属性提取出来<br>在style中添加style，在View或者布局中引用</p>
+<pre><code>&lt;style name=<span class="string">"CustomTextView"</span>&gt;
+    &lt;item name=<span class="string">"android:background"</span>&gt;@<span class="attribute">color</span>/red&lt;/item&gt;
+    &lt;item name=<span class="string">"android:textSize"</span>&gt;<span class="number">26s</span>p&lt;/item&gt;
+    &lt;item name=<span class="string">"android:textColor"</span>&gt;<span class="hexcolor">#f9d004</span>&lt;/item&gt;
+&lt;/style&gt;
+
+&lt;style name=<span class="string">"StudyTextView"</span> parent=<span class="string">"CustomTextView"</span>&gt;
+   &lt;item name=<span class="string">"android:background"</span>&gt;<span class="hexcolor">#000000</span>&lt;/item&gt;
+    &lt;item name=<span class="string">"android:gravity"</span>&gt;<span class="attribute">right</span>&lt;/item&gt;
+&lt;/style&gt;  
+</code></pre><p>像类一样，style可以继承，也可以覆盖item中的属性</p>
+
+      
+	-->
+	      <!--02-->
+        
       
         <blockquote>
 <p>是什么？</p>
@@ -287,7 +343,8 @@ dip=dp">
 </code></pre><p>像类一样，style可以继承，也可以覆盖item中的属性</p>
 
       
-    </div>
+	  </div>
+	  
     
   </div>
   

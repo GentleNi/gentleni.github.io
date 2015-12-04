@@ -238,7 +238,82 @@ invalidate() 刷新">
       </div>
       
     
+
     <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <blockquote>
+<p>View是如何工作的？  </p>
+</blockquote>
+<ul>
+<li>构造器-&gt;初始化</li>
+<li>onMesure() 定大小</li>
+<li>onLayout() 定位置</li>
+<li>onDraw() 绘制</li>
+<li>invalidate() 刷新　　</li>
+</ul>
+<a id="more"></a>
+<p><strong>TargetAPI:注解，声明该方法只会在&gt;=某api时才会生效</strong>  </p>
+<p>######建议：遇到问题先看源码，注释都写得很清晰<br><strong>1. 自定义控件的三种形式</strong>  </p>
+<p>创建形式：  </p>
+<ul>
+<li>继承已有的控件  </li>
+<li>继承一个布局文件  </li>
+<li>继承View  </li>
+</ul>
+<p><strong>2.在Android中需要通过graphics类来显示2D图形</strong><br>graphics中包括了Canvas（画布）、Paint（画笔）、Color（颜色）、Bitmap（图像）等常用的类。graphics具有绘制点、线、颜色、2D几何图形、图像处理等功能。  </p>
+<ul>
+<li>Color(颜色)  </li>
+</ul>
+<p>　Android系统中颜色的常用表示方法有以下3种：</p>
+<p>　　（1）int color = Color.BLUE;<br>　　（2）int color = Color.argb(150,200,0,100);<br>　　（3）在xml文件中定义颜色；  </p>
+<ul>
+<li>Paint(画笔)类</li>
+</ul>
+<p>##Android学习笔记-02自定义视图</p>
+<blockquote>
+<p>View是如何工作的？  </p>
+</blockquote>
+<ul>
+<li>构造器-&gt;初始化\</li>
+<li>onMesure() 定大小</li>
+<li>onLayout() 定位置</li>
+<li>onDraw() 绘制</li>
+<li>invalidate() 刷新　　</li>
+</ul>
+<p><strong>TargetAPI:注解，声明该方法只会在&gt;=某api时才会生效</strong>  </p>
+<p>######建议：遇到问题先看源码，注释都写得很清晰<br><strong>1. 自定义控件的三种形式</strong>  </p>
+<p>创建形式：  </p>
+<ul>
+<li>继承已有的控件  </li>
+<li>继承一个布局文件  </li>
+<li>继承View  </li>
+</ul>
+<p><strong>2.在Android中需要通过graphics类来显示2D图形</strong>  </p>
+<p>graphics中包括了Canvas（画布）、Paint（画笔）、Color（颜色）、Bitmap（图像）等常用的类。graphics具有绘制点、线、颜色、2D几何图形、图像处理等功能。  </p>
+<ol>
+<li><p>Color(颜色)  </p>
+<p> Android系统中颜色的常用表示方法有以下3种：  </p>
+<p> （1）int color = Color.BLUE;<br> （2）int color = Color.argb(150,200,0,100);<br> （3）在xml文件中定义颜色；  </p>
+</li>
+<li><p>Paint(画笔)类</p>
+<p>  要绘制图形，首先得调整画笔，按照自己的开发需要设置画笔的相关属性。Pain类的常用属性设置方法如下：</p>
+<p> setAntiAlias();            //设置画笔的锯齿效果<br> setColor();                 //设置画笔的颜色<br> setARGB();                 //设置画笔的A、R、G、B值<br> setAlpha();                 //设置画笔的Alpha值<br> setTextSize();             //设置字体的尺寸<br> setStyle();                  //设置画笔的风格（空心或实心）<br> setStrokeWidth();        //设置空心边框的宽度<br> getColor();                  //获取画笔的颜色  </p>
+</li>
+<li><p>Canvas(画布）类  </p>
+<p> 画笔属性设置好之后，还需要将图像绘制到画布上。Canvas类可以用来实现各种图形的绘制工作，如绘制直线、矩形、圆等等。Canvas绘制常用图形的方法如下：</p>
+</li>
+</ol>
+<p>　　绘制直线：canvas.drawLine(float startX, float startY, float stopX, float stopY, Paint paint);</p>
+<p>　　绘制矩形：canvas.drawRect(float left, float top, float right, float bottom, Paint paint);</p>
+<p>　　绘制圆形：canvas.drawCircle(float cx, float cy, float radius, Paint paint);</p>
+<p>　　绘制字符：canvas.drawText(String text, float x, float y, Paint paint);</p>
+<p>　　绘制图形：canvas.drawBirmap(Bitmap bitmap, float left, float top, Paint paint);</p>
+
+      
+	-->
+	      <!--02-->
+        
       
         <blockquote>
 <p>View是如何工作的？  </p>
@@ -309,7 +384,8 @@ invalidate() 刷新">
 <p>　　绘制图形：canvas.drawBirmap(Bitmap bitmap, float left, float top, Paint paint);</p>
 
       
-    </div>
+	  </div>
+	  
     
   </div>
   
