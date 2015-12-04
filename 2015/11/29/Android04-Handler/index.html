@@ -24,7 +24,7 @@ A Handler allows you to send and process Message and Runnable objects associated
 
 A Handler allows you to send and process Message and Runnable objects associated with a thread’s MessageQueue.  (帮助进行线程之间的通信)">
 <meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/hexo_Android04_Handler.PNG">
-<meta property="og:updated_time" content="2015-12-04T11:24:38.621Z">
+<meta property="og:updated_time" content="2015-12-04T11:55:28.405Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android04_Handler">
 <meta name="twitter:description" content="Hander初体验
@@ -357,7 +357,9 @@ A Handler allows you to send and process Message and Runnable objects associated
         }
     }
 }
-</code></pre>
+</code></pre><p>####Looper Message Messagequeue handler关系</p>
+<p>每一个线程都对应一个Looper对象，是MessageQueue的管理者，就好像车间里的车间主任，负责处理MessageQueue，例如从MessageQueue中取出Message，然后交给Handler处理。</p>
+
       
     </div>
     
