@@ -16,7 +16,7 @@
 
 1. 做一个圆形的红色按钮中间有一个白色的数字数字起始为20每点击一次减少1">
 <meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png">
-<meta property="og:updated_time" content="2015-12-04T14:53:39.183Z">
+<meta property="og:updated_time" content="2015-12-04T15:38:19.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android03自定义视图">
 <meta name="twitter:description" content="Android笔记 03自定义视图
@@ -285,13 +285,14 @@ invalidate();
 </ul>
 <p>format下代表属性的类型,有int,string,color…..<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png" alt=""></p>
 <ul>
-<li>如何使用这些属性</li>
-</ul>
-<p>1.代码中引用</p>
+<li><p>如何使用这些属性</p>
+<ol>
+<li><p>代码中引用</p>
 <pre><code>typedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);<span class="comment">//先取出属性集合</span>
 
 mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);<span class="comment">//再取出某个属性。第二个参数是该属性的默认值</span>
-</code></pre><p>2.布局中设置     </p>
+</code></pre></li>
+<li><p>布局中设置     </p>
 <pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
 <span class="label">xmlns:</span>app=<span class="string">"http://schemas.android.com/apk/res-auto"</span>
 <span class="label">android:</span>orientation=<span class="string">"vertical"</span>
@@ -306,7 +307,11 @@ mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor
 /&gt;
 
 &lt;/LinearLayout&gt;
-</code></pre><p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
+</code></pre></li>
+</ol>
+</li>
+</ul>
+<p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
 
       
 	-->
@@ -373,13 +378,14 @@ invalidate();
 </ul>
 <p>format下代表属性的类型,有int,string,color…..<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png" alt=""></p>
 <ul>
-<li>如何使用这些属性</li>
-</ul>
-<p>1.代码中引用</p>
+<li><p>如何使用这些属性</p>
+<ol>
+<li><p>代码中引用</p>
 <pre><code>typedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);<span class="comment">//先取出属性集合</span>
 
 mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);<span class="comment">//再取出某个属性。第二个参数是该属性的默认值</span>
-</code></pre><p>2.布局中设置     </p>
+</code></pre></li>
+<li><p>布局中设置     </p>
 <pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
 <span class="label">xmlns:</span>app=<span class="string">"http://schemas.android.com/apk/res-auto"</span>
 <span class="label">android:</span>orientation=<span class="string">"vertical"</span>
@@ -394,7 +400,11 @@ mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor
 /&gt;
 
 &lt;/LinearLayout&gt;
-</code></pre><p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
+</code></pre></li>
+</ol>
+</li>
+</ul>
+<p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
 
       
 	  
