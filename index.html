@@ -179,6 +179,81 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android05-Service" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/04/Android05-Service/" class="article-date">
+  	<time datetime="2015-12-04T12:05:28.000Z" itemprop="datePublished">12/04/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/04/Android05-Service/">Android05_Service</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>关于Service</p>
+</blockquote>
+<p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
+<p>-&gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。</p>
+<ul>
+<li>A service is not a separate process.</li>
+<li>A service is not a thread.</li>
+</ul>
+<p>-&gt;service不是一个单独的进程也不是一个线程。</p>
+<p>它比Activity有更高的优先级，系统不到万不得已不会杀死它。</p>
+<p>###启动方式</p>
+<p><strong>1.Start</strong></p>
+<p>Simple like this :  </p>
+<pre><code>stopService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
+</code></pre><p><strong>2.bind</strong></p>
+<p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-JAVA单向链表" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -312,10 +387,10 @@
 
 
   
-    <article id="post-Android笔记 03自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Android03自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/28/Android笔记 03自定义视图/" class="article-date">
+      <a href="/2015/11/28/Android03自定义视图/" class="article-date">
   	<time datetime="2015-11-28T01:48:06.000Z" itemprop="datePublished">11/28/2015</time>
 </a>
     </div>
@@ -329,7 +404,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/28/Android笔记 03自定义视图/">Android笔记 03自定义视图</a>
+      <a class="article-title" href="/2015/11/28/Android03自定义视图/">Android笔记 03自定义视图</a>
     </h1>
   
 
@@ -360,7 +435,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/11/28/Android笔记 03自定义视图/#more">more >></a>
+          <a  href="/2015/11/28/Android03自定义视图/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

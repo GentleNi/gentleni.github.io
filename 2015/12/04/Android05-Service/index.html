@@ -3,25 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android笔记 03自定义视图 | GentleNi</title>
+  <title>Android05_Service | GentleNi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Android笔记 03自定义视图
+  <meta name="description" content="关于Service
 
-1. 做一个圆形的红色按钮中间有一个白色的数字数字起始为20每点击一次减少1">
+A service is an application component that can perform long-running operations in the background and dose not provide user interface.
+-&amp;gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。
+
+A ser">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android笔记 03自定义视图">
-<meta property="og:url" content="http://yoursite.com/2015/11/28/Android笔记 03自定义视图/index.html">
+<meta property="og:title" content="Android05_Service">
+<meta property="og:url" content="http://yoursite.com/2015/12/04/Android05-Service/index.html">
 <meta property="og:site_name" content="GentleNi">
-<meta property="og:description" content="Android笔记 03自定义视图
+<meta property="og:description" content="关于Service
 
-1. 做一个圆形的红色按钮中间有一个白色的数字数字起始为20每点击一次减少1">
-<meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png">
-<meta property="og:updated_time" content="2015-11-28T09:08:29.648Z">
+A service is an application component that can perform long-running operations in the background and dose not provide user interface.
+-&amp;gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。
+
+A ser">
+<meta property="og:updated_time" content="2015-12-04T13:45:17.820Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android笔记 03自定义视图">
-<meta name="twitter:description" content="Android笔记 03自定义视图
+<meta name="twitter:title" content="Android05_Service">
+<meta name="twitter:description" content="关于Service
 
-1. 做一个圆形的红色按钮中间有一个白色的数字数字起始为20每点击一次减少1">
+A service is an application component that can perform long-running operations in the background and dose not provide user interface.
+-&amp;gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。
+
+A ser">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -185,11 +193,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Android笔记 03自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android05-Service" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/28/Android笔记 03自定义视图/" class="article-date">
-  	<time datetime="2015-11-28T01:48:06.000Z" itemprop="datePublished">11/28/2015</time>
+      <a href="/2015/12/04/Android05-Service/" class="article-date">
+  	<time datetime="2015-12-04T12:05:28.000Z" itemprop="datePublished">12/04/2015</time>
 </a>
     </div>
   
@@ -202,7 +210,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android笔记 03自定义视图
+      Android05_Service
     </h1>
   
 
@@ -227,84 +235,22 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Android笔记 03自定义视图</p>
+<p>关于Service</p>
 </blockquote>
-<h3 id="1-_做一个圆形的红色按钮">1. 做一个圆形的红色按钮</h3><p>中间有一个白色的数字<br>数字起始为20<br>每点击一次减少1  </p>
-<a id="more"></a>
-<pre><code>  @<span class="function">Override
-<span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>{
-super.onDraw(canvas);
-<span class="comment">//做一个红红色按钮</span>
-<span class="comment">//设置画布为红色</span>
-mPaint.setColor(Color.RED);
-canvas.drawCircle(getWidth() / <span class="number">2</span>, getHeight() / <span class="number">2</span>, getWidth() / <span class="number">2</span>, mPaint);
-<span class="comment">//中间有一个白色的数字</span>
-mPaint.setColor(Color.WHITE);
-mPaint.setTextSize(<span class="number">200</span>);
-<span class="comment">/**
- * mRect是数字四周的边距
- */</span>
-
-String number = mNunber+<span class="string">""</span>;
-mPaint.getTextBounds(number,<span class="number">0</span>,number.length(),mRect);
-
-<span class="keyword">int</span> textWidth = mRect.width();
-<span class="keyword">int</span> textHeight = mRect.height();
-
-canvas.drawText(number,getWidth()/<span class="number">2</span>-textWidth/<span class="number">2</span>,getHeight()/<span class="number">2</span>+textHeight/<span class="number">2</span>,mPaint);
-}
-
-@<span class="function">Override
-<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
-
-<span class="keyword">if</span> (mNunber&gt;<span class="number">0</span>){
-mNunber--;
-}<span class="keyword">else</span>
-mNunber=<span class="number">20</span>;
-invalidate();
-}
-</code></pre><blockquote>
-<p>如何自定义视图属性？</p>
-</blockquote>
+<p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
+<p>-&gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。</p>
 <ul>
-<li>在哪里创建属性？</li>
+<li>A service is not a separate process.</li>
+<li>A service is not a thread.</li>
 </ul>
-<p>在res/values下新建attrs.xml文件</p>
-<pre><code><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
-<span class="tag">&lt;<span class="title">resources</span>&gt;</span>
-
-<span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"DrawView"</span>&gt;</span>
-<span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"backgroundColor"</span> <span class="attribute">format</span>=<span class="value">"color"</span>/&gt;</span>
-
-<span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span>
-<span class="tag">&lt;/<span class="title">resources</span>&gt;</span>
-</code></pre><ul>
-<li>可以创建哪些属性</li>
-</ul>
-<p>format下代表属性的类型,有int,string,color…..<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android笔记03.png" alt=""></p>
-<ul>
-<li>如何使用这些属性</li>
-</ul>
-<p>1.代码中引用</p>
-<pre><code>typedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TestRedButton);<span class="comment">//先取出属性集合</span>
-
-mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor, Color.RED);<span class="comment">//再取出某个属性。第二个参数是该属性的默认值</span>
-</code></pre><p>2.布局中设置     </p>
-<pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
-<span class="label">xmlns:</span>app=<span class="string">"http://schemas.android.com/apk/res-auto"</span>
-<span class="label">android:</span>orientation=<span class="string">"vertical"</span>
-<span class="label">android:</span>layout_width=<span class="string">"match_parent"</span>
-<span class="label">android:</span>layout_height=<span class="string">"match_parent"</span>&gt;
-
-&lt;<span class="keyword">com</span>.geekband.Test01.TestRedButton
-<span class="label">android:</span>layout_width=<span class="string">"300dp"</span>
-<span class="label">android:</span>layout_height=<span class="string">"300dp"</span>
-<span class="label">app:</span>backgroundColor=<span class="string">"@color/splashBackgroundColor"</span>
-<span class="label">app:</span>textSize=<span class="string">"18dp"</span>
-/&gt;
-
-&lt;/LinearLayout&gt;
-</code></pre><p>在布局文件中加入 <strong>xmlns:app=”<a href="http://schemas.android.com/apk/res-auto" target="_blank" rel="external">http://schemas.android.com/apk/res-auto</a>“</strong> 的命名空间，然后就可以用自定义命名空间里的属性值了。</p>
+<p>-&gt;service不是一个单独的进程也不是一个线程。</p>
+<p>它比Activity有更高的优先级，系统不到万不得已不会杀死它。</p>
+<p>###启动方式</p>
+<p><strong>1.Start</strong></p>
+<p>Simple like this :  </p>
+<pre><code>stopService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
+</code></pre><p><strong>2.bind</strong></p>
+<p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。</p>
 
       
     </div>
@@ -314,18 +260,9 @@ mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor
     
 <nav id="article-nav">
   
-    <a href="/2015/11/29/Android04-Handler/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Android04_Handler
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/11/27/yutou/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">yutou</div>
+    <a href="/2015/12/02/JAVA单向链表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JAVA单向链表</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -354,7 +291,7 @@ mBackgroundColor = typedArray.getColor(R.styleable.TestRedButton_backgroundColor
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Android笔记 03自定义视图" data-title="Android笔记 03自定义视图" data-url="http://yoursite.com/2015/11/28/Android笔记 03自定义视图/"></div>
+	<div class="ds-thread" data-thread-key="Android05-Service" data-title="Android05_Service" data-url="http://yoursite.com/2015/12/04/Android05-Service/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
