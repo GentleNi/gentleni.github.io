@@ -24,7 +24,7 @@ A Handler allows you to send and process Message and Runnable objects associated
 
 A Handler allows you to send and process Message and Runnable objects associated with a thread’s MessageQueue.  (帮助进行线程之间的通信)">
 <meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/hexo_Android04_Handler.PNG">
-<meta property="og:updated_time" content="2015-11-29T13:07:17.121Z">
+<meta property="og:updated_time" content="2015-12-04T11:24:38.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android04_Handler">
 <meta name="twitter:description" content="Hander初体验
@@ -288,7 +288,76 @@ A Handler allows you to send and process Message and Runnable objects associated
 <li>交由Handker的handleMessage进行处理</li>
 <li>调用Message.recycle()将其放入Message pool中 </li>
 </ul>
+<blockquote>
+<p>一个DEMO</p>
+</blockquote>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestHandlerActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>{
 
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MESSAGE_CODE = <span class="number">666666</span>;
+    <span class="keyword">private</span> TextView mTextView;
+    <span class="keyword">private</span> TestHandler mTestHandler;
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
+        <span class="keyword">super</span>.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_handler);
+
+        mTextView=(TextView)findViewById(R.id.id_text_handler);
+        mTestHandler=<span class="keyword">new</span> TestHandler(TestHandlerActivity.<span class="keyword">this</span>);
+        Message msg = mTestHandler.obtainMessage();
+
+        msg.arg1= <span class="number">0</span>  ;
+        msg.arg2= <span class="number">1</span>;
+        msg.what= MESSAGE_CODE;
+        msg.obj = <span class="number">10</span>;
+        mTestHandler.sendMessageDelayed(msg, <span class="number">1000</span>);
+
+
+    }
+
+    <span class="function"><span class="keyword">public</span> TextView <span class="title">getTextView</span><span class="params">()</span> </span>{
+        <span class="keyword">return</span> mTextView;
+    }
+
+    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestHandler</span> <span class="keyword">extends</span> <span class="title">Handler</span></span>{
+
+        <span class="keyword">public</span> <span class="keyword">final</span> WeakReference&lt;TestHandlerActivity&gt; mTestHandlerActivityWeakReference;
+        <span class="function"><span class="keyword">public</span>  <span class="title">TestHandler</span> <span class="params">(TestHandlerActivity activity)</span></span>{
+            mTestHandlerActivityWeakReference = <span class="keyword">new</span> WeakReference&lt;TestHandlerActivity&gt;(activity);
+        }
+
+        <span class="annotation">@Override</span>
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>{
+            <span class="keyword">super</span>.handleMessage(msg);
+
+            TestHandlerActivity testHandlerActivity = mTestHandlerActivityWeakReference.get();
+            <span class="comment">//接收消息</span>
+
+            <span class="keyword">switch</span> (msg.what){
+                <span class="keyword">case</span> MESSAGE_CODE:
+                    <span class="keyword">int</span> value = (<span class="keyword">int</span>)msg.obj;
+                    testHandlerActivity.getTextView().setText(value+<span class="string">""</span>);
+
+                    <span class="comment">//     mTextView.setText(value+"");</span>
+
+                    msg= Message.obtain();
+                    msg.arg1= <span class="number">0</span>;
+                    msg.arg2= <span class="number">1</span>;
+                    msg.what= MESSAGE_CODE;
+                    msg.obj = value-<span class="number">1</span>;
+
+                    <span class="keyword">if</span>(value&gt;<span class="number">0</span>){
+                        sendMessageDelayed(msg,<span class="number">1000</span>);
+                    }
+                    <span class="keyword">break</span>;
+
+                <span class="keyword">default</span>:
+                    <span class="keyword">break</span>;
+            }
+        }
+    }
+}
+</code></pre>
       
     </div>
     
