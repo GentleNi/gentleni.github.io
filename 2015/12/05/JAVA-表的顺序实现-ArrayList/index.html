@@ -3,17 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>GentleNi</title>
+  <title>JAVA_表的顺序实现_ArrayList | GentleNi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just Do it.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GentleNi">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="public class MyArrayList&amp;lt;AnyType&amp;gt; implements Iterable&amp;lt;AnyType&amp;gt; {
+    public static final int DEFAULT_CAPACITY = 10;
+    private int theSize;
+    private AnyType[] theItems;
+//    构造器
+    p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA_表的顺序实现_ArrayList">
+<meta property="og:url" content="http://yoursite.com/2015/12/05/JAVA-表的顺序实现-ArrayList/index.html">
 <meta property="og:site_name" content="GentleNi">
-<meta property="og:description" content="Just Do it.">
+<meta property="og:description" content="public class MyArrayList&amp;lt;AnyType&amp;gt; implements Iterable&amp;lt;AnyType&amp;gt; {
+    public static final int DEFAULT_CAPACITY = 10;
+    private int theSize;
+    private AnyType[] theItems;
+//    构造器
+    p">
+<meta property="og:updated_time" content="2015-12-05T08:24:21.385Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GentleNi">
-<meta name="twitter:description" content="Just Do it.">
+<meta name="twitter:title" content="JAVA_表的顺序实现_ArrayList">
+<meta name="twitter:description" content="public class MyArrayList&amp;lt;AnyType&amp;gt; implements Iterable&amp;lt;AnyType&amp;gt; {
+    public static final int DEFAULT_CAPACITY = 10;
+    private int theSize;
+    private AnyType[] theItems;
+//    构造器
+    p">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -177,9 +193,7 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-JAVA-表的顺序实现-ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JAVA-表的顺序实现-ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2015/12/05/JAVA-表的顺序实现-ArrayList/" class="article-date">
@@ -195,919 +209,312 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/05/JAVA-表的顺序实现-ArrayList/">JAVA_表的顺序实现_ArrayList</a>
+    <h1 class="article-title" itemprop="name">
+      JAVA_表的顺序实现_ArrayList
     </h1>
   
 
       </header>
       
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyArrayList</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt; </span>{
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;
-    <span class="keyword">private</span> <span class="keyword">int</span> theSize;
-    <span class="keyword">private</span> AnyType[] theItems;
-<span class="comment">//    构造器</span>
-    <span class="function"><span class="keyword">public</span>  <span class="title">MyArrayList</span><span class="params">()</span> </span>{ 
-        clear();
-    }
-<span class="comment">//    重置表</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>{
-        <span class="keyword">this</span>.theSize = <span class="number">0</span>;
-        ensureCapacity(DEFAULT_CAPACITY);
-    }
-<span class="comment">//    返回表总空间大小</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> theItems.length;
-    }
-<span class="comment">//    返回表大小(有效数据长度)</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> theSize;
-    }
-<span class="comment">//    判断表是否为空</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> size()==<span class="number">0</span>;
-    }
-<span class="comment">//    获得表中某个位置的</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        <span class="keyword">return</span> theItems[index];
-
-    }
-<span class="comment">//    初始化以及扩充容器</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> newCapacity)</span></span>{
-
-        <span class="keyword">if</span>(newCapacity&lt;theSize)
-            <span class="keyword">return</span>;
-        AnyType[] old = theItems;
-        theItems = (AnyType[]) <span class="keyword">new</span> Object[newCapacity];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;size();i++){
-            theItems[i] = old[i];
-        }
-    }
-<span class="comment">//    设置某个位置上的元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, AnyType newVal)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        theItems[index]=newVal;
-    }
-<span class="comment">//    在某个位置插入元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index ,AnyType x)</span></span>{
-        <span class="keyword">if</span>(theItems.length==size()){
-            ensureCapacity(size()*<span class="number">2</span>+<span class="number">1</span>);
-        }
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = theSize;i&gt;index;i--)
-            theItems[i]= theItems[i-<span class="number">1</span>];
-        theItems[index]=x;
-        theSize++;
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(AnyType x)</span></span>{
-        add(size(),x);
-        <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
-<span class="comment">//    删除</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        AnyType removedItem = theItems[index];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i =index;i&lt;size()-<span class="number">1</span>;i++)
-            theItems[i]=theItems[i+<span class="number">1</span>];
-        theSize--;
-        <span class="keyword">return</span> removedItem;
-    }
-<span class="annotation">@Override</span>
-<span class="function"><span class="keyword">public</span> Iterator&lt;AnyType&gt; <span class="title">iterator</span><span class="params">()</span> </span>{
-    <span class="comment">// TODO Auto-generated method stub</span>
-    <span class="keyword">return</span> <span class="keyword">new</span> ArrayListItereater();
-}
-
-<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListItereater</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">AnyType</span>&gt;</span>{
-
-    <span class="keyword">private</span> <span class="keyword">int</span> current = <span class="number">0</span>;
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> current&lt;size();
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">next</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> theItems[current++];
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        MyArrayList.<span class="keyword">this</span>.remove(--current);
-    }
-
-}
-
-}
-</code></pre>
-      
-	-->
-	    
-        <div id="toc" class="toc-article">
-    <div class="toc-title">Menu</div>
-    
-</div>
-      
-        <pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyArrayList</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt; </span>{
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;
-    <span class="keyword">private</span> <span class="keyword">int</span> theSize;
-    <span class="keyword">private</span> AnyType[] theItems;
-<span class="comment">//    构造器</span>
-    <span class="function"><span class="keyword">public</span>  <span class="title">MyArrayList</span><span class="params">()</span> </span>{ 
-        clear();
-    }
-<span class="comment">//    重置表</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>{
-        <span class="keyword">this</span>.theSize = <span class="number">0</span>;
-        ensureCapacity(DEFAULT_CAPACITY);
-    }
-<span class="comment">//    返回表总空间大小</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> theItems.length;
-    }
-<span class="comment">//    返回表大小(有效数据长度)</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> theSize;
-    }
-<span class="comment">//    判断表是否为空</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> size()==<span class="number">0</span>;
-    }
-<span class="comment">//    获得表中某个位置的</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        <span class="keyword">return</span> theItems[index];
-
-    }
-<span class="comment">//    初始化以及扩充容器</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> newCapacity)</span></span>{
-
-        <span class="keyword">if</span>(newCapacity&lt;theSize)
-            <span class="keyword">return</span>;
-        AnyType[] old = theItems;
-        theItems = (AnyType[]) <span class="keyword">new</span> Object[newCapacity];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;size();i++){
-            theItems[i] = old[i];
-        }
-    }
-<span class="comment">//    设置某个位置上的元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, AnyType newVal)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        theItems[index]=newVal;
-    }
-<span class="comment">//    在某个位置插入元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index ,AnyType x)</span></span>{
-        <span class="keyword">if</span>(theItems.length==size()){
-            ensureCapacity(size()*<span class="number">2</span>+<span class="number">1</span>);
-        }
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = theSize;i&gt;index;i--)
-            theItems[i]= theItems[i-<span class="number">1</span>];
-        theItems[index]=x;
-        theSize++;
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(AnyType x)</span></span>{
-        add(size(),x);
-        <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
-<span class="comment">//    删除</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        AnyType removedItem = theItems[index];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i =index;i&lt;size()-<span class="number">1</span>;i++)
-            theItems[i]=theItems[i+<span class="number">1</span>];
-        theSize--;
-        <span class="keyword">return</span> removedItem;
-    }
-<span class="annotation">@Override</span>
-<span class="function"><span class="keyword">public</span> Iterator&lt;AnyType&gt; <span class="title">iterator</span><span class="params">()</span> </span>{
-    <span class="comment">// TODO Auto-generated method stub</span>
-    <span class="keyword">return</span> <span class="keyword">new</span> ArrayListItereater();
-}
-
-<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListItereater</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">AnyType</span>&gt;</span>{
-
-    <span class="keyword">private</span> <span class="keyword">int</span> current = <span class="number">0</span>;
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> current&lt;size();
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">next</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> theItems[current++];
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        MyArrayList.<span class="keyword">this</span>.remove(--current);
-    }
-
-}
-
-}
-</code></pre>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 	</div>
 
-      
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/技术/">技术</a>
 	</div>
 
 
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-TestDemo01" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/04/TestDemo01/" class="article-date">
-  	<time datetime="2015-12-04T15:23:52.000Z" itemprop="datePublished">12/04/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/04/TestDemo01/">TestDemo01</a>
-    </h1>
-  
-
-      </header>
+        <div class="clearfix"></div>
+      </div>
       
     
 
     <div class="article-entry" itemprop="articleBody">
    	<!--
     	
-        <hr>
-<blockquote>
-<p>safafaw</p>
-</blockquote>
-<h3 id="1-_aaaaaaaaaaaa">1. aaaaaaaaaaaa</h3><h4 id="(1)bbbbbbb">(1)bbbbbbb</h4><p>sssssss<br>eeeeeeeeeee<br>sssssss<br>sdasddas  </p>
-<h4 id="(2)ccccccc">(2)ccccccc</h4><p>safdasfsaf<br>sadfafasfas<br>gdrtstse<br>dadasda  </p>
-<h3 id="2-_sssssssssssssss">2. sssssssssssssss</h3><p>(1)sdsfsfsfs</p>
+        <pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyArrayList</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt; </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;
+    <span class="keyword">private</span> <span class="keyword">int</span> theSize;
+    <span class="keyword">private</span> AnyType[] theItems;
+<span class="comment">//    构造器</span>
+    <span class="function"><span class="keyword">public</span>  <span class="title">MyArrayList</span><span class="params">()</span> </span>{ 
+        clear();
+    }
+<span class="comment">//    重置表</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>{
+        <span class="keyword">this</span>.theSize = <span class="number">0</span>;
+        ensureCapacity(DEFAULT_CAPACITY);
+    }
+<span class="comment">//    返回表总空间大小</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> theItems.length;
+    }
+<span class="comment">//    返回表大小(有效数据长度)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> theSize;
+    }
+<span class="comment">//    判断表是否为空</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> size()==<span class="number">0</span>;
+    }
+<span class="comment">//    获得表中某个位置的</span>
+    <span class="function"><span class="keyword">public</span> AnyType <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
+        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
+            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
+        }
+        <span class="keyword">return</span> theItems[index];
 
+    }
+<span class="comment">//    初始化以及扩充容器</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> newCapacity)</span></span>{
+
+        <span class="keyword">if</span>(newCapacity&lt;theSize)
+            <span class="keyword">return</span>;
+        AnyType[] old = theItems;
+        theItems = (AnyType[]) <span class="keyword">new</span> Object[newCapacity];
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;size();i++){
+            theItems[i] = old[i];
+        }
+    }
+<span class="comment">//    设置某个位置上的元素</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, AnyType newVal)</span></span>{
+        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
+            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
+        }
+        theItems[index]=newVal;
+    }
+<span class="comment">//    在某个位置插入元素</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index ,AnyType x)</span></span>{
+        <span class="keyword">if</span>(theItems.length==size()){
+            ensureCapacity(size()*<span class="number">2</span>+<span class="number">1</span>);
+        }
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = theSize;i&gt;index;i--)
+            theItems[i]= theItems[i-<span class="number">1</span>];
+        theItems[index]=x;
+        theSize++;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(AnyType x)</span></span>{
+        add(size(),x);
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+<span class="comment">//    删除</span>
+    <span class="function"><span class="keyword">public</span> AnyType <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
+        AnyType removedItem = theItems[index];
+        <span class="keyword">for</span>(<span class="keyword">int</span> i =index;i&lt;size()-<span class="number">1</span>;i++)
+            theItems[i]=theItems[i+<span class="number">1</span>];
+        theSize--;
+        <span class="keyword">return</span> removedItem;
+    }
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">public</span> Iterator&lt;AnyType&gt; <span class="title">iterator</span><span class="params">()</span> </span>{
+    <span class="comment">// TODO Auto-generated method stub</span>
+    <span class="keyword">return</span> <span class="keyword">new</span> ArrayListItereater();
+}
+
+<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListItereater</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">AnyType</span>&gt;</span>{
+
+    <span class="keyword">private</span> <span class="keyword">int</span> current = <span class="number">0</span>;
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>{
+        <span class="comment">// TODO Auto-generated method stub</span>
+        <span class="keyword">return</span> current&lt;size();
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> AnyType <span class="title">next</span><span class="params">()</span> </span>{
+        <span class="comment">// TODO Auto-generated method stub</span>
+        <span class="keyword">return</span> theItems[current++];
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>{
+        <span class="comment">// TODO Auto-generated method stub</span>
+        MyArrayList.<span class="keyword">this</span>.remove(--current);
+    }
+
+}
+
+}
+</code></pre>
       
 	-->
 	    
         <div id="toc" class="toc-article">
     <div class="toc-title">Menu</div>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_aaaaaaaaaaaa"><span class="toc-text">1. aaaaaaaaaaaa</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#(1)bbbbbbb"><span class="toc-text">(1)bbbbbbb</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#(2)ccccccc"><span class="toc-text">(2)ccccccc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-_sssssssssssssss"><span class="toc-text">2. sssssssssssssss</span></a></li></ol>
+    
 </div>
       
-        <hr>
-<blockquote>
-<p>safafaw</p>
-</blockquote>
-<h3 id="1-_aaaaaaaaaaaa">1. aaaaaaaaaaaa</h3><h4 id="(1)bbbbbbb">(1)bbbbbbb</h4><p>sssssss<br>eeeeeeeeeee<br>sssssss<br>sdasddas  </p>
-<h4 id="(2)ccccccc">(2)ccccccc</h4><p>safdasfsaf<br>sadfafasfas<br>gdrtstse<br>dadasda  </p>
-<h3 id="2-_sssssssssssssss">2. sssssssssssssss</h3><p>(1)sdsfsfsfs</p>
+        <pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyArrayList</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt; </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;
+    <span class="keyword">private</span> <span class="keyword">int</span> theSize;
+    <span class="keyword">private</span> AnyType[] theItems;
+<span class="comment">//    构造器</span>
+    <span class="function"><span class="keyword">public</span>  <span class="title">MyArrayList</span><span class="params">()</span> </span>{ 
+        clear();
+    }
+<span class="comment">//    重置表</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>{
+        <span class="keyword">this</span>.theSize = <span class="number">0</span>;
+        ensureCapacity(DEFAULT_CAPACITY);
+    }
+<span class="comment">//    返回表总空间大小</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> theItems.length;
+    }
+<span class="comment">//    返回表大小(有效数据长度)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> theSize;
+    }
+<span class="comment">//    判断表是否为空</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> size()==<span class="number">0</span>;
+    }
+<span class="comment">//    获得表中某个位置的</span>
+    <span class="function"><span class="keyword">public</span> AnyType <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
+        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
+            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
+        }
+        <span class="keyword">return</span> theItems[index];
 
+    }
+<span class="comment">//    初始化以及扩充容器</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> newCapacity)</span></span>{
+
+        <span class="keyword">if</span>(newCapacity&lt;theSize)
+            <span class="keyword">return</span>;
+        AnyType[] old = theItems;
+        theItems = (AnyType[]) <span class="keyword">new</span> Object[newCapacity];
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;size();i++){
+            theItems[i] = old[i];
+        }
+    }
+<span class="comment">//    设置某个位置上的元素</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, AnyType newVal)</span></span>{
+        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
+            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
+        }
+        theItems[index]=newVal;
+    }
+<span class="comment">//    在某个位置插入元素</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index ,AnyType x)</span></span>{
+        <span class="keyword">if</span>(theItems.length==size()){
+            ensureCapacity(size()*<span class="number">2</span>+<span class="number">1</span>);
+        }
+        <span class="keyword">for</span>(<span class="keyword">int</span> i = theSize;i&gt;index;i--)
+            theItems[i]= theItems[i-<span class="number">1</span>];
+        theItems[index]=x;
+        theSize++;
+    }
+
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(AnyType x)</span></span>{
+        add(size(),x);
+        <span class="keyword">return</span> <span class="keyword">true</span>;
+    }
+<span class="comment">//    删除</span>
+    <span class="function"><span class="keyword">public</span> AnyType <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
+        AnyType removedItem = theItems[index];
+        <span class="keyword">for</span>(<span class="keyword">int</span> i =index;i&lt;size()-<span class="number">1</span>;i++)
+            theItems[i]=theItems[i+<span class="number">1</span>];
+        theSize--;
+        <span class="keyword">return</span> removedItem;
+    }
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">public</span> Iterator&lt;AnyType&gt; <span class="title">iterator</span><span class="params">()</span> </span>{
+    <span class="comment">// TODO Auto-generated method stub</span>
+    <span class="keyword">return</span> <span class="keyword">new</span> ArrayListItereater();
+}
+
+<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListItereater</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">AnyType</span>&gt;</span>{
+
+    <span class="keyword">private</span> <span class="keyword">int</span> current = <span class="number">0</span>;
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>{
+        <span class="comment">// TODO Auto-generated method stub</span>
+        <span class="keyword">return</span> current&lt;size();
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> AnyType <span class="title">next</span><span class="params">()</span> </span>{
+        <span class="comment">// TODO Auto-generated method stub</span>
+        <span class="keyword">return</span> theItems[current++];
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>{
+        <span class="comment">// TODO Auto-generated method stub</span>
+        MyArrayList.<span class="keyword">this</span>.remove(--current);
+    }
+
+}
+
+}
+</code></pre>
       
 	  
 	  </div>
 	  
     
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/12/04/TestDemo01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TestDemo01</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-  
-    <article id="post-Android05-Service" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/04/Android05-Service/" class="article-date">
-  	<time datetime="2015-12-04T12:05:28.000Z" itemprop="datePublished">12/04/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/04/Android05-Service/">Android05_Service</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>关于Service</p>
-</blockquote>
-<p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
-<p>-&gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。</p>
-<ul>
-<li>A service is not a separate process.</li>
-<li>A service is not a thread.
-      
-	-->
-	     
-        <blockquote>
-<p>关于Service</p>
-</blockquote>
-<p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
-<p>-&gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。</p>
-<ul>
-<li>A service is not a separate process.</li>
-<li>A service is not a thread.
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
 
 
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/04/Android05-Service/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JAVA-表的顺序实现-ArrayList" data-title="JAVA_表的顺序实现_ArrayList" data-url="http://yoursite.com/2015/12/05/JAVA-表的顺序实现-ArrayList/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-  
-    <article id="post-JAVA单向链表" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/02/JAVA单向链表/" class="article-date">
-  	<time datetime="2015-12-01T23:31:14.000Z" itemprop="datePublished">12/02/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/02/JAVA单向链表/">JAVA单向链表</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始</p>
-</blockquote>
-      
-	-->
-	     
-        <blockquote>
-<p>数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始</p>
-</blockquote>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/02/JAVA单向链表/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android04-Handler" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/29/Android04-Handler/" class="article-date">
-  	<time datetime="2015-11-28T23:05:27.000Z" itemprop="datePublished">11/29/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/29/Android04-Handler/">Android04_Handler</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>Hander初体验</p>
-</blockquote>
-<ul>
-<li><strong>多线程与异步</strong>  </li>
-<li><strong>什么是Handler？</strong>  </li>
-</ul>
-<p>A Handler allows you to send and process Message and Runnable objects associated with a thread’s MessageQueue.<br>  (帮助进行线程之间的通信)  </p>
-      
-	-->
-	     
-        <blockquote>
-<p>Hander初体验</p>
-</blockquote>
-<ul>
-<li><strong>多线程与异步</strong>  </li>
-<li><strong>什么是Handler？</strong>  </li>
-</ul>
-<p>A Handler allows you to send and process Message and Runnable objects associated with a thread’s MessageQueue.<br>  (帮助进行线程之间的通信)  </p>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/29/Android04-Handler/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android03自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/28/Android03自定义视图/" class="article-date">
-  	<time datetime="2015-11-28T01:48:06.000Z" itemprop="datePublished">11/28/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/28/Android03自定义视图/">Android03自定义视图</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>Android笔记 03自定义视图</p>
-</blockquote>
-<h3 id="1-_做一个圆形的红色按钮">1. 做一个圆形的红色按钮</h3><p>中间有一个白色的数字<br>数字起始为20<br>每点击一次减少1  </p>
-      
-	-->
-	     
-        <blockquote>
-<p>Android笔记 03自定义视图</p>
-</blockquote>
-<h3 id="1-_做一个圆形的红色按钮">1. 做一个圆形的红色按钮</h3><p>中间有一个白色的数字<br>数字起始为20<br>每点击一次减少1  </p>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/28/Android03自定义视图/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-yutou" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/yutou/" class="article-date">
-  	<time datetime="2015-11-27T01:33:49.000Z" itemprop="datePublished">11/27/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/yutou/">yutou</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>臧云吉是SB  </p>
-</blockquote>
-<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
-<p><em>这是斜体</em></p>
-<p><strong>这是粗体</strong><br>
-      
-	-->
-	     
-        <blockquote>
-<p>臧云吉是SB  </p>
-</blockquote>
-<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
-<p><em>这是斜体</em></p>
-<p><strong>这是粗体</strong><br>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/blog/">blog</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/27/yutou/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android01自定义视图预" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/Android01自定义视图预/" class="article-date">
-  	<time datetime="2015-11-27T01:29:25.000Z" itemprop="datePublished">11/27/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/Android01自定义视图预/">Android 01自定义视图预</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>是什么？</p>
-</blockquote>
-<h3 id="px_dp_sp">px dp sp</h3><ul>
-<li>px：像素点</li>
-<li>dp：像素密度</li>
-<li>sp：相当于dp，但是修饰文字</li>
-<li>dip=dp</li>
-</ul>
-      
-	-->
-	     
-        <blockquote>
-<p>是什么？</p>
-</blockquote>
-<h3 id="px_dp_sp">px dp sp</h3><ul>
-<li>px：像素点</li>
-<li>dp：像素密度</li>
-<li>sp：相当于dp，但是修饰文字</li>
-<li>dip=dp</li>
-</ul>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/27/Android01自定义视图预/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android02自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/Android02自定义视图/" class="article-date">
-  	<time datetime="2015-11-26T23:37:23.000Z" itemprop="datePublished">11/27/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/Android02自定义视图/">Android02自定义视图</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>View是如何工作的？  </p>
-</blockquote>
-<ul>
-<li>构造器-&gt;初始化</li>
-<li>onMesure() 定大小</li>
-<li>onLayout() 定位置</li>
-<li>onDraw() 绘制</li>
-<li>invalidate() 刷新　　</li>
-</ul>
-      
-	-->
-	     
-        <blockquote>
-<p>View是如何工作的？  </p>
-</blockquote>
-<ul>
-<li>构造器-&gt;初始化</li>
-<li>onMesure() 定大小</li>
-<li>onLayout() 定位置</li>
-<li>onDraw() 绘制</li>
-<li>invalidate() 刷新　　</li>
-</ul>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/27/Android02自定义视图/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -1131,8 +538,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
