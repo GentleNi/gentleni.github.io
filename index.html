@@ -217,44 +217,10 @@
    printStar(n-<span class="number">1</span>);
 }
 }
-</code></pre><p>我们可以想象每次调用printStar()就像抽出一张纸，再一次调用就会再抽一出一个printStar()贴在老的上面，就像一个栈，当最上面一层printStar()找到递归出口会，就会一层一层的向上返回，直到返回Main方法。</p>
-<h3 id="一个递归回溯的案例">一个递归回溯的案例</h3><pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
-    <span class="comment">// TODO Auto-generated method stub</span>
-
-    explore(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">"Path: "</span>);
-}
-
-<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">explore</span>
-<span class="params">(<span class="keyword">int</span> tarX,<span class="keyword">int</span> tarY, <span class="keyword">int</span> currX,<span class="keyword">int</span> currY, String path)</span></span>{
-
-<span class="keyword">if</span>(currX==tarX&amp;&amp;currY==tarY){
-    System.out.println(path);
-}<span class="keyword">else</span> <span class="keyword">if</span>(currX&lt;=tarX&amp;&amp;currY&lt;=tarY){
-    explore(tarX, tarY, currX, currY+<span class="number">1</span>, path+<span class="string">"N"</span>);
-    explore(tarX, tarY, currX+<span class="number">1</span>, currY, path+<span class="string">"E"</span>);
-    explore(tarX, tarY, currX+<span class="number">1</span>, currY+<span class="number">1</span>, path+<span class="string">"NE"</span>);
-}
-
-}
-</code></pre><p>此程序打印从（0,0）点到（1,2）点的所有走法，其中可以向上，向右，和向上右走。我们来捋一捋过程。</p>
-<ol>
-<li>此时x=0,y=0,进入explore(),得到x=0,y=1.</li>
-<li>此时x=0,y=1,进入explore(),得到x=0,y=2.</li>
-<li>此时x=0,y=2,进入explore(),得到x=0,y=3.</li>
-<li>此时x=0,y=3,进入explore(),此时explore已经不满足if和else if中的条件，返回到上一次调用,此时x=0,y=2.</li>
-<li>此时x=0,y=2，进入explore(),执行第二个explore()，此时x=1,y=2.</li>
-<li>此时x=1,y=2，进入explore(),满足第一个条件，输出Path:NNE.</li>
-<li>so on.</li>
-</ol>
-
+</code></pre>
       
 	-->
-	    
-        <div id="toc" class="toc-article">
-    <div class="toc-title">Menu</div>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#递归的基本结构"><span class="toc-text">递归的基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一个递归回溯的案例"><span class="toc-text">一个递归回溯的案例</span></a></li></ol>
-</div>
-      
+	     
         <h3 id="递归的基本结构">递归的基本结构</h3><pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printStar</span><span class="params">()</span></span>{
   <span class="keyword">if</span>(n==<span class="number">0</span>){
      <span class="comment">//基本情况</span>
@@ -265,36 +231,7 @@
    printStar(n-<span class="number">1</span>);
 }
 }
-</code></pre><p>我们可以想象每次调用printStar()就像抽出一张纸，再一次调用就会再抽一出一个printStar()贴在老的上面，就像一个栈，当最上面一层printStar()找到递归出口会，就会一层一层的向上返回，直到返回Main方法。</p>
-<h3 id="一个递归回溯的案例">一个递归回溯的案例</h3><pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
-    <span class="comment">// TODO Auto-generated method stub</span>
-
-    explore(<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="string">"Path: "</span>);
-}
-
-<span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">explore</span>
-<span class="params">(<span class="keyword">int</span> tarX,<span class="keyword">int</span> tarY, <span class="keyword">int</span> currX,<span class="keyword">int</span> currY, String path)</span></span>{
-
-<span class="keyword">if</span>(currX==tarX&amp;&amp;currY==tarY){
-    System.out.println(path);
-}<span class="keyword">else</span> <span class="keyword">if</span>(currX&lt;=tarX&amp;&amp;currY&lt;=tarY){
-    explore(tarX, tarY, currX, currY+<span class="number">1</span>, path+<span class="string">"N"</span>);
-    explore(tarX, tarY, currX+<span class="number">1</span>, currY, path+<span class="string">"E"</span>);
-    explore(tarX, tarY, currX+<span class="number">1</span>, currY+<span class="number">1</span>, path+<span class="string">"NE"</span>);
-}
-
-}
-</code></pre><p>此程序打印从（0,0）点到（1,2）点的所有走法，其中可以向上，向右，和向上右走。我们来捋一捋过程。</p>
-<ol>
-<li>此时x=0,y=0,进入explore(),得到x=0,y=1.</li>
-<li>此时x=0,y=1,进入explore(),得到x=0,y=2.</li>
-<li>此时x=0,y=2,进入explore(),得到x=0,y=3.</li>
-<li>此时x=0,y=3,进入explore(),此时explore已经不满足if和else if中的条件，返回到上一次调用,此时x=0,y=2.</li>
-<li>此时x=0,y=2，进入explore(),执行第二个explore()，此时x=1,y=2.</li>
-<li>此时x=1,y=2，进入explore(),满足第一个条件，输出Path:NNE.</li>
-<li>so on.</li>
-</ol>
-
+</code></pre>
       
 	  
 	  </div>
@@ -313,6 +250,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/08/JAVA-递归回溯/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -373,102 +314,10 @@
     <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
         <span class="keyword">return</span> theItems.length;
     }
-<span class="comment">//    返回表大小(有效数据长度)</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> theSize;
-    }
-<span class="comment">//    判断表是否为空</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> size()==<span class="number">0</span>;
-    }
-<span class="comment">//    获得表中某个位置的</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        <span class="keyword">return</span> theItems[index];
-
-    }
-<span class="comment">//    初始化以及扩充容器</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> newCapacity)</span></span>{
-
-        <span class="keyword">if</span>(newCapacity&lt;theSize)
-            <span class="keyword">return</span>;
-        AnyType[] old = theItems;
-        theItems = (AnyType[]) <span class="keyword">new</span> Object[newCapacity];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;size();i++){
-            theItems[i] = old[i];
-        }
-    }
-<span class="comment">//    设置某个位置上的元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, AnyType newVal)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        theItems[index]=newVal;
-    }
-<span class="comment">//    在某个位置插入元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index ,AnyType x)</span></span>{
-        <span class="keyword">if</span>(theItems.length==size()){
-            ensureCapacity(size()*<span class="number">2</span>+<span class="number">1</span>);
-        }
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = theSize;i&gt;index;i--)
-            theItems[i]= theItems[i-<span class="number">1</span>];
-        theItems[index]=x;
-        theSize++;
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(AnyType x)</span></span>{
-        add(size(),x);
-        <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
-<span class="comment">//    删除</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        AnyType removedItem = theItems[index];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i =index;i&lt;size()-<span class="number">1</span>;i++)
-            theItems[i]=theItems[i+<span class="number">1</span>];
-        theSize--;
-        <span class="keyword">return</span> removedItem;
-    }
-<span class="annotation">@Override</span>
-<span class="function"><span class="keyword">public</span> Iterator&lt;AnyType&gt; <span class="title">iterator</span><span class="params">()</span> </span>{
-    <span class="comment">// TODO Auto-generated method stub</span>
-    <span class="keyword">return</span> <span class="keyword">new</span> ArrayListItereater();
-}
-
-<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListItereater</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">AnyType</span>&gt;</span>{
-
-    <span class="keyword">private</span> <span class="keyword">int</span> current = <span class="number">0</span>;
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> current&lt;size();
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">next</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> theItems[current++];
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        MyArrayList.<span class="keyword">this</span>.remove(--current);
-    }
-
-}
-
-}
 </code></pre>
       
 	-->
-	    
-        <div id="toc" class="toc-article">
-    <div class="toc-title">Menu</div>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
-</div>
-      
+	     
         <h2 id="代码">代码</h2><pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyArrayList</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt; </span>{
     <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;
     <span class="keyword">private</span> <span class="keyword">int</span> theSize;
@@ -486,93 +335,6 @@
     <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
         <span class="keyword">return</span> theItems.length;
     }
-<span class="comment">//    返回表大小(有效数据长度)</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> theSize;
-    }
-<span class="comment">//    判断表是否为空</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>{
-        <span class="keyword">return</span> size()==<span class="number">0</span>;
-    }
-<span class="comment">//    获得表中某个位置的</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">get</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        <span class="keyword">return</span> theItems[index];
-
-    }
-<span class="comment">//    初始化以及扩充容器</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> newCapacity)</span></span>{
-
-        <span class="keyword">if</span>(newCapacity&lt;theSize)
-            <span class="keyword">return</span>;
-        AnyType[] old = theItems;
-        theItems = (AnyType[]) <span class="keyword">new</span> Object[newCapacity];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;size();i++){
-            theItems[i] = old[i];
-        }
-    }
-<span class="comment">//    设置某个位置上的元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">set</span><span class="params">(<span class="keyword">int</span> index, AnyType newVal)</span></span>{
-        <span class="keyword">if</span>(index&lt;<span class="number">0</span>||index&gt;=size()){
-            <span class="keyword">throw</span> <span class="keyword">new</span> ArrayIndexOutOfBoundsException();
-        }
-        theItems[index]=newVal;
-    }
-<span class="comment">//    在某个位置插入元素</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> index ,AnyType x)</span></span>{
-        <span class="keyword">if</span>(theItems.length==size()){
-            ensureCapacity(size()*<span class="number">2</span>+<span class="number">1</span>);
-        }
-        <span class="keyword">for</span>(<span class="keyword">int</span> i = theSize;i&gt;index;i--)
-            theItems[i]= theItems[i-<span class="number">1</span>];
-        theItems[index]=x;
-        theSize++;
-    }
-
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">add</span><span class="params">(AnyType x)</span></span>{
-        add(size(),x);
-        <span class="keyword">return</span> <span class="keyword">true</span>;
-    }
-<span class="comment">//    删除</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">remove</span><span class="params">(<span class="keyword">int</span> index)</span></span>{
-        AnyType removedItem = theItems[index];
-        <span class="keyword">for</span>(<span class="keyword">int</span> i =index;i&lt;size()-<span class="number">1</span>;i++)
-            theItems[i]=theItems[i+<span class="number">1</span>];
-        theSize--;
-        <span class="keyword">return</span> removedItem;
-    }
-<span class="annotation">@Override</span>
-<span class="function"><span class="keyword">public</span> Iterator&lt;AnyType&gt; <span class="title">iterator</span><span class="params">()</span> </span>{
-    <span class="comment">// TODO Auto-generated method stub</span>
-    <span class="keyword">return</span> <span class="keyword">new</span> ArrayListItereater();
-}
-
-<span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListItereater</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">AnyType</span>&gt;</span>{
-
-    <span class="keyword">private</span> <span class="keyword">int</span> current = <span class="number">0</span>;
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> current&lt;size();
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> AnyType <span class="title">next</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        <span class="keyword">return</span> theItems[current++];
-    }
-
-    <span class="annotation">@Override</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>{
-        <span class="comment">// TODO Auto-generated method stub</span>
-        MyArrayList.<span class="keyword">this</span>.remove(--current);
-    }
-
-}
-
-}
 </code></pre>
       
 	  
@@ -592,6 +354,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/05/JAVA-表的顺序实现-ArrayList/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
