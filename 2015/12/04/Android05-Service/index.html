@@ -5,31 +5,25 @@
   
   <title>Android05_Service | GentleNi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于Service
-
-A service is an application component that can perform long-running operations in the background and dose not provide user interface.
+  <meta name="description" content="ServiceA service is an application component that can perform long-running operations in the background and dose not provide user interface.
 -&amp;gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。
 
-A ser">
+A service">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android05_Service">
 <meta property="og:url" content="http://yoursite.com/2015/12/04/Android05-Service/index.html">
 <meta property="og:site_name" content="GentleNi">
-<meta property="og:description" content="关于Service
-
-A service is an application component that can perform long-running operations in the background and dose not provide user interface.
+<meta property="og:description" content="ServiceA service is an application component that can perform long-running operations in the background and dose not provide user interface.
 -&amp;gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。
 
-A ser">
-<meta property="og:updated_time" content="2015-12-04T14:46:17.115Z">
+A service">
+<meta property="og:updated_time" content="2015-12-12T08:54:27.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android05_Service">
-<meta name="twitter:description" content="关于Service
-
-A service is an application component that can perform long-running operations in the background and dose not provide user interface.
+<meta name="twitter:description" content="ServiceA service is an application component that can perform long-running operations in the background and dose not provide user interface.
 -&amp;gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。
 
-A ser">
+A service">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -236,10 +230,7 @@ A ser">
     <div class="article-entry" itemprop="articleBody">
    	<!--
     	
-        <blockquote>
-<p>关于Service</p>
-</blockquote>
-<p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
+        <h3 id="Service">Service</h3><p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
 <p>-&gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。</p>
 <ul>
 <li>A service is not a separate process.</li>
@@ -247,25 +238,84 @@ A ser">
 -&gt;service不是一个单独的进程也不是一个线程。</li>
 </ul>
 <p>它比Activity有更高的优先级，系统不到万不得已不会杀死它。</p>
-<p>###启动方式</p>
-<p><strong>1.Start</strong></p>
+<h3 id="启动方式">启动方式</h3><p><strong>1.Start</strong></p>
 <p>Simple like this :  </p>
 <pre><code>startService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
 </code></pre><p><strong>2.bind</strong></p>
-<p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。</p>
+<p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。<br>使用绑定的好处在于，绑定之后service和activity为一体，当activity销毁之后，service也自然销毁。<br>start：先start再bind  </p>
+<pre><code>startService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
+bindService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>,mServiceConnection,BIND_AUTO_CREATE)</span><span class="comment">;</span>
+</code></pre><p>stop：先unbind再stop</p>
+<pre><code>stopService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
+unbindService<span class="list">(<span class="keyword">mServiceConnection</span>)</span><span class="comment">;</span>
+</code></pre><p>service和Activity联系起来（Activity中）</p>
+<pre><code><span class="keyword">private</span> ServiceConnection mServiceConnection = <span class="keyword">new</span> ServiceConnection(){
+
+       <span class="annotation">@Override</span>
+       <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onServiceConnected</span><span class="params">(ComponentName name, IBinder service)</span> </span>{
+
+           MusicService.LocalBinder localBinder = (MusicService.LocalBinder) service;
+
+           mMusicService = localBinder.getService();
+
+       }
+
+       <span class="annotation">@Override</span>
+       <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onServiceDisconnected</span><span class="params">(ComponentName name)</span> </span>{
+
+       }
+   };
+</code></pre><p>Service中</p>
+<pre><code> <span class="annotation">@Nullable</span>
+<span class="annotation">@Override</span>
+public <span class="type">IBinder</span> onBind(<span class="type">Intent</span> intent) {
+    <span class="keyword">return</span> mIBinder;
+}
+
+public <span class="class"><span class="keyword">class</span> <span class="title">LocalBinder</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Binder</span> {</span>
+
+    <span class="type">MusicService</span> getService() {
+        <span class="keyword">return</span> <span class="type">MusicService</span>.<span class="keyword">this</span>;
+    }
+}
+</code></pre><h3 id="IntentService">IntentService</h3><p>一个异步处理的service</p>
+<p>要注意的是，service中也不能进行耗时的操作。service既不是线程也不是进程，它在一个进程中，也在一个线程中（UI线程）。如果要进行耗时的操作也要新开一个线程。</p>
+<pre><code> <span class="annotation">@Override</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>{
+
+    <span class="comment">// do more works  UI 线程  &gt;10秒  --&gt;ANR</span>
+
+    Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() {
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{
+
+        }
+    });
+
+    thread.start();
+
+    <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onStartCommand</span><span class="params">(intent, flags, startId)</span></span>;
+}
+
+<span class="annotation">@Override</span>
+<span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onHandleIntent</span><span class="params">(Intent intent)</span> </span>{
+     <span class="comment">// 排队 --》像MessageQueue 同步操作：排队领书 、处理Intent数据</span>
+
+
+}
+</code></pre><h3 id="在什么场景下使用">在什么场景下使用</h3><ul>
+<li>如果想把任务按照队列来分配的时候就用IntentService，单独的后台服务，比如播放一首歌，就用Service。</li>
+</ul>
 
       
 	-->
 	    
         <div id="toc" class="toc-article">
     <div class="toc-title">Menu</div>
-    
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Service"><span class="toc-text">Service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动方式"><span class="toc-text">启动方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IntentService"><span class="toc-text">IntentService</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在什么场景下使用"><span class="toc-text">在什么场景下使用</span></a></li></ol>
 </div>
       
-        <blockquote>
-<p>关于Service</p>
-</blockquote>
-<p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
+        <h3 id="Service">Service</h3><p>A service is an application component that can perform long-running operations in the background and dose not provide user interface.</p>
 <p>-&gt;Service是一个可以长时间在后台运行的应用组件，并且它不提供任何用户接口（界面）。</p>
 <ul>
 <li>A service is not a separate process.</li>
@@ -273,12 +323,74 @@ A ser">
 -&gt;service不是一个单独的进程也不是一个线程。</li>
 </ul>
 <p>它比Activity有更高的优先级，系统不到万不得已不会杀死它。</p>
-<p>###启动方式</p>
-<p><strong>1.Start</strong></p>
+<h3 id="启动方式">启动方式</h3><p><strong>1.Start</strong></p>
 <p>Simple like this :  </p>
 <pre><code>startService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
 </code></pre><p><strong>2.bind</strong></p>
-<p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。</p>
+<p>使用bind方法和start方法的区别在于，首先onstop是不能停止service的，首先要unbind。使用bind是为了和activity进行数据的交互。<br>使用绑定的好处在于，绑定之后service和activity为一体，当activity销毁之后，service也自然销毁。<br>start：先start再bind  </p>
+<pre><code>startService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
+bindService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>,mServiceConnection,BIND_AUTO_CREATE)</span><span class="comment">;</span>
+</code></pre><p>stop：先unbind再stop</p>
+<pre><code>stopService<span class="list">(<span class="keyword">new</span> Intent<span class="list">(<span class="keyword">MusicActivity</span>.this,MusicService.class)</span>)</span><span class="comment">;</span>
+unbindService<span class="list">(<span class="keyword">mServiceConnection</span>)</span><span class="comment">;</span>
+</code></pre><p>service和Activity联系起来（Activity中）</p>
+<pre><code><span class="keyword">private</span> ServiceConnection mServiceConnection = <span class="keyword">new</span> ServiceConnection(){
+
+       <span class="annotation">@Override</span>
+       <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onServiceConnected</span><span class="params">(ComponentName name, IBinder service)</span> </span>{
+
+           MusicService.LocalBinder localBinder = (MusicService.LocalBinder) service;
+
+           mMusicService = localBinder.getService();
+
+       }
+
+       <span class="annotation">@Override</span>
+       <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onServiceDisconnected</span><span class="params">(ComponentName name)</span> </span>{
+
+       }
+   };
+</code></pre><p>Service中</p>
+<pre><code> <span class="annotation">@Nullable</span>
+<span class="annotation">@Override</span>
+public <span class="type">IBinder</span> onBind(<span class="type">Intent</span> intent) {
+    <span class="keyword">return</span> mIBinder;
+}
+
+public <span class="class"><span class="keyword">class</span> <span class="title">LocalBinder</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">Binder</span> {</span>
+
+    <span class="type">MusicService</span> getService() {
+        <span class="keyword">return</span> <span class="type">MusicService</span>.<span class="keyword">this</span>;
+    }
+}
+</code></pre><h3 id="IntentService">IntentService</h3><p>一个异步处理的service</p>
+<p>要注意的是，service中也不能进行耗时的操作。service既不是线程也不是进程，它在一个进程中，也在一个线程中（UI线程）。如果要进行耗时的操作也要新开一个线程。</p>
+<pre><code> <span class="annotation">@Override</span>
+<span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>{
+
+    <span class="comment">// do more works  UI 线程  &gt;10秒  --&gt;ANR</span>
+
+    Thread thread = <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() {
+        <span class="annotation">@Override</span>
+        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>{
+
+        }
+    });
+
+    thread.start();
+
+    <span class="function"><span class="keyword">return</span> <span class="keyword">super</span>.<span class="title">onStartCommand</span><span class="params">(intent, flags, startId)</span></span>;
+}
+
+<span class="annotation">@Override</span>
+<span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onHandleIntent</span><span class="params">(Intent intent)</span> </span>{
+     <span class="comment">// 排队 --》像MessageQueue 同步操作：排队领书 、处理Intent数据</span>
+
+
+}
+</code></pre><h3 id="在什么场景下使用">在什么场景下使用</h3><ul>
+<li>如果想把任务按照队列来分配的时候就用IntentService，单独的后台服务，比如播放一首歌，就用Service。</li>
+</ul>
 
       
 	  
