@@ -213,7 +213,8 @@
 <li><p>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
 </li>
 <li><p>Widget的配置xml，setting_widget.xml</p>
-<p> <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:initiallayout="@layout/layout_widget" android:minheight="140dp" android:minwidth="140dp" android:previewimage="@drawable/gege" android:updateperiodmillis="20000" android:widgetcategory="home_screen"><br> </appwidget-provider></p>
+<pre><code>&lt;appwidget-provider <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+</code></pre><p>android:layout_width=”match_parent”<br>android:layout_height=”match_parent”<br>android:initialLayout=”@layout/layout_widget”<br>android:minHeight=”140dp”<br>android:minWidth=”140dp”<br>android:previewImage=”@drawable/gege”<br>android:updatePeriodMillis=”20000”<br>android:widgetCategory=”home_screen”<br>&gt;<br></p>
 </li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
 <pre><code>&lt;LinearLayout <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
@@ -264,7 +265,8 @@
 <li><p>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
 </li>
 <li><p>Widget的配置xml，setting_widget.xml</p>
-<p> <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:initiallayout="@layout/layout_widget" android:minheight="140dp" android:minwidth="140dp" android:previewimage="@drawable/gege" android:updateperiodmillis="20000" android:widgetcategory="home_screen"><br> </appwidget-provider></p>
+<pre><code>&lt;appwidget-provider <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+</code></pre><p>android:layout_width=”match_parent”<br>android:layout_height=”match_parent”<br>android:initialLayout=”@layout/layout_widget”<br>android:minHeight=”140dp”<br>android:minWidth=”140dp”<br>android:previewImage=”@drawable/gege”<br>android:updatePeriodMillis=”20000”<br>android:widgetCategory=”home_screen”<br>&gt;<br></p>
 </li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
 <pre><code>&lt;LinearLayout <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
