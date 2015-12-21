@@ -17,7 +17,7 @@
 如何创建一个class三个xml
 
 新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，">
-<meta property="og:updated_time" content="2015-12-21T03:56:16.373Z">
+<meta property="og:updated_time" content="2015-12-21T03:57:41.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android08_Widget">
 <meta name="twitter:description" content="What is Widget窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等
@@ -239,11 +239,38 @@
 <p> <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:initiallayout="@layout/layout_widget" android:minheight="140dp" android:minwidth="140dp" android:previewimage="@drawable/gege" android:updateperiodmillis="20000" android:widgetcategory="home_screen"><br> </appwidget-provider></p>
 </li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
- <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"><br><br> <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:textappearance="?android:attr/textAppearanceLarge" android:text="Large Text" android:id="@+id/widget_text_view" android:layout_gravity="center_horizontal"><br><br> <button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Button" android:id="@+id/widget_button" android:layout_gravity="center_horizontal"><br> </button></textview></linearlayout>
-</li>
+<pre><code>&lt;LinearLayout <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+<span class="label">  android:</span>orientation=<span class="string">"vertical"</span>
+<span class="label">  android:</span>layout_width=<span class="string">"match_parent"</span>
+<span class="label">  android:</span>layout_height=<span class="string">"match_parent"</span>&gt;
+
+&lt;TextView
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>textAppearance=<span class="string">"?android:attr/textAppearanceLarge"</span>
+<span class="string">android:</span>text=<span class="string">"Large Text"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_text_view"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+
+&lt;Button
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>text=<span class="string">"New Button"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_button"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+&lt;/LinearLayout&gt;
+</code></pre></li>
 <li><p>在AndroidManifest.xml中注册</p>
- <receiver android:name=".TestWidget"><br> <intent-filter><br> <action android:name="android.appwidget.action.APPWIDGET_UPDATE"><br> </action></intent-filter><br> <meta-data android:name="android.appwidget.provider" android:resource="@layout/setting_widget"><br> </meta-data><br> </receiver>
-</li>
+<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.provider"</span>
+<span class="attribute">android:resource</span>=<span class="value">"@layout/setting_widget"</span>
+&gt;</span>
+<span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre></li>
 </ol>
 
       
@@ -263,11 +290,38 @@
 <p> <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:initiallayout="@layout/layout_widget" android:minheight="140dp" android:minwidth="140dp" android:previewimage="@drawable/gege" android:updateperiodmillis="20000" android:widgetcategory="home_screen"><br> </appwidget-provider></p>
 </li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
- <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"><br><br> <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:textappearance="?android:attr/textAppearanceLarge" android:text="Large Text" android:id="@+id/widget_text_view" android:layout_gravity="center_horizontal"><br><br> <button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Button" android:id="@+id/widget_button" android:layout_gravity="center_horizontal"><br> </button></textview></linearlayout>
-</li>
+<pre><code>&lt;LinearLayout <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+<span class="label">  android:</span>orientation=<span class="string">"vertical"</span>
+<span class="label">  android:</span>layout_width=<span class="string">"match_parent"</span>
+<span class="label">  android:</span>layout_height=<span class="string">"match_parent"</span>&gt;
+
+&lt;TextView
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>textAppearance=<span class="string">"?android:attr/textAppearanceLarge"</span>
+<span class="string">android:</span>text=<span class="string">"Large Text"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_text_view"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+
+&lt;Button
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>text=<span class="string">"New Button"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_button"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+&lt;/LinearLayout&gt;
+</code></pre></li>
 <li><p>在AndroidManifest.xml中注册</p>
- <receiver android:name=".TestWidget"><br> <intent-filter><br> <action android:name="android.appwidget.action.APPWIDGET_UPDATE"><br> </action></intent-filter><br> <meta-data android:name="android.appwidget.provider" android:resource="@layout/setting_widget"><br> </meta-data><br> </receiver>
-</li>
+<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.provider"</span>
+<span class="attribute">android:resource</span>=<span class="value">"@layout/setting_widget"</span>
+&gt;</span>
+<span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre></li>
 </ol>
 
       
