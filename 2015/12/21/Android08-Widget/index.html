@@ -7,20 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="What is Widget窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等
 如何创建一个class三个xml
-1.新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题">
+1.新建 TestWidget 继承自 AppWidgetProvider可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android08_Widget">
 <meta property="og:url" content="http://yoursite.com/2015/12/21/Android08-Widget/index.html">
 <meta property="og:site_name" content="GentleNi">
 <meta property="og:description" content="What is Widget窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等
 如何创建一个class三个xml
-1.新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题">
-<meta property="og:updated_time" content="2015-12-21T04:11:27.382Z">
+1.新建 TestWidget 继承自 AppWidgetProvider可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，">
+<meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/android08_widget2.png">
+<meta property="og:updated_time" content="2015-12-21T04:26:18.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android08_Widget">
 <meta name="twitter:description" content="What is Widget窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等
 如何创建一个class三个xml
-1.新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题">
+1.新建 TestWidget 继承自 AppWidgetProvider可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -229,7 +230,8 @@
     	
         <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
 <h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
-<h4 id="1-新建_TestWidget_继承自_AppWidgetProvider,可见_Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。">1.新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</h4><h4 id="2-Widget的配置xml，setting_widget-xml">2.Widget的配置xml，setting_widget.xml</h4><pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+<h4 id="1-新建_TestWidget_继承自_AppWidgetProvider">1.新建 TestWidget 继承自 AppWidgetProvider</h4><p>可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
+<h4 id="2-Widget的配置xml，setting_widget-xml">2.Widget的配置xml，setting_widget.xml</h4><pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
                     <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
                     <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
                     <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
@@ -261,9 +263,7 @@
 <span class="string">android:</span>id=<span class="string">"@+id/widget_button"</span>
 <span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
 &lt;/LinearLayout&gt;
-</code></pre><ol>
-<li><p>在AndroidManifest.xml中注册</p>
-<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+</code></pre><h4 id="4-在AndroidManifest-xml中注册">4.在AndroidManifest.xml中注册</h4><pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
 <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
 <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
 <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
@@ -272,20 +272,20 @@
 &gt;</span>
 <span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
-</code></pre></li>
-</ol>
+</code></pre><p>Okay.<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android08_widget2.png" alt=""></p>
 
       
 	-->
 	    
         <div id="toc" class="toc-article">
     <div class="toc-title">Menu</div>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What_is_Widget"><span class="toc-text">What is Widget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何创建"><span class="toc-text">如何创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-新建_TestWidget_继承自_AppWidgetProvider,可见_Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。"><span class="toc-text">1.新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Widget的配置xml，setting_widget-xml"><span class="toc-text">2.Widget的配置xml，setting_widget.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Widget的布局文件_layout_widget-xml"><span class="toc-text">3.Widget的布局文件 layout_widget.xml</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What_is_Widget"><span class="toc-text">What is Widget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何创建"><span class="toc-text">如何创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-新建_TestWidget_继承自_AppWidgetProvider"><span class="toc-text">1.新建 TestWidget 继承自 AppWidgetProvider</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Widget的配置xml，setting_widget-xml"><span class="toc-text">2.Widget的配置xml，setting_widget.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Widget的布局文件_layout_widget-xml"><span class="toc-text">3.Widget的布局文件 layout_widget.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-在AndroidManifest-xml中注册"><span class="toc-text">4.在AndroidManifest.xml中注册</span></a></li></ol></li></ol>
 </div>
       
         <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
 <h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
-<h4 id="1-新建_TestWidget_继承自_AppWidgetProvider,可见_Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。">1.新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</h4><h4 id="2-Widget的配置xml，setting_widget-xml">2.Widget的配置xml，setting_widget.xml</h4><pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+<h4 id="1-新建_TestWidget_继承自_AppWidgetProvider">1.新建 TestWidget 继承自 AppWidgetProvider</h4><p>可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
+<h4 id="2-Widget的配置xml，setting_widget-xml">2.Widget的配置xml，setting_widget.xml</h4><pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
                     <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
                     <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
                     <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
@@ -317,9 +317,7 @@
 <span class="string">android:</span>id=<span class="string">"@+id/widget_button"</span>
 <span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
 &lt;/LinearLayout&gt;
-</code></pre><ol>
-<li><p>在AndroidManifest.xml中注册</p>
-<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+</code></pre><h4 id="4-在AndroidManifest-xml中注册">4.在AndroidManifest.xml中注册</h4><pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
 <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
 <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
 <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
@@ -328,8 +326,7 @@
 &gt;</span>
 <span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
 <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
-</code></pre></li>
-</ol>
+</code></pre><p>Okay.<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android08_widget2.png" alt=""></p>
 
       
 	  
