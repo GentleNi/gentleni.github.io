@@ -179,6 +179,149 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Android08-Widget" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/21/Android08-Widget/" class="article-date">
+  	<time datetime="2015-12-21T02:44:17.000Z" itemprop="datePublished">12/21/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/21/Android08-Widget/">Android08_Widget</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
+<h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
+<ol>
+<li>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</li>
+</ol>
+<ol>
+<li><p>Widget的配置xml，setting_widget.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+
+            <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
+            <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
+            <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
+            <span class="attribute">android:minHeight</span>=<span class="value">"140dp"</span>
+            <span class="attribute">android:minWidth</span>=<span class="value">"140dp"</span>
+            <span class="attribute">android:previewImage</span>=<span class="value">"@drawable/gege"</span>
+            <span class="attribute">android:updatePeriodMillis</span>=<span class="value">"20000"</span>
+            <span class="attribute">android:widgetCategory</span>=<span class="value">"home_screen"</span>
+            &gt;</span>
+
+<span class="tag">&lt;/<span class="title">appwidget-provider</span>&gt;</span>
+</code></pre></li>
+<li><p>Widget的布局文件 layout_widget.xml</p>
+ <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"><br><br>     <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:textappearance="?android:attr/textAppearanceLarge" android:text="Large Text" android:id="@+id/widget_text_view" android:layout_gravity="center_horizontal"><br><br>     <button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Button" android:id="@+id/widget_button" android:layout_gravity="center_horizontal"><br> </button></textview></linearlayout>
+</li>
+<li><p>在AndroidManifest.xml中注册</p>
+<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+             <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
+         <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.provider"</span>
+             <span class="attribute">android:resource</span>=<span class="value">"@layout/setting_widget"</span>
+             &gt;</span>
+         <span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
+     <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre></li>
+</ol>
+
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What_is_Widget"><span class="toc-text">What is Widget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何创建"><span class="toc-text">如何创建</span></a></li></ol>
+</div>
+      
+        <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
+<h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
+<ol>
+<li>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</li>
+</ol>
+<ol>
+<li><p>Widget的配置xml，setting_widget.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+
+            <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
+            <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
+            <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
+            <span class="attribute">android:minHeight</span>=<span class="value">"140dp"</span>
+            <span class="attribute">android:minWidth</span>=<span class="value">"140dp"</span>
+            <span class="attribute">android:previewImage</span>=<span class="value">"@drawable/gege"</span>
+            <span class="attribute">android:updatePeriodMillis</span>=<span class="value">"20000"</span>
+            <span class="attribute">android:widgetCategory</span>=<span class="value">"home_screen"</span>
+            &gt;</span>
+
+<span class="tag">&lt;/<span class="title">appwidget-provider</span>&gt;</span>
+</code></pre></li>
+<li><p>Widget的布局文件 layout_widget.xml</p>
+ <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"><br><br>     <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:textappearance="?android:attr/textAppearanceLarge" android:text="Large Text" android:id="@+id/widget_text_view" android:layout_gravity="center_horizontal"><br><br>     <button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Button" android:id="@+id/widget_button" android:layout_gravity="center_horizontal"><br> </button></textview></linearlayout>
+</li>
+<li><p>在AndroidManifest.xml中注册</p>
+<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+             <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
+         <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+         <span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.provider"</span>
+             <span class="attribute">android:resource</span>=<span class="value">"@layout/setting_widget"</span>
+             &gt;</span>
+         <span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
+     <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre></li>
+</ol>
+
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-Android07-Intent-and-IntentFilter" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -1092,86 +1235,6 @@ startActivity(<span class="type">intent</span>);
       
         <p class="article-more-link">
           <a  href="/2015/11/28/Android03自定义视图/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-yutou" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/yutou/" class="article-date">
-  	<time datetime="2015-11-27T01:33:49.000Z" itemprop="datePublished">11/27/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/yutou/">yutou</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>臧云吉是SB  </p>
-</blockquote>
-<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
-<p><em>这是斜体</em></p>
-<p><strong>这是粗体</strong><br>
-      
-	-->
-	     
-        <blockquote>
-<p>臧云吉是SB  </p>
-</blockquote>
-<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
-<p><em>这是斜体</em></p>
-<p><strong>这是粗体</strong><br>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/blog/">blog</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/27/yutou/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
