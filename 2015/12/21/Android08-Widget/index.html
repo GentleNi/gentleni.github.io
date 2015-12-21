@@ -17,7 +17,7 @@
 如何创建一个class三个xml
 
 新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，">
-<meta property="og:updated_time" content="2015-12-21T03:31:58.375Z">
+<meta property="og:updated_time" content="2015-12-21T03:45:36.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android08_Widget">
 <meta name="twitter:description" content="What is Widget窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等
@@ -233,15 +233,21 @@
         <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
 <h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
 <ol>
-<li>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</li>
-</ol>
-<a id="more"></a>
-<ol>
-<li><p>Widget的配置xml，setting_widget.xml</p>
- <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:initiallayout="@layout/layout_widget" android:minheight="140dp" android:minwidth="140dp" android:previewimage="@drawable/gege" android:updateperiodmillis="20000" android:widgetcategory="home_screen">
-
-<p> </p></appwidget-provider><p></p>
+<li><p>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
 </li>
+<li><p>Widget的配置xml，setting_widget.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+                    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
+                    <span class="attribute">android:minHeight</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:minWidth</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:previewImage</span>=<span class="value">"@drawable/gege"</span>
+                    <span class="attribute">android:updatePeriodMillis</span>=<span class="value">"20000"</span>
+                    <span class="attribute">android:widgetCategory</span>=<span class="value">"home_screen"</span>
+    &gt;</span>
+<span class="tag">&lt;/<span class="title">appwidget-provider</span>&gt;</span>
+</code></pre></li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
 <pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
               android:orientation=<span class="string">"vertical"</span>
@@ -288,15 +294,21 @@
         <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
 <h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
 <ol>
-<li>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</li>
-</ol>
-<a id="more"></a>
-<ol>
-<li><p>Widget的配置xml，setting_widget.xml</p>
- <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:initiallayout="@layout/layout_widget" android:minheight="140dp" android:minwidth="140dp" android:previewimage="@drawable/gege" android:updateperiodmillis="20000" android:widgetcategory="home_screen">
-
-<p> </p></appwidget-provider><p></p>
+<li><p>新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
 </li>
+<li><p>Widget的配置xml，setting_widget.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+                    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
+                    <span class="attribute">android:minHeight</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:minWidth</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:previewImage</span>=<span class="value">"@drawable/gege"</span>
+                    <span class="attribute">android:updatePeriodMillis</span>=<span class="value">"20000"</span>
+                    <span class="attribute">android:widgetCategory</span>=<span class="value">"home_screen"</span>
+    &gt;</span>
+<span class="tag">&lt;/<span class="title">appwidget-provider</span>&gt;</span>
+</code></pre></li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
 <pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
               android:orientation=<span class="string">"vertical"</span>
