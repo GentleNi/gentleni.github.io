@@ -17,7 +17,7 @@
 如何创建一个class三个xml
 
 新建 TestWidget 继承自 AppWidgetProvider,可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，">
-<meta property="og:updated_time" content="2015-12-21T03:31:15.411Z">
+<meta property="og:updated_time" content="2015-12-21T03:31:58.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android08_Widget">
 <meta name="twitter:description" content="What is Widget窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等
@@ -243,8 +243,27 @@
 <p> </p></appwidget-provider><p></p>
 </li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
- <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"><br><br>     <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:textappearance="?android:attr/textAppearanceLarge" android:text="Large Text" android:id="@+id/widget_text_view" android:layout_gravity="center_horizontal"><br><br>     <button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Button" android:id="@+id/widget_button" android:layout_gravity="center_horizontal"><br> </button></textview></linearlayout>
-</li>
+<pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+              android:orientation=<span class="string">"vertical"</span>
+              android:layout_width=<span class="string">"match_parent"</span>
+              android:layout_height=<span class="string">"match_parent"</span>&gt;
+
+    &lt;TextView
+        android:layout_width=<span class="string">"wrap_content"</span>
+        android:layout_height=<span class="string">"wrap_content"</span>
+        android:textAppearance=<span class="string">"?android:attr/textAppearanceLarge"</span>
+        android:<span class="type">text</span>=<span class="string">"Large Text"</span>
+        android:<span class="property">id</span>=<span class="string">"@+id/widget_text_view"</span>
+        android:layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+
+    &lt;Button
+        android:layout_width=<span class="string">"wrap_content"</span>
+        android:layout_height=<span class="string">"wrap_content"</span>
+        android:<span class="type">text</span>=<span class="string">"New Button"</span>
+        android:<span class="property">id</span>=<span class="string">"@+id/widget_button"</span>
+        android:layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+&lt;/LinearLayout&gt;
+</code></pre></li>
 <li><p>在AndroidManifest.xml中注册</p>
 <pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
          <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
@@ -279,8 +298,27 @@
 <p> </p></appwidget-provider><p></p>
 </li>
 <li><p>Widget的布局文件 layout_widget.xml</p>
- <linearlayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"><br><br>     <textview android:layout_width="wrap_content" android:layout_height="wrap_content" android:textappearance="?android:attr/textAppearanceLarge" android:text="Large Text" android:id="@+id/widget_text_view" android:layout_gravity="center_horizontal"><br><br>     <button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="New Button" android:id="@+id/widget_button" android:layout_gravity="center_horizontal"><br> </button></textview></linearlayout>
-</li>
+<pre><code>&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+              android:orientation=<span class="string">"vertical"</span>
+              android:layout_width=<span class="string">"match_parent"</span>
+              android:layout_height=<span class="string">"match_parent"</span>&gt;
+
+    &lt;TextView
+        android:layout_width=<span class="string">"wrap_content"</span>
+        android:layout_height=<span class="string">"wrap_content"</span>
+        android:textAppearance=<span class="string">"?android:attr/textAppearanceLarge"</span>
+        android:<span class="type">text</span>=<span class="string">"Large Text"</span>
+        android:<span class="property">id</span>=<span class="string">"@+id/widget_text_view"</span>
+        android:layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+
+    &lt;Button
+        android:layout_width=<span class="string">"wrap_content"</span>
+        android:layout_height=<span class="string">"wrap_content"</span>
+        android:<span class="type">text</span>=<span class="string">"New Button"</span>
+        android:<span class="property">id</span>=<span class="string">"@+id/widget_button"</span>
+        android:layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+&lt;/LinearLayout&gt;
+</code></pre></li>
 <li><p>在AndroidManifest.xml中注册</p>
 <pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
          <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
