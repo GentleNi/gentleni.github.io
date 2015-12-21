@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/13/Android07-Intent-and-IntentFilter/index.html">
 <meta property="og:site_name" content="GentleNi">
 <meta property="og:description" content="在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receive">
-<meta property="og:updated_time" content="2015-12-13T01:24:54.625Z">
+<meta property="og:updated_time" content="2015-12-21T03:29:48.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android07_Intent-and-IntentFilter（转）">
 <meta name="twitter:description" content="在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receive">
@@ -221,8 +221,7 @@
     <div class="article-entry" itemprop="articleBody">
    	<!--
     	
-        <p>在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receiver，都是使用称为intent的消息来”激活”的。对于向这三种组件发送intent有不同的机制:</p>
-<p>使用Context.startActivity() 或 Activity.startActivityForResult(), 传入一个intent来启动一个Activity. 使用 Activity.setResult(), 传入一个intent来从Activity中返回结果.</p>
+        <p>在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receiver，都是使用称为intent的消息来”激活”的。对于向这三种组件发送intent有不同的机制:<br><a id="more"></a><br>使用Context.startActivity() 或 Activity.startActivityForResult(), 传入一个intent来启动一个Activity. 使用 Activity.setResult(), 传入一个intent来从Activity中返回结果.</p>
 <p>将intent对象传给Context.startService()来启动一个Service或者传消息给一个运行的Service. 将intent对象传给 Context.bindService()来绑定一个Service.</p>
 <p>将intent对象传给 Context.sendBroadcast(), Context.sendOrderedBroadcast(),或者Context.sendStickyBroadcast()等广播方法,则它们被传给 Broadcast Receiver.</p>
 <p>在上述三种情况下, Android系统会自己找到合适的Activity, Service, 或者 Broadcast Receivers来响应Intent. 三者的Intent相互独立互不干扰.也许有人会问，比如说在Android中启动另一个Activity完全可以直接使用Context.startActivity(Class startClass)的方式来启动一个Activity，为什么还需要使用Intent？其实这种方法虽然简单，去背离了Android设计的初衷，Android使用Intent封装程序的“调用意图”，不管是启动一个Activity或是一个Service或者是启动一个BroadcastReceiver，都可以使用统一的Intent这种“启动意图”，这样就使用了一致的编程模型，也是一种高层次的“解耦”。</p>
@@ -273,8 +272,7 @@ startActivity(<span class="type">intent</span>);
     <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、Intent简介"><span class="toc-text">1、Intent简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#（1）组件名称"><span class="toc-text">（1）组件名称</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#（2）Action"><span class="toc-text">（2）Action</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#(3)Data"><span class="toc-text">(3)Data</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-IntentFilter的简介"><span class="toc-text">2.IntentFilter的简介</span></a></li></ol>
 </div>
       
-        <p>在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receiver，都是使用称为intent的消息来”激活”的。对于向这三种组件发送intent有不同的机制:</p>
-<p>使用Context.startActivity() 或 Activity.startActivityForResult(), 传入一个intent来启动一个Activity. 使用 Activity.setResult(), 传入一个intent来从Activity中返回结果.</p>
+        <p>在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receiver，都是使用称为intent的消息来”激活”的。对于向这三种组件发送intent有不同的机制:<br><a id="more"></a><br>使用Context.startActivity() 或 Activity.startActivityForResult(), 传入一个intent来启动一个Activity. 使用 Activity.setResult(), 传入一个intent来从Activity中返回结果.</p>
 <p>将intent对象传给Context.startService()来启动一个Service或者传消息给一个运行的Service. 将intent对象传给 Context.bindService()来绑定一个Service.</p>
 <p>将intent对象传给 Context.sendBroadcast(), Context.sendOrderedBroadcast(),或者Context.sendStickyBroadcast()等广播方法,则它们被传给 Broadcast Receiver.</p>
 <p>在上述三种情况下, Android系统会自己找到合适的Activity, Service, 或者 Broadcast Receivers来响应Intent. 三者的Intent相互独立互不干扰.也许有人会问，比如说在Android中启动另一个Activity完全可以直接使用Context.startActivity(Class startClass)的方式来启动一个Activity，为什么还需要使用Intent？其实这种方法虽然简单，去背离了Android设计的初衷，Android使用Intent封装程序的“调用意图”，不管是启动一个Activity或是一个Service或者是启动一个BroadcastReceiver，都可以使用统一的Intent这种“启动意图”，这样就使用了一致的编程模型，也是一种高层次的“解耦”。</p>
