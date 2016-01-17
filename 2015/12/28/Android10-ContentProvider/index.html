@@ -3,36 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android 01自定义视图预 | GentleNi</title>
+  <title>Android10_ContentProvider | GentleNi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="是什么？
+  <meta name="description" content="####Content Provider
 
-px dp sp
-px：像素点
-dp：像素密度
-sp：相当于dp，但是修饰文字
-dip=dp">
+应用程序之间共享数据的一种方式
+为存储和获取数据提供了统一的接口
+类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)
+数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。
+应用程序并不直接调用这些方法，而">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 01自定义视图预">
-<meta property="og:url" content="http://yoursite.com/2015/11/27/Android01自定义视图预/index.html">
+<meta property="og:title" content="Android10_ContentProvider">
+<meta property="og:url" content="http://yoursite.com/2015/12/28/Android10-ContentProvider/index.html">
 <meta property="og:site_name" content="GentleNi">
-<meta property="og:description" content="是什么？
+<meta property="og:description" content="####Content Provider
 
-px dp sp
-px：像素点
-dp：像素密度
-sp：相当于dp，但是修饰文字
-dip=dp">
-<meta property="og:updated_time" content="2015-11-27T11:48:04.969Z">
+应用程序之间共享数据的一种方式
+为存储和获取数据提供了统一的接口
+类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)
+数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。
+应用程序并不直接调用这些方法，而">
+<meta property="og:updated_time" content="2015-12-28T08:47:44.790Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 01自定义视图预">
-<meta name="twitter:description" content="是什么？
+<meta name="twitter:title" content="Android10_ContentProvider">
+<meta name="twitter:description" content="####Content Provider
 
-px dp sp
-px：像素点
-dp：像素密度
-sp：相当于dp，但是修饰文字
-dip=dp">
+应用程序之间共享数据的一种方式
+为存储和获取数据提供了统一的接口
+类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)
+数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。
+应用程序并不直接调用这些方法，而">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -196,11 +196,11 @@ dip=dp">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Android01自定义视图预" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android10-ContentProvider" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/11/27/Android01自定义视图预/" class="article-date">
-  	<time datetime="2015-11-27T01:29:25.000Z" itemprop="datePublished">11/27/2015</time>
+      <a href="/2015/12/28/Android10-ContentProvider/" class="article-date">
+  	<time datetime="2015-12-28T07:07:07.000Z" itemprop="datePublished">12/28/2015</time>
 </a>
     </div>
   
@@ -213,7 +213,7 @@ dip=dp">
         
   
     <h1 class="article-title" itemprop="name">
-      Android 01自定义视图预
+      Android10_ContentProvider
     </h1>
   
 
@@ -226,10 +226,6 @@ dip=dp">
 	</div>
 
         
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
 
         <div class="clearfix"></div>
       </div>
@@ -239,111 +235,49 @@ dip=dp">
     <div class="article-entry" itemprop="articleBody">
    	<!--
     	
-        <blockquote>
-<p>是什么？</p>
-</blockquote>
-<h3 id="px_dp_sp">px dp sp</h3><ul>
-<li>px：像素点</li>
-<li>dp：像素密度</li>
-<li>sp：相当于dp，但是修饰文字</li>
-<li>dip=dp</li>
-</ul>
-<a id="more"></a>
-<blockquote>
-<p>怎么用</p>
-</blockquote>
+        <p>####Content Provider</p>
 <ul>
-<li>文字一律用sp</li>
-<li>非文字一律用dp</li>
-<li>偶尔用sp，比如需要画一条分割线</li>
-<li><pre><code>&lt;View&gt; 
-<span class="label">android:</span>layout_width=<span class="string">"matchparent"</span>
-<span class="label">android:</span>layout_height=<span class="string">"1px"</span>
-<span class="label">android:</span>background=<span class="string">"@color/white"</span>
-&lt;/View&gt;
-</code></pre><p>###res:dpi、mdpi、hdpi、xhdpi、xxhdpi、xxxhdpi<br>代表几倍的关系，比如h代表1倍图，xh1.5倍图、xxh2.5倍图。</p>
-</li>
-<li><p>hdpi：72X72  </p>
-</li>
-<li>mdpi：48X48  </li>
-<li>xhdpi：96X96  </li>
+<li>应用程序之间共享数据的一种方式</li>
+<li>为存储和获取数据提供了统一的接口</li>
+<li>类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)</li>
+<li>数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。</li>
+<li>应用程序并不直接调用这些方法，而是使用ContentResolver对象，调用它的方法作为替代。</li>
 </ul>
-<p>###Inflater<br>作用：把xml文件解析成视图(View)<br>使用：三种方法</p>
-<p>######获得LaytoutInflater</p>
+<p>####UriMatcher</p>
 <ul>
-<li>getLayoutInflater();</li>
-<li>getSystemService(LAYOUT_INFLATER_SERVICE);</li>
-<li>LayoutInflater.from(context);</li>
+<li><p>uri用于指定哪一个数据源，当一个数据源含有多个内容（比如多个表），就需要用不同的Uri进行区分</p>
+</li>
+<li><p>这时候使用UriMatcher就可以帮助我们方便的过滤到TableA还是TableB, 然后进行下一步查询</p>
+</li>
+<li><p>UriMatcher本质上是一个文本过滤器，用在contentProvider中帮助我们过滤，分辨出查询者想要查询哪个数据表</p>
+</li>
 </ul>
-<p>###提取布局属性:theme&amp;style<br>把共同的属性提取出来<br>在style中添加style，在View或者布局中引用</p>
-<pre><code>&lt;style name=<span class="string">"CustomTextView"</span>&gt;
-    &lt;item name=<span class="string">"android:background"</span>&gt;@<span class="attribute">color</span>/red&lt;/item&gt;
-    &lt;item name=<span class="string">"android:textSize"</span>&gt;<span class="number">26s</span>p&lt;/item&gt;
-    &lt;item name=<span class="string">"android:textColor"</span>&gt;<span class="hexcolor">#f9d004</span>&lt;/item&gt;
-&lt;/style&gt;
-
-&lt;style name=<span class="string">"StudyTextView"</span> parent=<span class="string">"CustomTextView"</span>&gt;
-   &lt;item name=<span class="string">"android:background"</span>&gt;<span class="hexcolor">#000000</span>&lt;/item&gt;
-    &lt;item name=<span class="string">"android:gravity"</span>&gt;<span class="attribute">right</span>&lt;/item&gt;
-&lt;/style&gt;  
-</code></pre><p>像类一样，style可以继承，也可以覆盖item中的属性</p>
 
       
 	-->
 	    
         <div id="toc" class="toc-article">
     <div class="toc-title">Menu</div>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#px_dp_sp"><span class="toc-text">px dp sp</span></a></li></ol>
+    
 </div>
       
-        <blockquote>
-<p>是什么？</p>
-</blockquote>
-<h3 id="px_dp_sp">px dp sp</h3><ul>
-<li>px：像素点</li>
-<li>dp：像素密度</li>
-<li>sp：相当于dp，但是修饰文字</li>
-<li>dip=dp</li>
-</ul>
-<a id="more"></a>
-<blockquote>
-<p>怎么用</p>
-</blockquote>
+        <p>####Content Provider</p>
 <ul>
-<li>文字一律用sp</li>
-<li>非文字一律用dp</li>
-<li>偶尔用sp，比如需要画一条分割线</li>
-<li><pre><code>&lt;View&gt; 
-<span class="label">android:</span>layout_width=<span class="string">"matchparent"</span>
-<span class="label">android:</span>layout_height=<span class="string">"1px"</span>
-<span class="label">android:</span>background=<span class="string">"@color/white"</span>
-&lt;/View&gt;
-</code></pre><p>###res:dpi、mdpi、hdpi、xhdpi、xxhdpi、xxxhdpi<br>代表几倍的关系，比如h代表1倍图，xh1.5倍图、xxh2.5倍图。</p>
-</li>
-<li><p>hdpi：72X72  </p>
-</li>
-<li>mdpi：48X48  </li>
-<li>xhdpi：96X96  </li>
+<li>应用程序之间共享数据的一种方式</li>
+<li>为存储和获取数据提供了统一的接口</li>
+<li>类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)</li>
+<li>数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。</li>
+<li>应用程序并不直接调用这些方法，而是使用ContentResolver对象，调用它的方法作为替代。</li>
 </ul>
-<p>###Inflater<br>作用：把xml文件解析成视图(View)<br>使用：三种方法</p>
-<p>######获得LaytoutInflater</p>
+<p>####UriMatcher</p>
 <ul>
-<li>getLayoutInflater();</li>
-<li>getSystemService(LAYOUT_INFLATER_SERVICE);</li>
-<li>LayoutInflater.from(context);</li>
+<li><p>uri用于指定哪一个数据源，当一个数据源含有多个内容（比如多个表），就需要用不同的Uri进行区分</p>
+</li>
+<li><p>这时候使用UriMatcher就可以帮助我们方便的过滤到TableA还是TableB, 然后进行下一步查询</p>
+</li>
+<li><p>UriMatcher本质上是一个文本过滤器，用在contentProvider中帮助我们过滤，分辨出查询者想要查询哪个数据表</p>
+</li>
 </ul>
-<p>###提取布局属性:theme&amp;style<br>把共同的属性提取出来<br>在style中添加style，在View或者布局中引用</p>
-<pre><code>&lt;style name=<span class="string">"CustomTextView"</span>&gt;
-    &lt;item name=<span class="string">"android:background"</span>&gt;@<span class="attribute">color</span>/red&lt;/item&gt;
-    &lt;item name=<span class="string">"android:textSize"</span>&gt;<span class="number">26s</span>p&lt;/item&gt;
-    &lt;item name=<span class="string">"android:textColor"</span>&gt;<span class="hexcolor">#f9d004</span>&lt;/item&gt;
-&lt;/style&gt;
-
-&lt;style name=<span class="string">"StudyTextView"</span> parent=<span class="string">"CustomTextView"</span>&gt;
-   &lt;item name=<span class="string">"android:background"</span>&gt;<span class="hexcolor">#000000</span>&lt;/item&gt;
-    &lt;item name=<span class="string">"android:gravity"</span>&gt;<span class="attribute">right</span>&lt;/item&gt;
-&lt;/style&gt;  
-</code></pre><p>像类一样，style可以继承，也可以覆盖item中的属性</p>
 
       
 	  
@@ -355,18 +289,18 @@ dip=dp">
     
 <nav id="article-nav">
   
-    <a href="/2015/11/27/yutou/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/17/Error-INSTALL-FAILED-CONTAINER-ERROR/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          yutou
+          Error_INSTALL_FAILED_CONTAINER_ERROR
         
       </div>
     </a>
   
   
-    <a href="/2015/11/27/Android02自定义视图/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android02自定义视图</div>
+    <a href="/2015/12/25/Android09-sharedPreference/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android09_sharedPreference</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -395,7 +329,7 @@ dip=dp">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Android01自定义视图预" data-title="Android 01自定义视图预" data-url="http://yoursite.com/2015/11/27/Android01自定义视图预/"></div>
+	<div class="ds-thread" data-thread-key="Android10-ContentProvider" data-title="Android10_ContentProvider" data-url="http://yoursite.com/2015/12/28/Android10-ContentProvider/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

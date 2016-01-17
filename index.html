@@ -111,7 +111,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Android笔记/" style="font-size: 20px;">Android笔记</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a>
+						<a href="/tags/Androd笔记/" style="font-size: 10px;">Androd笔记</a> <a href="/tags/Android-Error/" style="font-size: 10px;">Android Error</a> <a href="/tags/Android笔记/" style="font-size: 20px;">Android笔记</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a>
 					</div>
 				</section>
 				
@@ -178,6 +178,261 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Error-INSTALL-FAILED-CONTAINER-ERROR" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/17/Error-INSTALL-FAILED-CONTAINER-ERROR/" class="article-date">
+  	<time datetime="2016-01-17T13:55:57.000Z" itemprop="datePublished">01/17/2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/17/Error-INSTALL-FAILED-CONTAINER-ERROR/">Error_INSTALL_FAILED_CONTAINER_ERROR</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <p>错误提示如下:<br>Installation failed with message INSTALL_FAILED_CONTAINER_ERROR.<br>It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.</p>
+<p>WARNING: Uninstalling will remove the application data!</p>
+<p>Do you want to uninstall the existing application?</p>
+<p>无解的错误，改完好了也dont know why。</p>
+<p>solution：<br>把 Menufest中<br>    <manifest package="com.geekband.Test01" xmlns:android="http://schemas.android.com/apk/res/android" android:versionname="1.0.0" android:installlocation="preferExternal"></manifest></p>
+<p>android:installLocation=”preferExternal”<br>去掉。。。首先我外部存储还有6G。。。不知道为啥先记录一下</p>
+
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    
+</div>
+      
+        <p>错误提示如下:<br>Installation failed with message INSTALL_FAILED_CONTAINER_ERROR.<br>It is possible that this issue is resolved by uninstalling an existing version of the apk if it is present, and then re-installing.</p>
+<p>WARNING: Uninstalling will remove the application data!</p>
+<p>Do you want to uninstall the existing application?</p>
+<p>无解的错误，改完好了也dont know why。</p>
+<p>solution：<br>把 Menufest中<br>    <manifest package="com.geekband.Test01" xmlns:android="http://schemas.android.com/apk/res/android" android:versionname="1.0.0" android:installlocation="preferExternal"></manifest></p>
+<p>android:installLocation=”preferExternal”<br>去掉。。。首先我外部存储还有6G。。。不知道为啥先记录一下</p>
+
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Error/">Android Error</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android10-ContentProvider" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/28/Android10-ContentProvider/" class="article-date">
+  	<time datetime="2015-12-28T07:07:07.000Z" itemprop="datePublished">12/28/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/28/Android10-ContentProvider/">Android10_ContentProvider</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <p>####Content Provider</p>
+<ul>
+<li>应用程序之间共享数据的一种方式</li>
+<li>为存储和获取数据提供了统一的接口</li>
+<li>类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)</li>
+<li>数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。</li>
+<li>应用程序并不直接调用这些方法，而是使用ContentResolver对象，调用它的方法作为替代。</li>
+</ul>
+<p>####UriMatcher</p>
+<ul>
+<li><p>uri用于指定哪一个数据源，当一个数据源含有多个内容（比如多个表），就需要用不同的Uri进行区分</p>
+</li>
+<li><p>这时候使用UriMatcher就可以帮助我们方便的过滤到TableA还是TableB, 然后进行下一步查询</p>
+</li>
+<li><p>UriMatcher本质上是一个文本过滤器，用在contentProvider中帮助我们过滤，分辨出查询者想要查询哪个数据表</p>
+</li>
+</ul>
+
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    
+</div>
+      
+        <p>####Content Provider</p>
+<ul>
+<li>应用程序之间共享数据的一种方式</li>
+<li>为存储和获取数据提供了统一的接口</li>
+<li>类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)</li>
+<li>数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。</li>
+<li>应用程序并不直接调用这些方法，而是使用ContentResolver对象，调用它的方法作为替代。</li>
+</ul>
+<p>####UriMatcher</p>
+<ul>
+<li><p>uri用于指定哪一个数据源，当一个数据源含有多个内容（比如多个表），就需要用不同的Uri进行区分</p>
+</li>
+<li><p>这时候使用UriMatcher就可以帮助我们方便的过滤到TableA还是TableB, 然后进行下一步查询</p>
+</li>
+<li><p>UriMatcher本质上是一个文本过滤器，用在contentProvider中帮助我们过滤，分辨出查询者想要查询哪个数据表</p>
+</li>
+</ul>
+
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android09-sharedPreference" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/25/Android09-sharedPreference/" class="article-date">
+  	<time datetime="2015-12-25T09:27:39.000Z" itemprop="datePublished">12/25/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/25/Android09-sharedPreference/">Android09_sharedPreference</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    
+</div>
+      
+        
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Androd笔记/">Androd笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Android08-Widget" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -948,240 +1203,6 @@
 
 
   
-    <article id="post-JAVA单向链表" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/02/JAVA单向链表/" class="article-date">
-  	<time datetime="2015-12-01T23:31:14.000Z" itemprop="datePublished">12/02/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/02/JAVA单向链表/">JAVA单向链表</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始</p>
-</blockquote>
-      
-	-->
-	     
-        <blockquote>
-<p>数据结构学的时候迷迷糊糊，基本算没学，现开始复习。。从链表开始</p>
-</blockquote>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/02/JAVA单向链表/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android04-Handler" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/29/Android04-Handler/" class="article-date">
-  	<time datetime="2015-11-28T23:05:27.000Z" itemprop="datePublished">11/29/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/29/Android04-Handler/">Android04_Handler</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>Hander初体验</p>
-</blockquote>
-<ul>
-<li><strong>多线程与异步</strong>  </li>
-<li><strong>什么是Handler？</strong>  </li>
-</ul>
-<p>A Handler allows you to send and process Message and Runnable objects associated with a thread’s MessageQueue.<br>  (帮助进行线程之间的通信)  </p>
-      
-	-->
-	     
-        <blockquote>
-<p>Hander初体验</p>
-</blockquote>
-<ul>
-<li><strong>多线程与异步</strong>  </li>
-<li><strong>什么是Handler？</strong>  </li>
-</ul>
-<p>A Handler allows you to send and process Message and Runnable objects associated with a thread’s MessageQueue.<br>  (帮助进行线程之间的通信)  </p>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/29/Android04-Handler/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android03自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/28/Android03自定义视图/" class="article-date">
-  	<time datetime="2015-11-28T01:48:06.000Z" itemprop="datePublished">11/28/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/28/Android03自定义视图/">Android03自定义视图</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>Android笔记 03自定义视图</p>
-</blockquote>
-<h3 id="1-_做一个圆形的红色按钮">1. 做一个圆形的红色按钮</h3><p>中间有一个白色的数字<br>数字起始为20<br>每点击一次减少1  </p>
-      
-	-->
-	     
-        <blockquote>
-<p>Android笔记 03自定义视图</p>
-</blockquote>
-<h3 id="1-_做一个圆形的红色按钮">1. 做一个圆形的红色按钮</h3><p>中间有一个白色的数字<br>数字起始为20<br>每点击一次减少1  </p>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/28/Android03自定义视图/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1192,7 +1213,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 GentleNi
+    		&copy; 2016 GentleNi
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
