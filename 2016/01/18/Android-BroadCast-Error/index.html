@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android09_sharedPreference | GentleNi</title>
+  <title>关于BroadcastReceiver的几个错误 | GentleNi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Just Do it.">
+  <meta name="description" content="1.12-22 17:16:55.282 1481-1481/com.yuer_meterial.gentleni.musicplayer E/AndroidRuntime: java.lang.RuntimeException: Unable to instantiate receiver com.yuer_meterial.gentleni.musicplayer.MusicService$M">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android09_sharedPreference">
-<meta property="og:url" content="http://yoursite.com/2015/12/25/Android09-sharedPreference/index.html">
+<meta property="og:title" content="关于BroadcastReceiver的几个错误">
+<meta property="og:url" content="http://yoursite.com/2016/01/18/Android-BroadCast-Error/index.html">
 <meta property="og:site_name" content="GentleNi">
-<meta property="og:description" content="Just Do it.">
-<meta property="og:updated_time" content="2015-12-25T09:32:34.797Z">
+<meta property="og:description" content="1.12-22 17:16:55.282 1481-1481/com.yuer_meterial.gentleni.musicplayer E/AndroidRuntime: java.lang.RuntimeException: Unable to instantiate receiver com.yuer_meterial.gentleni.musicplayer.MusicService$M">
+<meta property="og:updated_time" content="2016-01-18T12:01:25.233Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android09_sharedPreference">
-<meta name="twitter:description" content="Just Do it.">
+<meta name="twitter:title" content="关于BroadcastReceiver的几个错误">
+<meta name="twitter:description" content="1.12-22 17:16:55.282 1481-1481/com.yuer_meterial.gentleni.musicplayer E/AndroidRuntime: java.lang.RuntimeException: Unable to instantiate receiver com.yuer_meterial.gentleni.musicplayer.MusicService$M">
   
     <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
   
@@ -190,11 +190,11 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Android09-sharedPreference" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Android-BroadCast-Error" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/25/Android09-sharedPreference/" class="article-date">
-  	<time datetime="2015-12-25T09:27:39.000Z" itemprop="datePublished">12/25/2015</time>
+      <a href="/2016/01/18/Android-BroadCast-Error/" class="article-date">
+  	<time datetime="2016-01-18T11:51:14.000Z" itemprop="datePublished">01/18/2016</time>
 </a>
     </div>
   
@@ -207,7 +207,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Android09_sharedPreference
+      关于BroadcastReceiver的几个错误
     </h1>
   
 
@@ -216,7 +216,7 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Androd笔记/">Androd笔记</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
 	</div>
 
         
@@ -233,7 +233,9 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
    	<!--
     	
-        
+        <p>1.12-22 17:16:55.282 1481-1481/com.yuer_meterial.gentleni.musicplayer E/AndroidRuntime: java.lang.RuntimeException: Unable to instantiate receiver com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver: java.lang.IllegalAccessException: class com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver is not accessible from class android.app.ActivityThread<br>出现这个错误的原因是我的BroadcastReceiver是一个内部类，但是没有声明为public，访问权限出现错误，当我加上public后，又出现这个错误<br>12-22 17:19:12.967 4145-4145/com.yuer_meterial.gentleni.musicplayer E/AndroidRuntime: java.lang.RuntimeException: Unable to instantiate receiver com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver: java.lang.InstantiationException: class com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver has no zero argument constructor<br>说BroadcastReceiver没有零参的构造器，搜了一下，原因是 an (non-static) inner class cannot be instantiated by Android via the AndroidManifest.xml. You must dynamically register it, as shown in the link above.<br>就是说一个非静态的内部类是不能够通过AndroidManifest实例化的，你必须动态的注册，正好我是通过AndroidManifest注册的BroadcastReceiver，所以解决办法是通过代码动态的注册。</p>
+<p>IntentFilter filter = new IntentFilter();<br>filter.addAction(MainActivity.CTL_ACTION);<br>registerReceiver(serviceReceiver, filter);</p>
+
       
 	-->
 	    
@@ -242,7 +244,9 @@ var _hmt = _hmt || [];
     
 </div>
       
-        
+        <p>1.12-22 17:16:55.282 1481-1481/com.yuer_meterial.gentleni.musicplayer E/AndroidRuntime: java.lang.RuntimeException: Unable to instantiate receiver com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver: java.lang.IllegalAccessException: class com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver is not accessible from class android.app.ActivityThread<br>出现这个错误的原因是我的BroadcastReceiver是一个内部类，但是没有声明为public，访问权限出现错误，当我加上public后，又出现这个错误<br>12-22 17:19:12.967 4145-4145/com.yuer_meterial.gentleni.musicplayer E/AndroidRuntime: java.lang.RuntimeException: Unable to instantiate receiver com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver: java.lang.InstantiationException: class com.yuer_meterial.gentleni.musicplayer.MusicService$MusicReceiver has no zero argument constructor<br>说BroadcastReceiver没有零参的构造器，搜了一下，原因是 an (non-static) inner class cannot be instantiated by Android via the AndroidManifest.xml. You must dynamically register it, as shown in the link above.<br>就是说一个非静态的内部类是不能够通过AndroidManifest实例化的，你必须动态的注册，正好我是通过AndroidManifest注册的BroadcastReceiver，所以解决办法是通过代码动态的注册。</p>
+<p>IntentFilter filter = new IntentFilter();<br>filter.addAction(MainActivity.CTL_ACTION);<br>registerReceiver(serviceReceiver, filter);</p>
+
       
 	  
 	  </div>
@@ -253,18 +257,18 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2015/12/28/Android10-ContentProvider/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/18/Android-使用系统字体/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Android10_ContentProvider
+          Android_使用系统字体
         
       </div>
     </a>
   
   
-    <a href="/2015/12/21/Android08-Widget/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android08_Widget</div>
+    <a href="/2016/01/17/Error-INSTALL-FAILED-CONTAINER-ERROR/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Error_INSTALL_FAILED_CONTAINER_ERROR</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -293,7 +297,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Android09-sharedPreference" data-title="Android09_sharedPreference" data-url="http://yoursite.com/2015/12/25/Android09-sharedPreference/"></div>
+	<div class="ds-thread" data-thread-key="Android-BroadCast-Error" data-title="关于BroadcastReceiver的几个错误" data-url="http://yoursite.com/2016/01/18/Android-BroadCast-Error/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
