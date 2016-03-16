@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Androd笔记/" style="font-size: 10px;">Androd笔记</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Error/" style="font-size: 10px;">Android Error</a> <a href="/tags/Android笔记/" style="font-size: 20px;">Android笔记</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/蓝桥杯/" style="font-size: 15px;">蓝桥杯</a>
+						<a href="/tags/Androd笔记/" style="font-size: 10px;">Androd笔记</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Error/" style="font-size: 10px;">Android Error</a> <a href="/tags/Android笔记/" style="font-size: 20px;">Android笔记</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/蓝桥杯/" style="font-size: 16.67px;">蓝桥杯</a>
 					</div>
 				</section>
 				
@@ -191,6 +191,426 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-Android08-Widget" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/21/Android08-Widget/" class="article-date">
+  	<time datetime="2015-12-21T02:44:17.000Z" itemprop="datePublished">12/21/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/21/Android08-Widget/">Android08_Widget</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
+<h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
+<h4 id="1-新建_TestWidget_继承自_AppWidgetProvider">1.新建 TestWidget 继承自 AppWidgetProvider</h4><p>可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
+<h4 id="2-Widget的配置xml，setting_widget-xml">2.Widget的配置xml，setting_widget.xml</h4><pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+                    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
+                    <span class="attribute">android:minHeight</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:minWidth</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:previewImage</span>=<span class="value">"@drawable/gege"</span>
+                    <span class="attribute">android:updatePeriodMillis</span>=<span class="value">"20000"</span>
+                    <span class="attribute">android:widgetCategory</span>=<span class="value">"home_screen"</span>
+    &gt;</span>
+
+<span class="tag">&lt;/<span class="title">appwidget-provider</span>&gt;</span>
+</code></pre><h4 id="3-Widget的布局文件_layout_widget-xml">3.Widget的布局文件 layout_widget.xml</h4><pre><code>&lt;LinearLayout <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+<span class="label">  android:</span>orientation=<span class="string">"vertical"</span>
+<span class="label">  android:</span>layout_width=<span class="string">"match_parent"</span>
+<span class="label">  android:</span>layout_height=<span class="string">"match_parent"</span>&gt;
+
+&lt;TextView
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>textAppearance=<span class="string">"?android:attr/textAppearanceLarge"</span>
+<span class="string">android:</span>text=<span class="string">"Large Text"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_text_view"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+
+&lt;Button
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>text=<span class="string">"New Button"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_button"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+&lt;/LinearLayout&gt;
+</code></pre><h4 id="4-在AndroidManifest-xml中注册">4.在AndroidManifest.xml中注册</h4><pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.provider"</span>
+<span class="attribute">android:resource</span>=<span class="value">"@layout/setting_widget"</span>
+&gt;</span>
+<span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre><p>Okay.<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android08_widget2.png" alt=""></p>
+
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#What_is_Widget"><span class="toc-text">What is Widget</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何创建"><span class="toc-text">如何创建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-新建_TestWidget_继承自_AppWidgetProvider"><span class="toc-text">1.新建 TestWidget 继承自 AppWidgetProvider</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Widget的配置xml，setting_widget-xml"><span class="toc-text">2.Widget的配置xml，setting_widget.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Widget的布局文件_layout_widget-xml"><span class="toc-text">3.Widget的布局文件 layout_widget.xml</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-在AndroidManifest-xml中注册"><span class="toc-text">4.在AndroidManifest.xml中注册</span></a></li></ol></li></ol>
+</div>
+      
+        <h3 id="What_is_Widget">What is Widget</h3><p>窗口小部件，桌面上的n*n的小控件，常见的像音乐播放器控件，360加速等</p>
+<h3 id="如何创建">如何创建</h3><p>一个class三个xml</p>
+<h4 id="1-新建_TestWidget_继承自_AppWidgetProvider">1.新建 TestWidget 继承自 AppWidgetProvider</h4><p>可见 Widget是继承自BroadcastReceiver的。然后复写其onReceive方法和onUpdate方法，注意别忘了onUpdate方法，否则加载时候会提示加载小部件出现问题，加载不出来。</p>
+<h4 id="2-Widget的配置xml，setting_widget-xml">2.Widget的配置xml，setting_widget.xml</h4><pre><code><span class="tag">&lt;<span class="title">appwidget-provider</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+                    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span>
+                    <span class="attribute">android:initialLayout</span>=<span class="value">"@layout/layout_widget"</span>
+                    <span class="attribute">android:minHeight</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:minWidth</span>=<span class="value">"140dp"</span>
+                    <span class="attribute">android:previewImage</span>=<span class="value">"@drawable/gege"</span>
+                    <span class="attribute">android:updatePeriodMillis</span>=<span class="value">"20000"</span>
+                    <span class="attribute">android:widgetCategory</span>=<span class="value">"home_screen"</span>
+    &gt;</span>
+
+<span class="tag">&lt;/<span class="title">appwidget-provider</span>&gt;</span>
+</code></pre><h4 id="3-Widget的布局文件_layout_widget-xml">3.Widget的布局文件 layout_widget.xml</h4><pre><code>&lt;LinearLayout <span class="string">xmlns:</span>android=<span class="string">"http://schemas.android.com/apk/res/android"</span>
+<span class="label">  android:</span>orientation=<span class="string">"vertical"</span>
+<span class="label">  android:</span>layout_width=<span class="string">"match_parent"</span>
+<span class="label">  android:</span>layout_height=<span class="string">"match_parent"</span>&gt;
+
+&lt;TextView
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>textAppearance=<span class="string">"?android:attr/textAppearanceLarge"</span>
+<span class="string">android:</span>text=<span class="string">"Large Text"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_text_view"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+
+&lt;Button
+<span class="string">android:</span>layout_width=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>layout_height=<span class="string">"wrap_content"</span>
+<span class="string">android:</span>text=<span class="string">"New Button"</span>
+<span class="string">android:</span>id=<span class="string">"@+id/widget_button"</span>
+<span class="string">android:</span>layout_gravity=<span class="string">"center_horizontal"</span>/&gt;
+&lt;/LinearLayout&gt;
+</code></pre><h4 id="4-在AndroidManifest-xml中注册">4.在AndroidManifest.xml中注册</h4><pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestWidget"</span>&gt;</span>
+<span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.action.APPWIDGET_UPDATE"</span>/&gt;</span>
+<span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+<span class="tag">&lt;<span class="title">meta-data</span> <span class="attribute">android:name</span>=<span class="value">"android.appwidget.provider"</span>
+<span class="attribute">android:resource</span>=<span class="value">"@layout/setting_widget"</span>
+&gt;</span>
+<span class="tag">&lt;/<span class="title">meta-data</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre><p>Okay.<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/android08_widget2.png" alt=""></p>
+
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android07-Intent-and-IntentFilter" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/13/Android07-Intent-and-IntentFilter/" class="article-date">
+  	<time datetime="2015-12-13T01:14:25.000Z" itemprop="datePublished">12/13/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/13/Android07-Intent-and-IntentFilter/">Android07_Intent-and-IntentFilter（转）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <p>在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receiver，都是使用称为intent的消息来”激活”的。对于向这三种组件发送intent有不同的机制:<br>
+      
+	-->
+	     
+        <p>在Android 帮助文档中，Intent的介绍为An intent is an abstract description of an operation to be performed，意思是一个Intent是对一个即将进行的操作的抽象，Intent的字面意识就是“意图”，Android应用程序中的三种其他应用程序基本组件——Activity, Service和Broadcast Receiver，都是使用称为intent的消息来”激活”的。对于向这三种组件发送intent有不同的机制:<br>
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/13/Android07-Intent-and-IntentFilter/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-Android06-BroadcastReceiver" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/12/Android06-BroadcastReceiver/" class="article-date">
+  	<time datetime="2015-12-12T01:48:19.000Z" itemprop="datePublished">12/12/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/12/Android06-BroadcastReceiver/">Android06-BroadcastReceiver</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <h3 id="注册">注册</h3><ul>
+<li>静态注册</li>
+<li>动态注册</li>
+</ul>
+<p>1.SendBroadcastActivity.java</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendBroadcastActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>{
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String COM_GENTLENI_TEST_BROADCAST = <span class="string">"com.gentleni.test.broadcast"</span>;
+<span class="keyword">private</span> TestBroadcastReceiver mTestBroadcastReceiver = <span class="keyword">new</span> TestBroadcastReceiver();
+<span class="keyword">private</span> Button mButtonSendBroadcast;
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
+
+    setContentView(R.layout.activity_sendbroadcast);
+    mButtonSendBroadcast=(Button)findViewById(R.id.btn_send_broadcast);
+
+    mButtonSendBroadcast.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() {
+        <span class="annotation">@Override</span>
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
+
+            <span class="comment">// 发送广播</span>
+            Intent intent = <span class="keyword">new</span> Intent();
+            intent.setAction(COM_GENTLENI_TEST_BROADCAST);
+            intent.putExtra(<span class="string">"toast"</span>, <span class="string">"this is my toast of broadcast"</span>);
+
+            sendBroadcast(intent);
+        }
+    });
+    <span class="keyword">super</span>.onCreate(savedInstanceState);
+}
+
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>{
+    <span class="keyword">super</span>.onStart();
+<span class="comment">//        动态注册BroadcastReceiver</span>
+    IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();
+    intentFilter.addAction(COM_GENTLENI_TEST_BROADCAST);
+    registerReceiver(mTestBroadcastReceiver, intentFilter);
+}
+}
+</code></pre><p>2.BroadcastReceiver.java</p>
+<pre><code>public <span class="class"><span class="keyword">class</span> <span class="title">TestBroadcastReceiver</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">BroadcastReceiver</span>{</span>
+    <span class="annotation">@Override</span>
+    public void onReceive(<span class="type">Context</span> context, <span class="type">Intent</span> intent) {
+
+        <span class="keyword">if</span> (intent != <span class="literal">null</span>) {
+            <span class="keyword">if</span> (<span class="type">TextUtils</span>.equals(intent.getAction(), <span class="type">SendBroadcastActivity</span>.<span class="type">COM_GENTLENI_TEST_BROADCAST</span>)) {
+                <span class="type">String</span> toastString = intent.getStringExtra(<span class="string">"toast"</span>);
+                <span class="type">Toast</span>.makeText(context, toastString, <span class="type">Toast</span>.<span class="type">LENGTH_LONG</span>).show();
+            }
+        }
+    }
+}
+</code></pre><p>3.AndroidManifest.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestBroadcastReceiver"</span>&gt;</span>
+           <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+               <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"com.gentleni.test.broadcast"</span>&gt;</span><span class="tag">&lt;/<span class="title">action</span>&gt;</span>
+           <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+       <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre>
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#注册"><span class="toc-text">注册</span></a></li></ol>
+</div>
+      
+        <h3 id="注册">注册</h3><ul>
+<li>静态注册</li>
+<li>动态注册</li>
+</ul>
+<p>1.SendBroadcastActivity.java</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SendBroadcastActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>{
+
+<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String COM_GENTLENI_TEST_BROADCAST = <span class="string">"com.gentleni.test.broadcast"</span>;
+<span class="keyword">private</span> TestBroadcastReceiver mTestBroadcastReceiver = <span class="keyword">new</span> TestBroadcastReceiver();
+<span class="keyword">private</span> Button mButtonSendBroadcast;
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>{
+
+    setContentView(R.layout.activity_sendbroadcast);
+    mButtonSendBroadcast=(Button)findViewById(R.id.btn_send_broadcast);
+
+    mButtonSendBroadcast.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() {
+        <span class="annotation">@Override</span>
+        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>{
+
+            <span class="comment">// 发送广播</span>
+            Intent intent = <span class="keyword">new</span> Intent();
+            intent.setAction(COM_GENTLENI_TEST_BROADCAST);
+            intent.putExtra(<span class="string">"toast"</span>, <span class="string">"this is my toast of broadcast"</span>);
+
+            sendBroadcast(intent);
+        }
+    });
+    <span class="keyword">super</span>.onCreate(savedInstanceState);
+}
+
+<span class="annotation">@Override</span>
+<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>{
+    <span class="keyword">super</span>.onStart();
+<span class="comment">//        动态注册BroadcastReceiver</span>
+    IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();
+    intentFilter.addAction(COM_GENTLENI_TEST_BROADCAST);
+    registerReceiver(mTestBroadcastReceiver, intentFilter);
+}
+}
+</code></pre><p>2.BroadcastReceiver.java</p>
+<pre><code>public <span class="class"><span class="keyword">class</span> <span class="title">TestBroadcastReceiver</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">BroadcastReceiver</span>{</span>
+    <span class="annotation">@Override</span>
+    public void onReceive(<span class="type">Context</span> context, <span class="type">Intent</span> intent) {
+
+        <span class="keyword">if</span> (intent != <span class="literal">null</span>) {
+            <span class="keyword">if</span> (<span class="type">TextUtils</span>.equals(intent.getAction(), <span class="type">SendBroadcastActivity</span>.<span class="type">COM_GENTLENI_TEST_BROADCAST</span>)) {
+                <span class="type">String</span> toastString = intent.getStringExtra(<span class="string">"toast"</span>);
+                <span class="type">Toast</span>.makeText(context, toastString, <span class="type">Toast</span>.<span class="type">LENGTH_LONG</span>).show();
+            }
+        }
+    }
+}
+</code></pre><p>3.AndroidManifest.xml</p>
+<pre><code><span class="tag">&lt;<span class="title">receiver</span> <span class="attribute">android:name</span>=<span class="value">".TestBroadcastReceiver"</span>&gt;</span>
+           <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span>
+               <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"com.gentleni.test.broadcast"</span>&gt;</span><span class="tag">&lt;/<span class="title">action</span>&gt;</span>
+           <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span>
+       <span class="tag">&lt;/<span class="title">receiver</span>&gt;</span>
+</code></pre>
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-JAVA-递归回溯" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -775,263 +1195,9 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-yutou" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/yutou/" class="article-date">
-  	<time datetime="2015-11-27T01:33:49.000Z" itemprop="datePublished">11/27/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/yutou/">yutou</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>臧云吉是SB  </p>
-</blockquote>
-<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
-<p><em>这是斜体</em></p>
-<p><strong>这是粗体</strong><br>
-      
-	-->
-	     
-        <blockquote>
-<p>臧云吉是SB  </p>
-</blockquote>
-<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/gege.jpg" alt="gege"></p>
-<p><em>这是斜体</em></p>
-<p><strong>这是粗体</strong><br>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/blog/">blog</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/27/yutou/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android01自定义视图预" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/Android01自定义视图预/" class="article-date">
-  	<time datetime="2015-11-27T01:29:25.000Z" itemprop="datePublished">11/27/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/Android01自定义视图预/">Android 01自定义视图预</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>是什么？</p>
-</blockquote>
-<h3 id="px_dp_sp">px dp sp</h3><ul>
-<li>px：像素点</li>
-<li>dp：像素密度</li>
-<li>sp：相当于dp，但是修饰文字</li>
-<li>dip=dp</li>
-</ul>
-      
-	-->
-	     
-        <blockquote>
-<p>是什么？</p>
-</blockquote>
-<h3 id="px_dp_sp">px dp sp</h3><ul>
-<li>px：像素点</li>
-<li>dp：像素密度</li>
-<li>sp：相当于dp，但是修饰文字</li>
-<li>dip=dp</li>
-</ul>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/27/Android01自定义视图预/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android02自定义视图" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/27/Android02自定义视图/" class="article-date">
-  	<time datetime="2015-11-26T23:37:23.000Z" itemprop="datePublished">11/27/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/27/Android02自定义视图/">Android02自定义视图</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <blockquote>
-<p>View是如何工作的？  </p>
-</blockquote>
-<ul>
-<li>构造器-&gt;初始化</li>
-<li>onMesure() 定大小</li>
-<li>onLayout() 定位置</li>
-<li>onDraw() 绘制</li>
-<li>invalidate() 刷新　　</li>
-</ul>
-      
-	-->
-	     
-        <blockquote>
-<p>View是如何工作的？  </p>
-</blockquote>
-<ul>
-<li>构造器-&gt;初始化</li>
-<li>onMesure() 定大小</li>
-<li>onLayout() 定位置</li>
-<li>onDraw() 绘制</li>
-<li>invalidate() 刷新　　</li>
-</ul>
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/27/Android02自定义视图/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
