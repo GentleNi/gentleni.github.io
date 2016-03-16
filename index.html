@@ -192,6 +192,310 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-第三届蓝桥杯07最大数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/第三届蓝桥杯07最大数/" class="article-date">
+  	<time datetime="2016-03-16T14:24:23.000Z" itemprop="datePublished">03/16/2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/第三届蓝桥杯07最大数/">第三届蓝桥杯07最大数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <blockquote>
+<p>问题</p>
+</blockquote>
+<p>[12,127,85,66,27,34,15,344,156,344,29,47,….]  </p>
+<p>这是某设备测量到的工程数据。</p>
+<p>因工程要求，需要找出最大的5个值。</p>
+<p>一般的想法是对它排序，输出前5个。但当数据较多时，这样做很浪费时间。因为对输出数据以外的数据进行排序并非工程要求，即便是要输出的5个数字，也并不要求按大小顺序，只要找到5个就可以。</p>
+<p>以下的代码采用了另外的思路。考虑如果手里已经抓着5个最大数，再来一个数据怎么办呢？让它和手里的数据比，如果比哪个大，就抢占它的座位，让那个被挤出来的再自己找位子,….</p>
+<pre><code>import java.util.*;
+<span class="keyword">public</span> <span class="keyword">class</span> B23
+{
+<span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; max5(List&lt;Integer&gt; lst)
+{
+    <span class="keyword">if</span>(lst.size()&lt;=<span class="number">5</span>) <span class="keyword">return</span> lst;
+
+    <span class="keyword">int</span> a = _______________________;  <span class="comment">// 填空</span>
+    List&lt;Integer&gt; b = max5(lst);
+
+    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;b.size(); i++)
+    {
+        <span class="keyword">int</span> t = b.get(i);
+        <span class="keyword">if</span>(a&gt;t)
+        {
+            __________________;  <span class="comment">// 填空</span>
+            a = t;  
+        }
+    }
+
+    <span class="keyword">return</span> b;
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>
+</span>{
+    List&lt;Integer&gt; lst = <span class="keyword">new</span> Vector&lt;Integer&gt;();
+    lst.addAll(Arrays.asList(<span class="number">12</span>,<span class="number">127</span>,<span class="number">85</span>,<span class="number">66</span>,<span class="number">27</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">344</span>,<span class="number">156</span>,<span class="number">344</span>,<span class="number">29</span>,<span class="number">47</span>));        
+    System.out.println(max5(lst));
+}
+}
+</code></pre><p>请分析代码逻辑，并推测划线处的代码。</p>
+<p>答案写在 “解答.txt” 文件中</p>
+<p>注意：只写划线处应该填的内容，划线前后的内容不要抄写。</p>
+<p>###解答</p>
+<p>1.lst.remove(0)</p>
+<p>2.b.set(i,a)</p>
+<p>###输出</p>
+<p>[344, 156, 344, 127, 85]</p>
+
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    
+</div>
+      
+        <blockquote>
+<p>问题</p>
+</blockquote>
+<p>[12,127,85,66,27,34,15,344,156,344,29,47,….]  </p>
+<p>这是某设备测量到的工程数据。</p>
+<p>因工程要求，需要找出最大的5个值。</p>
+<p>一般的想法是对它排序，输出前5个。但当数据较多时，这样做很浪费时间。因为对输出数据以外的数据进行排序并非工程要求，即便是要输出的5个数字，也并不要求按大小顺序，只要找到5个就可以。</p>
+<p>以下的代码采用了另外的思路。考虑如果手里已经抓着5个最大数，再来一个数据怎么办呢？让它和手里的数据比，如果比哪个大，就抢占它的座位，让那个被挤出来的再自己找位子,….</p>
+<pre><code>import java.util.*;
+<span class="keyword">public</span> <span class="keyword">class</span> B23
+{
+<span class="keyword">public</span> <span class="keyword">static</span> List&lt;Integer&gt; max5(List&lt;Integer&gt; lst)
+{
+    <span class="keyword">if</span>(lst.size()&lt;=<span class="number">5</span>) <span class="keyword">return</span> lst;
+
+    <span class="keyword">int</span> a = _______________________;  <span class="comment">// 填空</span>
+    List&lt;Integer&gt; b = max5(lst);
+
+    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;b.size(); i++)
+    {
+        <span class="keyword">int</span> t = b.get(i);
+        <span class="keyword">if</span>(a&gt;t)
+        {
+            __________________;  <span class="comment">// 填空</span>
+            a = t;  
+        }
+    }
+
+    <span class="keyword">return</span> b;
+}
+
+<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>
+</span>{
+    List&lt;Integer&gt; lst = <span class="keyword">new</span> Vector&lt;Integer&gt;();
+    lst.addAll(Arrays.asList(<span class="number">12</span>,<span class="number">127</span>,<span class="number">85</span>,<span class="number">66</span>,<span class="number">27</span>,<span class="number">34</span>,<span class="number">15</span>,<span class="number">344</span>,<span class="number">156</span>,<span class="number">344</span>,<span class="number">29</span>,<span class="number">47</span>));        
+    System.out.println(max5(lst));
+}
+}
+</code></pre><p>请分析代码逻辑，并推测划线处的代码。</p>
+<p>答案写在 “解答.txt” 文件中</p>
+<p>注意：只写划线处应该填的内容，划线前后的内容不要抄写。</p>
+<p>###解答</p>
+<p>1.lst.remove(0)</p>
+<p>2.b.set(i,a)</p>
+<p>###输出</p>
+<p>[344, 156, 344, 127, 85]</p>
+
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/算法/">算法</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-第三届蓝桥杯06割圆" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/16/第三届蓝桥杯06割圆/" class="article-date">
+  	<time datetime="2016-03-16T13:40:35.000Z" itemprop="datePublished">03/16/2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/16/第三届蓝桥杯06割圆/">第三届蓝桥杯06割圆</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <blockquote>
+<p>问题</p>
+</blockquote>
+<p>南北朝时，我国数学家祖冲之首先把圆周率值计算到小数点后六位，比欧洲早了1100年！他采用的是称为“割圆法”的算法，实际上已经蕴含着现代微积分的思想。</p>
+<p>如图【1.jpg】所示，圆的内接正六边形周长与圆的周长近似。多边形的边越多，接近的越好！我们从正六边形开始割圆吧。</p>
+<p>如图【2.jpg】所示，从圆心做弦的垂线，可把6边形分割为12边形。该12边形的边长a’的计算方法很容易利用勾股定理给出。之后，再分割为正24边形，….如此循环会越来越接近圆周。</p>
+<p>之所以从正六边开始，是因为此时边长与半径相等，便于计算。取半径值为1，开始割圆吧！</p>
+<p>以下代码描述了割圆过程。</p>
+<p>程序先输出了标准圆周率值，紧接着输出了不断分割过程中多边形边数和所对应的圆周率逼近值。</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> B21
+{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>
+    </span>{
+        System.out.println(<span class="string">"标准 "</span> + Math.PI);
+
+        <span class="keyword">double</span> a = <span class="number">1</span>; 
+        <span class="keyword">int</span> n = <span class="number">6</span>;
+
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)
+        {
+            <span class="keyword">double</span> b = Math.<span class="built_in">sqrt</span>(<span class="number">1</span>-(a/<span class="number">2</span>)*(a/<span class="number">2</span>));
+            a = Math.<span class="built_in">sqrt</span>((<span class="number">1</span>-b)*(<span class="number">1</span>-b) + (a/<span class="number">2</span>)*(a/<span class="number">2</span>));
+
+            n = ______________; <span class="comment">//填空</span>
+
+            System.out.println(n + <span class="string">"  "</span> + _______________);  <span class="comment">// 填空</span>
+        }
+    }
+}
+</code></pre><p>请分析代码逻辑，并推测划线处的代码。</p>
+<p>答案写在 “解答.txt” 文件中</p>
+<p>注意：只写划线处应该填的内容，划线前后的内容不要抄写。</p>
+<p>###解答</p>
+<p>1.n*2</p>
+<p>2.n + “  “ + a*n/2</p>
+
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    
+</div>
+      
+        <blockquote>
+<p>问题</p>
+</blockquote>
+<p>南北朝时，我国数学家祖冲之首先把圆周率值计算到小数点后六位，比欧洲早了1100年！他采用的是称为“割圆法”的算法，实际上已经蕴含着现代微积分的思想。</p>
+<p>如图【1.jpg】所示，圆的内接正六边形周长与圆的周长近似。多边形的边越多，接近的越好！我们从正六边形开始割圆吧。</p>
+<p>如图【2.jpg】所示，从圆心做弦的垂线，可把6边形分割为12边形。该12边形的边长a’的计算方法很容易利用勾股定理给出。之后，再分割为正24边形，….如此循环会越来越接近圆周。</p>
+<p>之所以从正六边开始，是因为此时边长与半径相等，便于计算。取半径值为1，开始割圆吧！</p>
+<p>以下代码描述了割圆过程。</p>
+<p>程序先输出了标准圆周率值，紧接着输出了不断分割过程中多边形边数和所对应的圆周率逼近值。</p>
+<pre><code><span class="keyword">public</span> <span class="keyword">class</span> B21
+{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span>
+    </span>{
+        System.out.println(<span class="string">"标准 "</span> + Math.PI);
+
+        <span class="keyword">double</span> a = <span class="number">1</span>; 
+        <span class="keyword">int</span> n = <span class="number">6</span>;
+
+        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)
+        {
+            <span class="keyword">double</span> b = Math.<span class="built_in">sqrt</span>(<span class="number">1</span>-(a/<span class="number">2</span>)*(a/<span class="number">2</span>));
+            a = Math.<span class="built_in">sqrt</span>((<span class="number">1</span>-b)*(<span class="number">1</span>-b) + (a/<span class="number">2</span>)*(a/<span class="number">2</span>));
+
+            n = ______________; <span class="comment">//填空</span>
+
+            System.out.println(n + <span class="string">"  "</span> + _______________);  <span class="comment">// 填空</span>
+        }
+    }
+}
+</code></pre><p>请分析代码逻辑，并推测划线处的代码。</p>
+<p>答案写在 “解答.txt” 文件中</p>
+<p>注意：只写划线处应该填的内容，划线前后的内容不要抄写。</p>
+<p>###解答</p>
+<p>1.n*2</p>
+<p>2.n + “  “ + a*n/2</p>
+
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/算法/">算法</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-第三届蓝桥杯05第一个数字" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -235,6 +539,9 @@ var _hmt = _hmt || [];
 </code></pre><p>请分析代码逻辑，并推测划线处的代码。</p>
 <p>答案写在 “解答.txt” 文件中</p>
 <p>注意：只写划线处应该填的内容，划线前后的内容不要抄写。</p>
+<p>###答案</p>
+<p>1.return c-‘0’</p>
+<p>2.getFirstNum(s.substring(1, s.length()))</p>
 
       
 	-->
@@ -259,6 +566,9 @@ var _hmt = _hmt || [];
 </code></pre><p>请分析代码逻辑，并推测划线处的代码。</p>
 <p>答案写在 “解答.txt” 文件中</p>
 <p>注意：只写划线处应该填的内容，划线前后的内容不要抄写。</p>
+<p>###答案</p>
+<p>1.return c-‘0’</p>
+<p>2.getFirstNum(s.substring(1, s.length()))</p>
 
       
 	  
@@ -1012,178 +1322,6 @@ public static void main(<span class="constant">String</span>[] args) {
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android-Error/">Android Error</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/技术/">技术</a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android10-ContentProvider" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/28/Android10-ContentProvider/" class="article-date">
-  	<time datetime="2015-12-28T07:07:07.000Z" itemprop="datePublished">12/28/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/28/Android10-ContentProvider/">Android10_ContentProvider</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        <p>####Content Provider</p>
-<ul>
-<li>应用程序之间共享数据的一种方式</li>
-<li>为存储和获取数据提供了统一的接口</li>
-<li>类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)</li>
-<li>数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。</li>
-<li>应用程序并不直接调用这些方法，而是使用ContentResolver对象，调用它的方法作为替代。</li>
-</ul>
-<p>####UriMatcher</p>
-<ul>
-<li><p>uri用于指定哪一个数据源，当一个数据源含有多个内容（比如多个表），就需要用不同的Uri进行区分</p>
-</li>
-<li><p>这时候使用UriMatcher就可以帮助我们方便的过滤到TableA还是TableB, 然后进行下一步查询</p>
-</li>
-<li><p>UriMatcher本质上是一个文本过滤器，用在contentProvider中帮助我们过滤，分辨出查询者想要查询哪个数据表</p>
-</li>
-</ul>
-
-      
-	-->
-	    
-        <div id="toc" class="toc-article">
-    <div class="toc-title">Menu</div>
-    
-</div>
-      
-        <p>####Content Provider</p>
-<ul>
-<li>应用程序之间共享数据的一种方式</li>
-<li>为存储和获取数据提供了统一的接口</li>
-<li>类似超市，向顾客提供各种商品，商品可能是来自各个厂商(例如数据库，sharedpreference等)</li>
-<li>数据可以存储于文件系统、SQLite等方式。内容提供者继承于ContentProvider基类，为其他应用程序取用和存储它管理的数据实现了一套标准方法。</li>
-<li>应用程序并不直接调用这些方法，而是使用ContentResolver对象，调用它的方法作为替代。</li>
-</ul>
-<p>####UriMatcher</p>
-<ul>
-<li><p>uri用于指定哪一个数据源，当一个数据源含有多个内容（比如多个表），就需要用不同的Uri进行区分</p>
-</li>
-<li><p>这时候使用UriMatcher就可以帮助我们方便的过滤到TableA还是TableB, 然后进行下一步查询</p>
-</li>
-<li><p>UriMatcher本质上是一个文本过滤器，用在contentProvider中帮助我们过滤，分辨出查询者想要查询哪个数据表</p>
-</li>
-</ul>
-
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android笔记/">Android笔记</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-Android09-sharedPreference" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/Android09-sharedPreference/" class="article-date">
-  	<time datetime="2015-12-25T09:27:39.000Z" itemprop="datePublished">12/25/2015</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/Android09-sharedPreference/">Android09_sharedPreference</a>
-    </h1>
-  
-
-      </header>
-      
-    
-
-    <div class="article-entry" itemprop="articleBody">
-   	<!--
-    	
-        
-      
-	-->
-	    
-        <div id="toc" class="toc-article">
-    <div class="toc-title">Menu</div>
-    
-</div>
-      
-        
-      
-	  
-	  </div>
-	  
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Androd笔记/">Androd笔记</a></li></ul>
 	</div>
 
       
