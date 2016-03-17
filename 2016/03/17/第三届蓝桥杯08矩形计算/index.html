@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第三届蓝桥杯08矩形计算 | GentleNi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="问题
+
+在编写图形界面软件的时候，经常会遇到处理两个矩形的关系。
+如图【1.jpg】所示，矩形的交集指的是：两个矩形重叠区的矩形，当然也可能不存在（参看【2.jpg】）。两个矩形的并集指的是：能包含这两个矩形的最小矩形，它一定是存在的。
+本题目的要求就是：由用户输入两个矩形的坐标，程序输出它们的交集和并集矩形。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三届蓝桥杯08矩形计算">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/第三届蓝桥杯08矩形计算/index.html">
+<meta property="og:site_name" content="GentleNi">
+<meta property="og:description" content="问题
+
+在编写图形界面软件的时候，经常会遇到处理两个矩形的关系。
+如图【1.jpg】所示，矩形的交集指的是：两个矩形重叠区的矩形，当然也可能不存在（参看【2.jpg】）。两个矩形的并集指的是：能包含这两个矩形的最小矩形，它一定是存在的。
+本题目的要求就是：由用户输入两个矩形的坐标，程序输出它们的交集和并集矩形。">
+<meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/lanqiao03081.jpg">
+<meta property="og:image" content="http://7xoomg.com1.z0.glb.clouddn.com/lanqiao03082.jpg">
+<meta property="og:image" content="http://images.cnitblog.com/blog/416010/201304/20133807-3ee6c3ac4fb94dd58ff0b6927b6bd04b.jpg">
+<meta property="og:image" content="http://images.cnitblog.com/blog/416010/201304/20134724-15d77b1c83634fdcb02b12d9c5a6f32d.jpg">
+<meta property="og:image" content="http://images.cnitblog.com/blog/416010/201304/20135254-d9a6e016b2664981a7ea31092b879dff.jpg">
+<meta property="og:updated_time" content="2016-03-17T06:16:57.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第三届蓝桥杯08矩形计算">
+<meta name="twitter:description" content="问题
+
+在编写图形界面软件的时候，经常会遇到处理两个矩形的关系。
+如图【1.jpg】所示，矩形的交集指的是：两个矩形重叠区的矩形，当然也可能不存在（参看【2.jpg】）。两个矩形的并集指的是：能包含这两个矩形的最小矩形，它一定是存在的。
+本题目的要求就是：由用户输入两个矩形的坐标，程序输出它们的交集和并集矩形。">
+  
+    <link rel="alternative" href="/atom.xml" title="GentleNi" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+#�����İٶ�ͳ�ƴ���
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?fe6b616d09624879fa55ef8a9a638ffa";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  <meta name="baidu_union_verify" content="6763e0ccab5b18260b92fc2978f20ccf">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/gege.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">GentleNi</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">半醉半醒日复日，花开花落年复年。</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/随笔">随笔</a></li>
+				        
+							<li><a href="/tags/note">Note</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/GentleNi" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/gentleni" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/GentleNi" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="/gentleyutou@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Androd笔记/" style="font-size: 10px;">Androd笔记</a> <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/Android-Error/" style="font-size: 10px;">Android Error</a> <a href="/tags/Android笔记/" style="font-size: 20px;">Android笔记</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是芋头，95后，爱电影，爱音乐，爱技术，有些浪漫主义，有些直男癌但不算很严重，懒癌倒是晚期。如果你对我感兴趣，尽管骚扰~</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">GentleNi</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/img/gege.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">GentleNi</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">半醉半醒日复日，花开花落年复年。</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/随笔">随笔</a></li>
+		        
+					<li><a href="/tags/note">Note</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/GentleNi" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/gentleni" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/GentleNi" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="/gentleyutou@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-第三届蓝桥杯08矩形计算" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/17/第三届蓝桥杯08矩形计算/" class="article-date">
+  	<time datetime="2016-03-17T05:59:15.000Z" itemprop="datePublished">03/17/2016</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第三届蓝桥杯08矩形计算
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/蓝桥杯/">蓝桥杯</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/算法/">算法</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <blockquote>
+<p>问题</p>
+</blockquote>
+<p>在编写图形界面软件的时候，经常会遇到处理两个矩形的关系。</p>
+<p>如图【1.jpg】所示，矩形的交集指的是：两个矩形重叠区的矩形，当然也可能不存在（参看【2.jpg】）。两个矩形的并集指的是：能包含这两个矩形的最小矩形，它一定是存在的。</p>
+<p>本题目的要求就是：由用户输入两个矩形的坐标，程序输出它们的交集和并集矩形。<br><a id="more"></a><br>矩形坐标的输入格式是输入两个对角点坐标，注意，不保证是哪个对角，也不保证顺序（你可以体会一下，在桌面上拖动鼠标拉矩形，4个方向都可以的）。</p>
+<p>输入数据格式：<br>x1,y1,x2,y2<br>x1,y1,x2,y2</p>
+<p>数据共两行，每行表示一个矩形。每行是两个点的坐标。x坐标在左，y坐标在右。坐标系统是：屏幕左上角为(0,0)，x坐标水平向右增大；y坐标垂直向下增大。</p>
+<p>要求程序输出格式：<br>x1,y1,长度,高度<br>x1,y1,长度,高度</p>
+<p>也是两行数据，分别表示交集和并集。如果交集不存在，则输出“不存在”</p>
+<p>前边两项是左上角的坐标。后边是矩形的长度和高度。</p>
+<p>例如，用户输入：<br>100,220,300,100<br>150,150,300,300</p>
+<p>则程序输出：<br>150,150,150,70<br>100,100,200,200    </p>
+<p>例如，用户输入：<br>10,10,20,20<br>30,30,40,40</p>
+<p>则程序输出：<br>不存在<br>10,10,30,30</p>
+<p>如图【1.jpg】所示，矩形的交集指的是：两个矩形重叠区的矩形，当然也可能不存在（参看【2.jpg】）。两个矩形的并集指的是：能包含这两个矩形的最小矩形，它一定是存在的。<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/lanqiao03081.jpg" alt=""></p>
+<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/lanqiao03082.jpg" alt=""></p>
+<p>我们要确定一个矩形，只需要矩形的起始x坐标、结束x坐标、起始y坐标和结束y坐标。<br><img src="http://images.cnitblog.com/blog/416010/201304/20133807-3ee6c3ac4fb94dd58ff0b6927b6bd04b.jpg" alt=""><br>从上图不难看出，“并集矩形”的startX是由矩形1和矩形2的startX中比较小的那个来决定的，endX由比较大的endX决定。</p>
+<p><img src="http://images.cnitblog.com/blog/416010/201304/20134724-15d77b1c83634fdcb02b12d9c5a6f32d.jpg" alt=""></p>
+<p>观察图中的红色框，可以得到一个简单的结论：“交集矩形”的startX由较大的startX决定、endX由较小的endX决定，Y也是同样的情况。</p>
+<p>但是，对于没有交集的情况呢？<br><img src="http://images.cnitblog.com/blog/416010/201304/20135254-d9a6e016b2664981a7ea31092b879dff.jpg" alt=""><br>我们用上面的方法进行推导，“交集矩形”的startX就是蓝色矩形的startX，endX就是绿色矩形的endX。显然，startX大于endX。这样的矩形应该是不存在的。对于Y轴应该也是同样的情况。</p>
+<h3 id="代码">代码</h3><pre><code>package com.gentleni.three<span class="comment">;</span>
+
+<span class="preprocessor">public</span> class Three_08 {
+    <span class="preprocessor">public</span> static void main(String[] args) {
+        Rect <span class="literal">r1</span> = new Rect(<span class="string">"100,220,300,100"</span>)<span class="comment">;</span>
+        Rect <span class="literal">r2</span> = new Rect(<span class="string">"150,150,300,300"</span>)<span class="comment">;</span>
+        Rect merge = new Rect(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        Rect both = Rect.getBothArea(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        both.printInfo()<span class="comment">;</span>
+        merge.printInfo()<span class="comment">;</span>
+        <span class="literal">r1</span> = new Rect(<span class="string">"10,10,20,20"</span>)<span class="comment">;</span>
+        <span class="literal">r2</span> = new Rect(<span class="string">"30,30,40,40"</span>)<span class="comment">;</span>
+        merge = new Rect(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        both = Rect.getBothArea(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        both.printInfo()<span class="comment">;</span>
+        merge.printInfo()<span class="comment">;</span>
+    }
+}
+
+class Rect {
+    <span class="preprocessor">public</span> <span class="keyword">int</span> startX<span class="comment">;</span>
+    <span class="preprocessor">public</span> <span class="keyword">int</span> endX<span class="comment">;</span>
+    <span class="preprocessor">public</span> <span class="keyword">int</span> startY<span class="comment">;</span>
+    <span class="preprocessor">public</span> <span class="keyword">int</span> endY<span class="comment">;</span>
+
+    <span class="preprocessor">public</span> Rect() {
+    }
+
+    // 由两个矩形构造出他们的“并集矩形”
+    <span class="preprocessor">public</span> Rect(Rect <span class="literal">r1</span>, Rect <span class="literal">r2</span>) {
+        startX = <span class="literal">r1</span>.startX &lt; <span class="literal">r2</span>.startX ? <span class="literal">r1</span>.startX : <span class="literal">r2</span>.startX<span class="comment">;</span>
+        endX = <span class="literal">r1</span>.endX &gt; <span class="literal">r2</span>.endX ? <span class="literal">r1</span>.endX : <span class="literal">r2</span>.endX<span class="comment">;</span>
+        startY = <span class="literal">r1</span>.startY &lt; <span class="literal">r2</span>.startY ? <span class="literal">r1</span>.startY : <span class="literal">r2</span>.startY<span class="comment">;</span>
+        endY = <span class="literal">r1</span>.endY &gt; <span class="literal">r2</span>.endY ? <span class="literal">r1</span>.endY : <span class="literal">r2</span>.endY<span class="comment">;</span>
+    }
+
+    <span class="preprocessor">public</span> Rect(String <span class="keyword">str</span>) {
+        String[] l = <span class="keyword">str</span>.split(<span class="string">","</span>)<span class="comment">;</span>
+        <span class="keyword">int</span> x1 = Integer.parseInt(l[<span class="number">0</span>])<span class="comment">;</span>
+        <span class="keyword">int</span> y1 = Integer.parseInt(l[<span class="number">1</span>])<span class="comment">;</span>
+        <span class="keyword">int</span> x2 = Integer.parseInt(l[<span class="number">2</span>])<span class="comment">;</span>
+        <span class="keyword">int</span> y2 = Integer.parseInt(l[<span class="number">3</span>])<span class="comment">;</span>
+        startX = x1 &lt; x2 ? x1 : x2<span class="comment">;</span>
+        endX = x1 &gt; x2 ? x1 : x2<span class="comment">;</span>
+        startY = y1 &lt; y2 ? y1 : y2<span class="comment">;</span>
+        endY = y1 &gt; y2 ? y1 : y2<span class="comment">;</span>
+    }
+
+    <span class="preprocessor">public</span> static Rect getBothArea(Rect <span class="literal">r1</span>, Rect <span class="literal">r2</span>) {
+        Rect merge = new Rect(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        Rect both = new Rect()<span class="comment">;</span>
+        both.startX = <span class="literal">r1</span>.startX == merge.startX ? <span class="literal">r2</span>.startX : <span class="literal">r1</span>.startX<span class="comment">;</span>
+        both.endX = <span class="literal">r1</span>.endX == merge.endX ? <span class="literal">r2</span>.endX : <span class="literal">r1</span>.endX<span class="comment">;</span>
+        both.startY = <span class="literal">r1</span>.startY == merge.startY ? <span class="literal">r2</span>.startY : <span class="literal">r1</span>.startY<span class="comment">;</span>
+        both.endY = <span class="literal">r1</span>.endY == merge.endY ? <span class="literal">r2</span>.endY : <span class="literal">r1</span>.endY<span class="comment">;</span>
+        return both<span class="comment">;</span>
+    }
+
+    <span class="preprocessor">public</span> void printInfo() {
+        if (startX &gt;= endX || startY &gt;= endY) {
+            System.out.println(<span class="string">"不存在"</span>)<span class="comment">;</span>
+        } else {
+            System.out.println(startX + <span class="string">","</span> + startY + <span class="string">","</span> + (endX - startX) + <span class="string">","</span> + (endY - startY))<span class="comment">;</span>
+        }
+    }
+}
+</code></pre><h3 id="输出">输出</h3><p>150,150,150,70<br>100,100,200,200<br>不存在<br>10,10,30,30  </p>
+
+      
+	-->
+	    
+        <div id="toc" class="toc-article">
+    <div class="toc-title">Menu</div>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出"><span class="toc-text">输出</span></a></li></ol>
+</div>
+      
+        <blockquote>
+<p>问题</p>
+</blockquote>
+<p>在编写图形界面软件的时候，经常会遇到处理两个矩形的关系。</p>
+<p>如图【1.jpg】所示，矩形的交集指的是：两个矩形重叠区的矩形，当然也可能不存在（参看【2.jpg】）。两个矩形的并集指的是：能包含这两个矩形的最小矩形，它一定是存在的。</p>
+<p>本题目的要求就是：由用户输入两个矩形的坐标，程序输出它们的交集和并集矩形。<br><a id="more"></a><br>矩形坐标的输入格式是输入两个对角点坐标，注意，不保证是哪个对角，也不保证顺序（你可以体会一下，在桌面上拖动鼠标拉矩形，4个方向都可以的）。</p>
+<p>输入数据格式：<br>x1,y1,x2,y2<br>x1,y1,x2,y2</p>
+<p>数据共两行，每行表示一个矩形。每行是两个点的坐标。x坐标在左，y坐标在右。坐标系统是：屏幕左上角为(0,0)，x坐标水平向右增大；y坐标垂直向下增大。</p>
+<p>要求程序输出格式：<br>x1,y1,长度,高度<br>x1,y1,长度,高度</p>
+<p>也是两行数据，分别表示交集和并集。如果交集不存在，则输出“不存在”</p>
+<p>前边两项是左上角的坐标。后边是矩形的长度和高度。</p>
+<p>例如，用户输入：<br>100,220,300,100<br>150,150,300,300</p>
+<p>则程序输出：<br>150,150,150,70<br>100,100,200,200    </p>
+<p>例如，用户输入：<br>10,10,20,20<br>30,30,40,40</p>
+<p>则程序输出：<br>不存在<br>10,10,30,30</p>
+<p>如图【1.jpg】所示，矩形的交集指的是：两个矩形重叠区的矩形，当然也可能不存在（参看【2.jpg】）。两个矩形的并集指的是：能包含这两个矩形的最小矩形，它一定是存在的。<br><img src="http://7xoomg.com1.z0.glb.clouddn.com/lanqiao03081.jpg" alt=""></p>
+<p><img src="http://7xoomg.com1.z0.glb.clouddn.com/lanqiao03082.jpg" alt=""></p>
+<p>我们要确定一个矩形，只需要矩形的起始x坐标、结束x坐标、起始y坐标和结束y坐标。<br><img src="http://images.cnitblog.com/blog/416010/201304/20133807-3ee6c3ac4fb94dd58ff0b6927b6bd04b.jpg" alt=""><br>从上图不难看出，“并集矩形”的startX是由矩形1和矩形2的startX中比较小的那个来决定的，endX由比较大的endX决定。</p>
+<p><img src="http://images.cnitblog.com/blog/416010/201304/20134724-15d77b1c83634fdcb02b12d9c5a6f32d.jpg" alt=""></p>
+<p>观察图中的红色框，可以得到一个简单的结论：“交集矩形”的startX由较大的startX决定、endX由较小的endX决定，Y也是同样的情况。</p>
+<p>但是，对于没有交集的情况呢？<br><img src="http://images.cnitblog.com/blog/416010/201304/20135254-d9a6e016b2664981a7ea31092b879dff.jpg" alt=""><br>我们用上面的方法进行推导，“交集矩形”的startX就是蓝色矩形的startX，endX就是绿色矩形的endX。显然，startX大于endX。这样的矩形应该是不存在的。对于Y轴应该也是同样的情况。</p>
+<h3 id="代码">代码</h3><pre><code>package com.gentleni.three<span class="comment">;</span>
+
+<span class="preprocessor">public</span> class Three_08 {
+    <span class="preprocessor">public</span> static void main(String[] args) {
+        Rect <span class="literal">r1</span> = new Rect(<span class="string">"100,220,300,100"</span>)<span class="comment">;</span>
+        Rect <span class="literal">r2</span> = new Rect(<span class="string">"150,150,300,300"</span>)<span class="comment">;</span>
+        Rect merge = new Rect(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        Rect both = Rect.getBothArea(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        both.printInfo()<span class="comment">;</span>
+        merge.printInfo()<span class="comment">;</span>
+        <span class="literal">r1</span> = new Rect(<span class="string">"10,10,20,20"</span>)<span class="comment">;</span>
+        <span class="literal">r2</span> = new Rect(<span class="string">"30,30,40,40"</span>)<span class="comment">;</span>
+        merge = new Rect(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        both = Rect.getBothArea(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        both.printInfo()<span class="comment">;</span>
+        merge.printInfo()<span class="comment">;</span>
+    }
+}
+
+class Rect {
+    <span class="preprocessor">public</span> <span class="keyword">int</span> startX<span class="comment">;</span>
+    <span class="preprocessor">public</span> <span class="keyword">int</span> endX<span class="comment">;</span>
+    <span class="preprocessor">public</span> <span class="keyword">int</span> startY<span class="comment">;</span>
+    <span class="preprocessor">public</span> <span class="keyword">int</span> endY<span class="comment">;</span>
+
+    <span class="preprocessor">public</span> Rect() {
+    }
+
+    // 由两个矩形构造出他们的“并集矩形”
+    <span class="preprocessor">public</span> Rect(Rect <span class="literal">r1</span>, Rect <span class="literal">r2</span>) {
+        startX = <span class="literal">r1</span>.startX &lt; <span class="literal">r2</span>.startX ? <span class="literal">r1</span>.startX : <span class="literal">r2</span>.startX<span class="comment">;</span>
+        endX = <span class="literal">r1</span>.endX &gt; <span class="literal">r2</span>.endX ? <span class="literal">r1</span>.endX : <span class="literal">r2</span>.endX<span class="comment">;</span>
+        startY = <span class="literal">r1</span>.startY &lt; <span class="literal">r2</span>.startY ? <span class="literal">r1</span>.startY : <span class="literal">r2</span>.startY<span class="comment">;</span>
+        endY = <span class="literal">r1</span>.endY &gt; <span class="literal">r2</span>.endY ? <span class="literal">r1</span>.endY : <span class="literal">r2</span>.endY<span class="comment">;</span>
+    }
+
+    <span class="preprocessor">public</span> Rect(String <span class="keyword">str</span>) {
+        String[] l = <span class="keyword">str</span>.split(<span class="string">","</span>)<span class="comment">;</span>
+        <span class="keyword">int</span> x1 = Integer.parseInt(l[<span class="number">0</span>])<span class="comment">;</span>
+        <span class="keyword">int</span> y1 = Integer.parseInt(l[<span class="number">1</span>])<span class="comment">;</span>
+        <span class="keyword">int</span> x2 = Integer.parseInt(l[<span class="number">2</span>])<span class="comment">;</span>
+        <span class="keyword">int</span> y2 = Integer.parseInt(l[<span class="number">3</span>])<span class="comment">;</span>
+        startX = x1 &lt; x2 ? x1 : x2<span class="comment">;</span>
+        endX = x1 &gt; x2 ? x1 : x2<span class="comment">;</span>
+        startY = y1 &lt; y2 ? y1 : y2<span class="comment">;</span>
+        endY = y1 &gt; y2 ? y1 : y2<span class="comment">;</span>
+    }
+
+    <span class="preprocessor">public</span> static Rect getBothArea(Rect <span class="literal">r1</span>, Rect <span class="literal">r2</span>) {
+        Rect merge = new Rect(<span class="literal">r1</span>, <span class="literal">r2</span>)<span class="comment">;</span>
+        Rect both = new Rect()<span class="comment">;</span>
+        both.startX = <span class="literal">r1</span>.startX == merge.startX ? <span class="literal">r2</span>.startX : <span class="literal">r1</span>.startX<span class="comment">;</span>
+        both.endX = <span class="literal">r1</span>.endX == merge.endX ? <span class="literal">r2</span>.endX : <span class="literal">r1</span>.endX<span class="comment">;</span>
+        both.startY = <span class="literal">r1</span>.startY == merge.startY ? <span class="literal">r2</span>.startY : <span class="literal">r1</span>.startY<span class="comment">;</span>
+        both.endY = <span class="literal">r1</span>.endY == merge.endY ? <span class="literal">r2</span>.endY : <span class="literal">r1</span>.endY<span class="comment">;</span>
+        return both<span class="comment">;</span>
+    }
+
+    <span class="preprocessor">public</span> void printInfo() {
+        if (startX &gt;= endX || startY &gt;= endY) {
+            System.out.println(<span class="string">"不存在"</span>)<span class="comment">;</span>
+        } else {
+            System.out.println(startX + <span class="string">","</span> + startY + <span class="string">","</span> + (endX - startX) + <span class="string">","</span> + (endY - startY))<span class="comment">;</span>
+        }
+    }
+}
+</code></pre><h3 id="输出">输出</h3><p>150,150,150,70<br>100,100,200,200<br>不存在<br>10,10,30,30  </p>
+
+      
+	  
+	  </div>
+	  
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/17/第三届蓝桥杯09奇怪的算式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第三届蓝桥杯09奇怪的算式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="第三届蓝桥杯08矩形计算" data-title="第三届蓝桥杯08矩形计算" data-url="http://yoursite.com/2016/03/17/第三届蓝桥杯08矩形计算/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 GentleNi
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
