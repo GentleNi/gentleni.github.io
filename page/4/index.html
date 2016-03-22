@@ -124,7 +124,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Androd笔记/" style="font-size: 10px;">Androd笔记</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Error/" style="font-size: 10px;">Android Error</a> <a href="/tags/Android笔记/" style="font-size: 16.67px;">Android笔记</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a>
+						<a href="/tags/Androd笔记/" style="font-size: 10px;">Androd笔记</a> <a href="/tags/Android/" style="font-size: 13.33px;">Android</a> <a href="/tags/Android-Error/" style="font-size: 10px;">Android Error</a> <a href="/tags/Android笔记/" style="font-size: 16.67px;">Android笔记</a> <a href="/tags/Error/" style="font-size: 10px;">Error</a> <a href="/tags/Gradle/" style="font-size: 10px;">Gradle</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/测试/" style="font-size: 10px;">测试</a> <a href="/tags/蓝桥杯/" style="font-size: 20px;">蓝桥杯</a>
 					</div>
 				</section>
 				
@@ -191,6 +191,110 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-JAVA-表的顺序实现-ArrayList" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/05/JAVA-表的顺序实现-ArrayList/" class="article-date">
+  	<time datetime="2015-12-04T20:23:51.000Z" itemprop="datePublished">12/05/2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/05/JAVA-表的顺序实现-ArrayList/">JAVA_表的顺序实现_ArrayList</a>
+    </h1>
+  
+
+      </header>
+      
+    
+
+    <div class="article-entry" itemprop="articleBody">
+   	<!--
+    	
+        <h2 id="代码">代码</h2><pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyArrayList</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt; </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;
+    <span class="keyword">private</span> <span class="keyword">int</span> theSize;
+    <span class="keyword">private</span> AnyType[] theItems;
+<span class="comment">//    构造器</span>
+    <span class="function"><span class="keyword">public</span>  <span class="title">MyArrayList</span><span class="params">()</span> </span>{ 
+        clear();
+    }
+<span class="comment">//    重置表</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>{
+        <span class="keyword">this</span>.theSize = <span class="number">0</span>;
+        ensureCapacity(DEFAULT_CAPACITY);
+    }
+<span class="comment">//    返回表总空间大小</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> theItems.length;
+    }
+</code></pre>
+      
+	-->
+	     
+        <h2 id="代码">代码</h2><pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyArrayList</span>&lt;<span class="title">AnyType</span>&gt; <span class="keyword">implements</span> <span class="title">Iterable</span>&lt;<span class="title">AnyType</span>&gt; </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_CAPACITY = <span class="number">10</span>;
+    <span class="keyword">private</span> <span class="keyword">int</span> theSize;
+    <span class="keyword">private</span> AnyType[] theItems;
+<span class="comment">//    构造器</span>
+    <span class="function"><span class="keyword">public</span>  <span class="title">MyArrayList</span><span class="params">()</span> </span>{ 
+        clear();
+    }
+<span class="comment">//    重置表</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span></span>{
+        <span class="keyword">this</span>.theSize = <span class="number">0</span>;
+        ensureCapacity(DEFAULT_CAPACITY);
+    }
+<span class="comment">//    返回表总空间大小</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">theLength</span><span class="params">()</span></span>{
+        <span class="keyword">return</span> theItems.length;
+    }
+</code></pre>
+      
+	  
+	  </div>
+	  
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/技术/">技术</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/05/JAVA-表的顺序实现-ArrayList/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-TestDemo01" class="article article-type-post" itemscope itemprop="blogPost">
   
